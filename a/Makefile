@@ -9,12 +9,12 @@ OUTFILE =  output_edge.pgm
 
 
 #susan: susan.c Makefile
-susan: new_susan.c Makefile
-	$(CC) -static -O4 -o new_susan new_susan.c -lm 
+susan_check: susan_check.c Makefile
+	$(CC) -static -O4 -o susan_check susan_check.c -lm 
 
 test:
-	./susan $(INFILE) $(OUTFILE) -e
+	./susan_check $(INFILE) $(OUTFILE)
 	$(CMP) $(OUTFILE) $(GOLDFILE)
 
 clean:
-	$(RM) susan $(OUTFILE)
+	$(RM) susan_check $(OUTFILE)
