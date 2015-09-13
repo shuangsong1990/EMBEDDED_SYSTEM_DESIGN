@@ -1062,6 +1062,8 @@ uchar *mp;
 /* }}} */
 /* {{{ susan_edges(in,r,sf,max_no,out) */
 
+// in: starting address of the image
+
 susan_edges(in,r,mid,bp,max_no,x_size,y_size)
   uchar *in, *bp, *mid;
   int   *r, max_no, x_size, y_size;
@@ -1079,7 +1081,7 @@ uchar c,*p,*cp;
       p=in + (i-3)*x_size + j - 1;
       cp=bp + in[i*x_size+j];
 
-      n+=*(cp-*p++);
+      n+=*(cp-*p++); // n+=*(cp-*p); p++;
       n+=*(cp-*p++);
       n+=*(cp-*p);
       p+=x_size-3; 
@@ -2065,9 +2067,9 @@ CORNER_LIST corner_list;
       r   = (int *) malloc(x_size * y_size * sizeof(int));
       setup_brightness_lut(&bp,bt,6);
 
-      if (principle)
+      if (principle) // with -e only, principle always equals to 0, therefore, no need to consider these two functions
       {
-        if (three_by_three)
+        if (three_by_three) // with -e only, three_by_three always equals to 0.
           susan_principle_small(in,r,bp,max_no_edges,x_size,y_size);
         else
           susan_principle(in,r,bp,max_no_edges,x_size,y_size);
