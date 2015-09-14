@@ -1,5 +1,4 @@
-gcc -static -O4 -o susan_check susan_check.c -lm 
-susan_check.c: In function ‘main’:
-susan_check.c:2032: warning: passing argument 2 of ‘my_get_image’ from incompatible pointer type
-susan_check.c:2032: error: too many arguments to function ‘my_get_image’
-make: *** [susan_check] Error 1
+./new_susan input_small.pgm     output_edge.pgm
+thresh is 20
+diff -s output_edge.pgm golden.pgm
+Files output_edge.pgm and golden.pgm are identical

@@ -1,10 +1,41 @@
 #include "new_susan.h"
 
+int getint(fd)
+  FILE *fd;
+{
+  int c, i;
+  char dummy[10000];
+
+  c = getc(fd);
+  while (1) /* find next integer */
+  {
+    if (c=='#')    /* if we're at a comment, read to end of line */
+      fgets(dummy,9000,fd);
+    if (c==EOF)
+      exit_error("Image %s not binary PGM.\n","is");
+    if (c>='0' && c<='9')
+      break;   /* found what we were looking for */
+    c = getc(fd);
+  }
+
+  /* we're at the start of a number, continue until we hit a non-number */
+  i = 0;
+  while (1) {
+    i = (i*10) + (c - '0');
+    c = getc(fd);
+    if (c==EOF) return (i);
+    if (c<'0' || c>'9') break;
+  }
+
+  return (i);
+}
+
+
 int cir_mask(unsigned char in[image_size], unsigned char bp[516], int i, int j, int sel){
-	int n;
-	uchar *p, *cp;
+	int n = 0, ii = 0;
+	uchar *cp;
 	
-	cp = bp + in[i*x_size+j];
+	cp = bp + in[i*x_size+j] + 258;
 	
 	int mask[7][7] = {{0,0,1,1,1,0,0},
 			  {0,1,1,1,1,1,0},
@@ -21,21 +52,22 @@ int cir_mask(unsigned char in[image_size], unsigned char bp[516], int i, int j, 
 	for(i_d = -3; i_d <=  3; i_d++){
 		for(j_d = -3; j_d <= 3 ; j_d++){
 			if(mask[ci + i_d][cj + j_d] == 1){
-				uchar c =  *(cp - in[(i + i_d) * x_size + j + j_d]);
+				int c =  (unsigned int)*(cp - in[(i + i_d) * x_size + j + j_d]);
 				if(sel == 0){ /// sel is the selector
 					n = n + c;
 				}	
 				else if (sel == 1){
-					n = n + i_d * c;
-				}
-				else if (sel == 2){
 					n = n + j_d * c;
 				}
+				else if (sel == 2){
+					n = n + i_d * c;
+				}
 				else if (sel == 3){
-					n = n + i_d ^ 2 * c;
+					n = n + j_d * j_d * c;
+//					printf("%d\n", n);
 				}
 				else if (sel == 4){
-					n = n + j_d ^ 2 * c;
+					n = n + i_d * i_d * c;
 				}
 				else if (sel == 5){
 					n = n + i_d * j_d * c;
@@ -46,7 +78,7 @@ int cir_mask(unsigned char in[image_size], unsigned char bp[516], int i, int j, 
 
 
 	switch (sel){
-		case 0:	return n + 100;	
+		case 0:	return (n + 100);	
 		case 1:
 		case 2:
 		case 3:	
@@ -120,6 +152,7 @@ int   do_symmetry, i, j, m, n, a, b, x, y, w;
           			z = 1000000.0;
           		else
           			z = ((float)x) / ((float)y);
+//			printf("%d, %d, %d, %d\n", x, y, z, w);
           		if (z < 0.5) { /* vertical */ a=0; b=1; }
           		else { 
 				if (z > 2.0) { /* horizontal */ a=1; b=0; }
@@ -425,7 +458,9 @@ int  tmp;
 
 //  *x_size = getint(fd);
 //  *y_size = getint(fd);
-//  tmp = getint(fd);
+  tmp = getint(fd);
+  tmp = getint(fd);
+  tmp = getint(fd);
 
 /* }}} */
 
@@ -438,7 +473,7 @@ int  tmp;
 }
 
 
-void setup_brightness_lut(unsigned char bp[516],int thresh, int form){
+void setup_brightness_lut(unsigned char bp[516], int thresh, int form){
 
 int   k;
 float temp;
@@ -476,7 +511,9 @@ int r[image_size];
 
 get_image(argv[1],in);
 
-setup_brightness_lut(bp,20,6);
+setup_brightness_lut(bp, 20, 6);
+
+memset(mid, 100, x_size * y_size);
 
 susan_edges(in,r,mid,bp,2650);
 
@@ -492,236 +529,3 @@ put_image(argv[2],in);
 
 
 
-/* }}} */
-/* {{{ susan_edges(in,r,sf,max_no,out) */
-
-/*
-void susan_edges(unsigned char in[image_size], int r[image_size],unsigned char mid[image_size],unsigned char bp[image_size], int max_no){
-
-float z;
-int   do_symmetry, i, j, m, n, a, b, x, y, w;
-uchar c,*p,*cp;
-
-  memset (r,0,x_size * y_size * sizeof(int));
-
-  for (i=3;i<y_size-3;i++)
-    for (j=3;j<x_size-3;j++)
-    {
-      n=100;
-      p=in + (i-3)*x_size + j - 1;
-      cp=bp + in[i*x_size+j];
-
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p);
-      p+=x_size-3; 
-
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p);
-      p+=x_size-5;
-
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p);
-      p+=x_size-6;
-
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p);
-      p+=2;
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p);
-      p+=x_size-6;
-
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p);
-      p+=x_size-5;
-
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p);
-      p+=x_size-3;
-
-      n+=*(cp-*p++);
-      n+=*(cp-*p++);
-      n+=*(cp-*p);
-
-      if (n<=max_no)
-        r[i*x_size+j] = max_no - n;
-    }
-
-  for (i=4;i<y_size-4;i++)
-    for (j=4;j<x_size-4;j++)
-    {
-      if (r[i*x_size+j]>0)
-      {
-        m=r[i*x_size+j];
-        n=max_no - m;
-        cp=bp + in[i*x_size+j];
-
-        if (n>600)
-        {
-          p=in + (i-3)*x_size + j - 1;
-          x=0;y=0;
-
-          c=*(cp-*p++);x-=c;y-=3*c;
-          c=*(cp-*p++);y-=3*c;
-          c=*(cp-*p);x+=c;y-=3*c;
-          p+=x_size-3;
-
-          c=*(cp-*p++);x-=2*c;y-=2*c;
-          c=*(cp-*p++);x-=c;y-=2*c;
-          c=*(cp-*p++);y-=2*c;
-          c=*(cp-*p++);x+=c;y-=2*c;
-          c=*(cp-*p);x+=2*c;y-=2*c;
-          p+=x_size-5;
-
-          c=*(cp-*p++);x-=3*c;y-=c;
-          c=*(cp-*p++);x-=2*c;y-=c;
-          c=*(cp-*p++);x-=c;y-=c;
-          c=*(cp-*p++);y-=c;
-          c=*(cp-*p++);x+=c;y-=c;
-          c=*(cp-*p++);x+=2*c;y-=c;
-          c=*(cp-*p);x+=3*c;y-=c;
-          p+=x_size-6;
-
-          c=*(cp-*p++);x-=3*c;
-          c=*(cp-*p++);x-=2*c;
-          c=*(cp-*p);x-=c;
-          p+=2;
-          c=*(cp-*p++);x+=c;
-          c=*(cp-*p++);x+=2*c;
-          c=*(cp-*p);x+=3*c;
-          p+=x_size-6;
-
-          c=*(cp-*p++);x-=3*c;y+=c;
-          c=*(cp-*p++);x-=2*c;y+=c;
-          c=*(cp-*p++);x-=c;y+=c;
-          c=*(cp-*p++);y+=c;
-          c=*(cp-*p++);x+=c;y+=c;
-          c=*(cp-*p++);x+=2*c;y+=c;
-          c=*(cp-*p);x+=3*c;y+=c;
-          p+=x_size-5;
-
-          c=*(cp-*p++);x-=2*c;y+=2*c;
-          c=*(cp-*p++);x-=c;y+=2*c;
-          c=*(cp-*p++);y+=2*c;
-          c=*(cp-*p++);x+=c;y+=2*c;
-          c=*(cp-*p);x+=2*c;y+=2*c;
-          p+=x_size-3;
-
-          c=*(cp-*p++);x-=c;y+=3*c;
-          c=*(cp-*p++);y+=3*c;
-          c=*(cp-*p);x+=c;y+=3*c;
-
-          z = sqrt((float)((x*x) + (y*y)));
-          if (z > (0.9*(float)n)) 
-          {
-            do_symmetry=0;
-            if (x==0)
-              z=1000000.0;
-            else
-              z=((float)y) / ((float)x);
-            if (z < 0) { z=-z; w=-1; }
-            else w=1;
-            if (z < 0.5) {  a=0; b=1; }
-            else { if (z > 2.0) {  a=1; b=0; }
-            else {  if (w>0) { a=1; b=1; }
-                                   else { a=-1; b=1; }}}
-            if ( (m > r[(i+a)*x_size+j+b]) && (m >= r[(i-a)*x_size+j-b]) &&
-                 (m > r[(i+(2*a))*x_size+j+(2*b)]) && (m >= r[(i-(2*a))*x_size+j-(2*b)]) )
-              mid[i*x_size+j] = 1;
-          }
-          else
-            do_symmetry=1;
-        }
-        else
-          do_symmetry=1;
-
-        if (do_symmetry==1)
-        {
-          p=in + (i-3)*x_size + j - 1;
-          x=0; y=0; w=0;
-
-
-          c=*(cp-*p++);x+=c;y+=9*c;w+=3*c;
-          c=*(cp-*p++);y+=9*c;
-          c=*(cp-*p);x+=c;y+=9*c;w-=3*c;
-          p+=x_size-3;
-
-          c=*(cp-*p++);x+=4*c;y+=4*c;w+=4*c;
-          c=*(cp-*p++);x+=c;y+=4*c;w+=2*c;
-          c=*(cp-*p++);y+=4*c;
-          c=*(cp-*p++);x+=c;y+=4*c;w-=2*c;
-          c=*(cp-*p);x+=4*c;y+=4*c;w-=4*c;
-          p+=x_size-5;
-
-          c=*(cp-*p++);x+=9*c;y+=c;w+=3*c;
-          c=*(cp-*p++);x+=4*c;y+=c;w+=2*c;
-          c=*(cp-*p++);x+=c;y+=c;w+=c;
-          c=*(cp-*p++);y+=c;
-          c=*(cp-*p++);x+=c;y+=c;w-=c;
-          c=*(cp-*p++);x+=4*c;y+=c;w-=2*c;
-          c=*(cp-*p);x+=9*c;y+=c;w-=3*c;
-          p+=x_size-6;
-
-          c=*(cp-*p++);x+=9*c;
-          c=*(cp-*p++);x+=4*c;
-          c=*(cp-*p);x+=c;
-          p+=2;
-          c=*(cp-*p++);x+=c;
-          c=*(cp-*p++);x+=4*c;
-          c=*(cp-*p);x+=9*c;
-          p+=x_size-6;
-
-          c=*(cp-*p++);x+=9*c;y+=c;w-=3*c;
-          c=*(cp-*p++);x+=4*c;y+=c;w-=2*c;
-          c=*(cp-*p++);x+=c;y+=c;w-=c;
-          c=*(cp-*p++);y+=c;
-          c=*(cp-*p++);x+=c;y+=c;w+=c;
-          c=*(cp-*p++);x+=4*c;y+=c;w+=2*c;
-          c=*(cp-*p);x+=9*c;y+=c;w+=3*c;
-          p+=x_size-5;
-
-          c=*(cp-*p++);x+=4*c;y+=4*c;w-=4*c;
-          c=*(cp-*p++);x+=c;y+=4*c;w-=2*c;
-          c=*(cp-*p++);y+=4*c;
-          c=*(cp-*p++);x+=c;y+=4*c;w+=2*c;
-          c=*(cp-*p);x+=4*c;y+=4*c;w+=4*c;
-          p+=x_size-3;
-
-          c=*(cp-*p++);x+=c;y+=9*c;w-=3*c;
-          c=*(cp-*p++);y+=9*c;
-          c=*(cp-*p);x+=c;y+=9*c;w+=3*c;
-
-          if (y==0)
-            z = 1000000.0;
-          else
-            z = ((float)x) / ((float)y);
-          if (z < 0.5) {  a=0; b=1; }
-          else { if (z > 2.0) {  a=1; b=0; }
-          else {  if (w>0) { a=-1; b=1; }
-                                else { a=1; b=1; }}}
-          if ( (m > r[(i+a)*x_size+j+b]) && (m >= r[(i-a)*x_size+j-b]) &&
-               (m > r[(i+(2*a))*x_size+j+(2*b)]) && (m >= r[(i-(2*a))*x_size+j-(2*b)]) )
-            mid[i*x_size+j] = 2;
-        }
-      }
-    }
-}
-*/
