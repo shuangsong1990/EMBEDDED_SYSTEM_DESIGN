@@ -29,19 +29,26 @@ behavior SusanEdges(
 	
 		int c;
 	
-		int mask[7][7] = {{0,0,1,1,1,0,0},{0,1,1,1,1,1,0},{1,1,1,1,1,1,1},{1,1,1,0,1,1,1},{1,1,1,1,1,1,1},{0,1,1,1,1,1,0},{0,0,1,1,1,0,0}};
-		cp = cir_bp + cir_in[i*x_size+j] + 258;
+		int mask[7][7] = {{0,0,1,1,1,0,0},
+				  {0,1,1,1,1,1,0},
+				  {1,1,1,1,1,1,1},
+				  {1,1,1,0,1,1,1},
+				  {1,1,1,1,1,1,1},
+				  {0,1,1,1,1,1,0},
+				  {0,0,1,1,1,0,0}};
 		
+		//cp = cir_bp + cir_in[i*x_size+j] + 258;	
 
-
-	
+		cp = cir_bp + cir_in[i*x_size+j];	
+			
 		for(i_d = -3; i_d <=  3; i_d++){
 			for(j_d = -3; j_d <= 3 ; j_d++){
 				if(mask[ci + i_d][cj + j_d] == 1){
 				 	c =  (unsigned int)*(cp - cir_in[(i + i_d) * x_size + j + j_d]);
+					//printf("%d\n",c);
 					if(sel == 0){ /// sel is the selector
 						n = n + c;
-						printf("%d\n",n);
+				//		printf("%d\n",n);
 					}	
 					else if (sel == 1){
 						n = n + j_d * c;
@@ -193,6 +200,7 @@ behavior SetupBrightnessLut(
 		  	temp=temp*temp*temp;
 		  	temp=100.0*exp(-temp);
 		  	*(bp+k)= (unsigned char)temp;
+			//printf("%f\n", temp);
 		}
 
 	}
