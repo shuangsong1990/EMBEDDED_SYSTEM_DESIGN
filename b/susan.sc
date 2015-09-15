@@ -6,7 +6,7 @@
 
 #define x_size 76
 #define y_size 95
-#define image_size  7220 /// 76 * 95
+#define image_size  7220 
 #define bt 20
 #define  exit_error(IFB,IFC) { fprintf(stderr,IFB,IFC); exit(0); }
 
@@ -44,13 +44,13 @@ behavior susan(i_receiver start, unsigned char image_buffer[image_size], i_sende
 
 
 behavior Main(){
-	const unsigned long SIZE = 7220;
-	c_queue mal_image((SIZE));
-	c_double_handshake start;
+	const unsigned long SIZE = 7220*sizeof(unsigned char);
 	unsigned char image_buffer[image_size];
 	char inputfile[200] = "input_small.pgm";
 	char outputfile[200] = "output_edge.pgm";
-  	
+	c_double_handshake start;  	
+	c_queue mal_image((SIZE));
+
 	get_image stimulus(start,image_buffer,inputfile);
 	susan susan_fsm(start, image_buffer, mal_image);
 	put_image monitor(mal_image,outputfile);	

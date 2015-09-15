@@ -73,7 +73,7 @@ behavior get_image(
 
 		fclose(fd);
 
-		start.send(&handshake, 1);				
+		start.send(&handshake, sizeof(unsigned int));				
 
 	}
 };

@@ -174,7 +174,7 @@ behavior SetupBrightnessLut(
 		int   k;
 		float temp;
 
-		printf("thresh is %d\n",thresh);
+	//	printf("thresh is %d\n",thresh);
 
 		bp = bp + 258;
 
