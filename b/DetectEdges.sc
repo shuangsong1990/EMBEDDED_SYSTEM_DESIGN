@@ -2,7 +2,9 @@
 #include <stdio.h>
 #include "sim.sh"
 #include <string.h>
+#include <math.h>
 
+#define  exit_error(IFB,IFC) { fprintf(stderr,IFB,IFC); exit(0); }
 #define x_size 76
 #define y_size 95
 #define image_size 7220
@@ -17,28 +19,26 @@ behavior SusanEdges(
 	inout unsigned char bp[516])
 {
 
-	int cir_mask(unsigned char in_sc[image_size], unsigned char bp[516], int i, int j, int sel){
-		int n = 0, ii = 0;
-		uchar *cp;
+	int cir_mask(unsigned char cir_in[image_size], unsigned char cir_bp[516], int i, int j, int sel){
+		int n = 0;
+		unsigned char *cp;
 	
 		int ci = 3;
 		int cj = 3;
 		int i_d = 0, j_d = 0;
+	
+		int c;
+	
+		int mask[7][7] = {{0,0,1,1,1,0,0},{0,1,1,1,1,1,0},{1,1,1,1,1,1,1},{1,1,1,0,1,1,1},{1,1,1,1,1,1,1},{0,1,1,1,1,1,0},{0,0,1,1,1,0,0}};
+		cp = cir_bp + cir_in[i*x_size+j] + 258;
 		
-		cp = bp + in_sc[i*x_size+j] + 258;
-		
-		int mask[7][7] = {{0,0,1,1,1,0,0},
-				  {0,1,1,1,1,1,0},
-				  {1,1,1,1,1,1,1},
-				  {1,1,1,0,1,1,1},
-				  {1,1,1,1,1,1,1},
-				  {0,1,1,1,1,1,0},
-				  {0,0,1,1,1,0,0}};
+
+
 	
 		for(i_d = -3; i_d <=  3; i_d++){
 			for(j_d = -3; j_d <= 3 ; j_d++){
 				if(mask[ci + i_d][cj + j_d] == 1){
-					int c =  (unsigned int)*(cp - in_sc[(i + i_d) * x_size + j + j_d]);
+				 	c =  (unsigned int)*(cp - cir_in[(i + i_d) * x_size + j + j_d]);
 					if(sel == 0){ /// sel is the selector
 						n = n + c;
 					}	
@@ -83,19 +83,19 @@ behavior SusanEdges(
 		float z;
 		int do_symmetry, i, j, m, n, a, b, x, y, w;
 
-		start.receive(&handskake, sizeof(int));
+		start.receive(&handshake, sizeof(int));
 		
 //		memset (r,0,x_size*y_size*sizeof(int));
 
 		for (i=0;i<y_size;i++){
 			for (j=0;j<x_size;j++){
-				r[i*x_size + j] = 0
+				r[i*x_size + j] = 0;
 			}
 		}
 		   
 		for (i=3;i<y_size-3;i++){
 		 	for (j=3;j<x_size-3;j++){
-		 		n = cir_mask(in, bp, i, j, 0);
+		 		n = cir_mask(in_sc, bp, i, j, 0);
 		     	if(n <= max_no){
 		     		r[i*x_size + j] = max_no - n;
 		     	}
@@ -109,8 +109,8 @@ behavior SusanEdges(
 				m = r[i*x_size + j];
 				n = max_no - m;
 				if (n > 600){
-					x = cir_mask(in, bp, i, j, 1);
-					y = cir_mask(in, bp, i, j, 2);
+					x = cir_mask(in_sc, bp, i, j, 1);
+					y = cir_mask(in_sc, bp, i, j, 2);
 		          		z = sqrt((float)((x*x) + (y*y)));
 			                if (z > (0.9*(float)n)) /* 0.5 */{
 			                	do_symmetry=0;
@@ -138,9 +138,9 @@ behavior SusanEdges(
 					do_symmetry = 1;
 		
 				if (do_symmetry == 1){
-					x = cir_mask(in, bp, i, j, 3);
-					y = cir_mask(in, bp, i, j, 4);
-					w = cir_mask(in, bp, i, j, 5);
+					x = cir_mask(in_sc, bp, i, j, 3);
+					y = cir_mask(in_sc, bp, i, j, 4);
+					w = cir_mask(in_sc, bp, i, j, 5);
 		          		if (y==0)
 		          			z = 1000000.0;
 		          		else
@@ -184,7 +184,7 @@ behavior SetupBrightnessLut(
 		  	temp=temp*temp;
 		  	temp=temp*temp*temp;
 		  	temp=100.0*exp(-temp);
-		  	*(bp+k)= (uchar)temp;
+		  	*(bp+k)= (unsigned char)temp;
 		}
 
 	}
@@ -203,7 +203,7 @@ behavior DetectEdges(
 
 	void main(void)
 	{
-		SBLut(bp);
-		Edge(start, in_sc, r, mid, bp);		
+		SBLut.main();
+		Edge.main();		
 	}
 };
