@@ -3,11 +3,16 @@
 #include "sim.sh"
 #include <string.h>
 
-import "c_handshake";
+
+#define  exit_error(IFB,IFC) { fprintf(stderr,IFB,IFC); exit(0); }
+#define x_size 76
+#define y_size 95
+
+import "c_double_handshake";
 
 behavior get_image(
 	i_sender start,
-	out unsigned char in_sc[7220],
+	inout unsigned char in_sc[7220],
 	in char filename[200])
 {
 

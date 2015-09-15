@@ -7,10 +7,14 @@
 #define y_size 95
 #define image_size 7220
 
+
+import "c_queue";
+
 behavior EdgeDraw(
 	inout unsigned char in_sc[image_size],
 	inout unsigned char mid[image_size],
-	inout int drawing_mode)
+	in int drawing_mode,
+	i_sender sd)
 {
 	void main(void)
 	{
@@ -26,7 +30,7 @@ behavior EdgeDraw(
 			{
 				if (*midp<8)
 	  		        {
-		        		inp = in + (midp - mid) - x_size - 1;
+		        		inp = in_sc + (midp - mid) - x_size - 1;
 		        		*inp++=255; *inp++=255; *inp=255; inp+=x_size-2;
 		        		*inp++=255; *inp++;     *inp=255; inp+=x_size-2;
 		        		*inp++=255; *inp++=255; *inp=255;
@@ -40,8 +44,9 @@ behavior EdgeDraw(
 		  for (i=0; i<x_size*y_size; i++)
 		  {
 		  	if (*midp<8)
-		      		*(in + (midp - mid)) = 0;
+		      		*(in_sc + (midp - mid)) = 0;
 		    	midp++;
 		  }
+		  sd.send(in_sc,7220*sizeof(unsigned char));
 	}
 };

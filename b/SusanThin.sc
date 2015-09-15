@@ -14,7 +14,7 @@ behavior SusanThin(
 	void main(void)
 	{
 
-		int l[9], centre, nlinks, npieces, b01, b12, b21, b10, p1, p2, p3, p4, b00, b02, b20, b22, m, n, a, b, x, y, i, j;
+		int l[9], centre, b01, b12, b21, b10, p1, p2, p3, p4, b00, b02, b20, b22, m, n, a, b, x, y, i, j;
 		unsigned char *mp;
 
 		for (i=4;i<y_size-4;i++)
