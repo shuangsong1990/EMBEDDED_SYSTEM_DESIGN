@@ -41,6 +41,7 @@ behavior SusanEdges(
 				 	c =  (unsigned int)*(cp - cir_in[(i + i_d) * x_size + j + j_d]);
 					if(sel == 0){ /// sel is the selector
 						n = n + c;
+						printf("%d\n",n);
 					}	
 					else if (sel == 1){
 						n = n + j_d * c;
@@ -86,6 +87,13 @@ behavior SusanEdges(
 		start.receive(&handshake, sizeof(int));
 		
 //		memset (r,0,x_size*y_size*sizeof(int));
+
+
+		for(i = 0; i < y_size; i++){
+			for(j = 0; j <x_size; j++ ){
+			 	mid[i*x_size + j] = 100;
+			}
+		}
 
 		for (i=0;i<y_size;i++){
 			for (j=0;j<x_size;j++){
@@ -205,6 +213,6 @@ behavior DetectEdges(
 	{
 		SBLut.main();
 		Edge.main();		
-		printf("the end of D\n");
+//		printf("the end of D\n");
 	}
 };
