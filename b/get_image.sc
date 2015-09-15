@@ -74,6 +74,6 @@ behavior get_image(
 		fclose(fd);
 
 		start.send(&handshake, sizeof(unsigned int));				
-
+	//	printf("the end of get_image\n");
 	}
 };

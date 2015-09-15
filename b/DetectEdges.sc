@@ -205,5 +205,6 @@ behavior DetectEdges(
 	{
 		SBLut.main();
 		Edge.main();		
+		printf("the end of D\n");
 	}
 };

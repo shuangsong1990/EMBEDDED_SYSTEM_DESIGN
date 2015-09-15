@@ -187,6 +187,7 @@ behavior SusanThin(
         			}
 
       		}
+		printf("the end of S\n");
 	}	
 
 };

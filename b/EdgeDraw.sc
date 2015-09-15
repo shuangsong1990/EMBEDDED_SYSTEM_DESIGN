@@ -48,5 +48,6 @@ behavior EdgeDraw(
 		    	midp++;
 		  }
 		  sd.send(in_sc,7220*sizeof(unsigned char));
+		  printf("the end of E\n");
 	}
 };

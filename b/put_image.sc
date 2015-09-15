@@ -30,5 +30,6 @@ behavior put_image(i_receiver rec,in char filename[200]){
 		  	exit_error("Can't write image %s.\n",filename);
 		
 		fclose(fd);
+		exit(0);
 	}
 };
