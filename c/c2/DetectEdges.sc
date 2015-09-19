@@ -86,12 +86,11 @@ behavior SusanEdges(
 	{
 
 		int max_no = 2650;	
-		int handshake;
 				
 		float z;
 		int do_symmetry, i, j, m, n, a, b, x, y, w;
 
-		start.receive(&handshake, sizeof(int));
+		start.receive(in_sc, image_size * sizeof(unsigned char));
 		
 //		memset (r,0,x_size*y_size*sizeof(int));
 

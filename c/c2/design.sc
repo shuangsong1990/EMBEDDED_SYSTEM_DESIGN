@@ -19,12 +19,12 @@ import "put_image";
 import "DetectEdges";
 import "EdgeDraw";
 import "SusanThin";
-import "Susan";
-import "ReadImage";
-import "WriteImage";
+import "susan";
+import "read_image";
+import "write_image";
 
-import "monitor";
-import "stimulus";
+// import "monitor";
+// import "stimulus";
 
 
 
@@ -34,10 +34,10 @@ behavior Design(
 	i_sender sd)
 {
 	const unsigned long SIZE = image_size * sizeof(unsigned char);
-	c_queue data_buffer_in(SIZE), data_buffer_out;
+	c_queue data_buffer_in(SIZE), data_buffer_out(SIZE);
 
-	ReadImage 	R(start, image_buffer, c_queue);
-	Susan 	  	S(data_buffer_in, data_buffer_out);
+	ReadImage 	R(start, image_buffer, data_buffer_in);
+	susan 	  	S(data_buffer_in, data_buffer_out);
 	WriteImage	W(data_buffer_out, sd);
 	
 	void main(void){

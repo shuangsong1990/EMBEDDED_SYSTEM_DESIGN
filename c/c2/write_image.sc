@@ -24,6 +24,6 @@ behavior WriteImage(
 
 			sd.send(out_sc, x_size * y_size * sizeof(unsigned char));
 		}
-	};
+	}
 
 };

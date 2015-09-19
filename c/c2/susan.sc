@@ -23,8 +23,9 @@ import "SusanThin";
 
 //const unsigned long SIZE = 7220 * sizeof(unsigned)
 
-behavior susan(i_receiver start, unsigned char image_buffer[image_size], i_sender sd){
+behavior susan(i_receiver start, i_sender sd){
 	int r [image_size];
+	unsigned char image_buffer[image_size];
 	unsigned char mid[image_size];
 
 	DetectEdges D(start, image_buffer, r, mid);
@@ -78,7 +79,7 @@ behavior Main(){
 	c_queue mal_image((SIZE));
 
 	stimulus sti(start,image_buffer,inputfile);
-	susan susan_fsm(start, image_buffer, mal_image);
+	design susan_fsm(start, image_buffer, mal_image);
 	monitor mon(mal_image,outputfile);	
 
 
