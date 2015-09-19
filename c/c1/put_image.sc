@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-
+#include "sim.sh"
 
 #define  exit_error(IFB,IFC) { fprintf(stderr,IFB,IFC); exit(0); }
 #define x_size  76
@@ -10,14 +10,27 @@
 #define image_size 7220
 import "c_queue";
 
+
+
+
+
 behavior put_image(i_receiver rec,in char filename[200]){
 	
         unsigned char out_sc[x_size*y_size];
+	sim_time t;
+	sim_time_string buffer;
+
+
 	
         void main(void)
 	{
 		FILE  *fd;
 		rec.receive(out_sc, x_size * y_size * sizeof(unsigned char));	
+
+		t = now();
+		printf("Put image: Time is now %s pico sec. \n", time2str(buffer,t));
+
+
 		
 		if ((fd=fopen(filename,"w")) == NULL)
 		  	exit_error("Can't output image%s.\n",filename);
@@ -30,6 +43,6 @@ behavior put_image(i_receiver rec,in char filename[200]){
 		  	exit_error("Can't write image %s.\n",filename);
 		
 		fclose(fd);
-		exit(0);
+//		exit(0);
 	}
 };
