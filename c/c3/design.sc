@@ -12,6 +12,9 @@
 
 #define drawing_mode 0
 
+#define qlen 7220
+
+
 import "c_double_handshake";
 import "c_queue";
 import "get_image";
@@ -34,11 +37,16 @@ behavior Design(
 	i_sender sd)
 {
 	const unsigned long SIZE = image_size * sizeof(unsigned char);
-	c_queue data_buffer_in(SIZE), data_buffer_out(SIZE);
+//	c_queue data_buffer_in(SIZE), data_buffer_out(SIZE);
 
-	ReadImage 	R(start, image_buffer, data_buffer_in);
-	susan 	  	S(data_buffer_in, data_buffer_out);
-	WriteImage	W(data_buffer_out, sd);
+	c_in_queue buffer_in_d(qlen);
+	c_in_queue buffer_in_e(qlen);
+	c_in_queue buffer_out(qlen);
+
+
+	ReadImage 	R(start, image_buffer, buffer_in_d, buffer_in_e);
+	susan 	  	S(buffer_in_d, buffer_in_e , buffer_out);
+	WriteImage	W(buffer_out, sd);
 	
 	void main(void){
 		par{

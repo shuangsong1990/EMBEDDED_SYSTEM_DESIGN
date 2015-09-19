@@ -10,6 +10,7 @@
 #define image_size 7220
 
 import "c_double_handshake";
+import "c_type_define";
 
 behavior SusanEdges(
 	i_receiver start, 

@@ -11,6 +11,7 @@
 #define  exit_error(IFB,IFC) { fprintf(stderr,IFB,IFC); exit(0); }
 
 #define drawing_mode 0
+#define qlen 7220
 
 import "c_double_handshake";
 import "c_queue";
@@ -55,7 +56,7 @@ behavior SusanThin_wp(
 
 };
 
-behavior EdgeDraw(
+behavior EdgeDraw_wp(
 	i_in_receiver in_buffer,
 	i_mid_receiver  mid_r,
 	i_in_sender sd)
@@ -75,15 +76,20 @@ behavior EdgeDraw(
 };
 
 
-behavior susan(i_receiver start, i_sender sd){
-	int r [image_size];
-	unsigned char image_buffer[image_size];
-	unsigned char mid[image_size];
+behavior susan(i_in_receiver buffer_in_d, i_in_receiver buffer_in_e,  i_in_sender buffer_out){
+//	int r [image_size];
+//	unsigned char image_buffer[image_size];
+//	unsigned char mid[image_size];
 
-	DetectEdges D(start, image_buffer, r, mid);
-	SusanThin S(r, mid);
-	EdgeDraw E(image_buffer, mid, drawing_mode, sd);
+	i_in_queue iq(qlen);
+	i_mid_queue mq(qlen);
+	i_mid_queue mq2(qlen);
+	i_r_queue rq(qlen);
+		
 
+	DetectEdges_wp D(buffer_in_d, rq, mq);
+	SusanThin_wp S(rq, mq, mq2);
+	EdgeDraw_wp E(buffer_in_e, mq2, buffer_out);
 	
 	void main(void){
 		fsm{
@@ -120,30 +126,3 @@ behavior monitor(i_receiver rec, in char filename[200]){
 	}
 };
 
-/*
-
-behavior Main(){
-	const unsigned long SIZE = 7220*sizeof(unsigned char);
-	unsigned char image_buffer[image_size];
-	char inputfile[200] = "input_small.pgm";
-	char outputfile[200] = "output_edge.pgm";
-	c_double_handshake start;  	
-	c_queue mal_image((SIZE));
-
-	stimulus sti(start,image_buffer,inputfile);
-	design susan_fsm(start, image_buffer, mal_image);
-	monitor mon(mal_image,outputfile);	
-
-
-	int main(void){
-		par{
-		    sti.main();
-		    susan_fsm.main();
-		    mon.main();
-			}
-		return 0;
-	}
-
-};
-
-*/

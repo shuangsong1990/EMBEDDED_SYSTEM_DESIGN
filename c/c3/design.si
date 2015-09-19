@@ -1,5 +1,5 @@
 # 1 "design.sc"
-# 1 "/home/ecelrc/students/ssong/lab1/c/c2//"
+# 1 "/home/ecelrc/students/ssong/lab1/c/c3//"
 # 1 "<built-in>"
 # 1 "<command line>"
 # 1 "design.sc"
@@ -2651,7 +2651,7 @@ extern int matherr (struct exception *__exc);
 # 465 "/usr/include/math.h" 3 4
 
 # 5 "design.sc" 2
-# 15 "design.sc"
+# 18 "design.sc"
 import "c_double_handshake";
 import "c_queue";
 import "get_image";
@@ -2674,11 +2674,16 @@ behavior Design(
  i_sender sd)
 {
  const unsigned long SIZE = 7220 * sizeof(unsigned char);
- c_queue data_buffer_in(SIZE), data_buffer_out(SIZE);
 
- ReadImage R(start, image_buffer, data_buffer_in);
- susan S(data_buffer_in, data_buffer_out);
- WriteImage W(data_buffer_out, sd);
+
+ c_in_queue buffer_in_d(7220);
+ c_in_queue buffer_in_e(7220);
+ c_in_queue buffer_out(7220);
+
+
+ ReadImage R(start, image_buffer, buffer_in_d, buffer_in_e);
+ susan S(buffer_in_d, buffer_in_e , buffer_out);
+ WriteImage W(buffer_out, sd);
 
  void main(void){
   par{
