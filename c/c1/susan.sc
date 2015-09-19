@@ -43,6 +43,31 @@ behavior susan(i_receiver start, unsigned char image_buffer[image_size], i_sende
 };
 
 
+behavior stimulus(i_sender start, inout unsigned char in_sc[7220],in char filename[200]){
+	unsigned int counter = 0;
+	unsigned int i;
+	get_image g(start,in_sc,filename);
+  	
+	void main(void){
+		waitfor 1000;
+		for(i = 0; i < 10; i++){
+			g.main();
+			waitfor 500;
+		}
+		exit(0);
+	}	
+};
+
+behavior monitor(i_receiver rec, in char filename[200]){
+	put_image p(rec, filename);
+	void main(void){
+		fsm{
+			p: {goto p;}
+		}
+	}
+};
+
+
 behavior Main(){
 	const unsigned long SIZE = 7220*sizeof(unsigned char);
 	unsigned char image_buffer[image_size];
@@ -51,16 +76,16 @@ behavior Main(){
 	c_double_handshake start;  	
 	c_queue mal_image((SIZE));
 
-	get_image stimulus(start,image_buffer,inputfile);
+	stimulus sti(start,image_buffer,inputfile);
 	susan susan_fsm(start, image_buffer, mal_image);
-	put_image monitor(mal_image,outputfile);	
+	monitor mon(mal_image,outputfile);	
 
 
 	int main(void){
 		par{
-		    stimulus.main();
+		    sti.main();
 		    susan_fsm.main();
-		    monitor.main();
+		    mon.main();
 			}
 		return 0;
 	}

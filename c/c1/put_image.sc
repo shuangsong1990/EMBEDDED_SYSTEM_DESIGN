@@ -20,17 +20,16 @@ behavior put_image(i_receiver rec,in char filename[200]){
 	sim_time t;
 	sim_time_string buffer;
 
-	unsigned int count = 0;
+//	unsigned int count = 0;
 	
         void main(void)
 	{
 		FILE  *fd;
 		rec.receive(out_sc, x_size * y_size * sizeof(unsigned char));	
 
-		t = now();
-		printf("Put image: Time is now %s pico sec. \n", time2str(buffer,t));
+		printf("Put image: Time is now %s pico sec. \n", time2str(buffer,now()));
 
- 		count = count + 1;
+ //		count = count + 1;
 
 		
 		if ((fd=fopen(filename,"w")) == NULL)
@@ -44,9 +43,11 @@ behavior put_image(i_receiver rec,in char filename[200]){
 		  	exit_error("Can't write image %s.\n",filename);
 		
 		fclose(fd);
-		if(count >= 10){
-			exit(0);
-		}
+//		if(count >= 10){
+//			printf("counter = %d\n",count);
+//			exit(0);
+//		}
 //		exit(0);
 	}
+
 };
