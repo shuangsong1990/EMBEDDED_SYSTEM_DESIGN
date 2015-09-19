@@ -10,7 +10,7 @@ OUTFILE =  output_edge.pgm
 
 all: susan
 
-susan: susan.sc SusanThin.sc EdgeDraw.sc DetectEdges.sc get_image.sc put_image.sc susan.sc
+susan: design.sc SusanThin.sc EdgeDraw.sc DetectEdges.sc get_image.sc put_image.sc susan.sc read_image.sc write_image.sc design.sc
 	$(SCC) susan $(SCCOPT)
 
 test:

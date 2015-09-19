@@ -23,6 +23,11 @@ import "Susan";
 import "ReadImage";
 import "WriteImage";
 
+import "monitor";
+import "stimulus";
+
+
+
 behavior Design(
 	i_receiver start, 
 	unsigned char image_buffer[image_size], 
@@ -41,6 +46,29 @@ behavior Design(
 			S.main();
 			W.main();
 		}
+	}
+
+};
+
+
+behavior Main{
+	unsigned char image_buffer[image_size];
+        char inputfile[200] = "input_small.pgm";
+        char outputfile[200] = "output_edge.pgm";
+	c_double_handshake start;
+	c_double_handshake end;
+	
+	stimulus sti(start, image_buffer, inputfile);
+	Design d(start, image_buffer, end);
+	monitor mon(end, outputfile);
+	
+	int main(void){
+		par{
+			sti.main();
+			d.main();
+			mon.main();
+		}
+		return 0;
 	}
 
 };

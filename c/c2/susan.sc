@@ -67,6 +67,7 @@ behavior monitor(i_receiver rec, in char filename[200]){
 	}
 };
 
+/*
 
 behavior Main(){
 	const unsigned long SIZE = 7220*sizeof(unsigned char);
@@ -91,3 +92,5 @@ behavior Main(){
 	}
 
 };
+
+*/
