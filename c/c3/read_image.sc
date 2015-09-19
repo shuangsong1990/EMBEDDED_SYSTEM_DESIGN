@@ -15,18 +15,23 @@ import "c_double_handshake";
 import "c_queue";
 
 
-behavior rprocess(i_receiver start, inout unsigned char in_sc[7220], i_sender sd){
+behavior rprocess(i_receiver start, inout unsigned char in_sc[7220], i_in_sender sd, i_in_sender se){
 	void main(void){
 		int handshake = 0;
+		int index;
 		start.receive(&handshake, sizeof(unsigned int));
-		sd.send(in_sc, 7220*sizeof(unsigned char));
+//		sd.send(in_sc, 7220*sizeof(unsigned char));
+		for(index = 0; index < image_size; index++ ){
+			sd.send(in_sc[index]);
+			se.send(in_sc[index]);
+		}
 	}		
 };
 
 
-behavior ReadImage(i_receiver start, inout unsigned char in_sc[7220], i_sender sd){
+behavior ReadImage(i_receiver start, inout unsigned char in_sc[7220], i_in_sender sd, i_in_sender se){
 		
-	rprocess r(start,in_sc,sd);
+	rprocess r(start,in_sc,sd,se);
 	
 	void main(void){
 		fsm{

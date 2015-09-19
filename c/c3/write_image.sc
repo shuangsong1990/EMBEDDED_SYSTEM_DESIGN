@@ -11,16 +11,21 @@
 import "c_queue";
 
 behavior WriteImage(
-	i_receiver rec,
+	i_in_receiver rec,
 	i_sender   sd)
 {
 	unsigned char out_sc[x_size * y_size];
 
 	void main(void)
 	{
+		unsigned int index;
 		while(1){
+			for(index = 0; index < image_size; index++){
+				rec.receive(out_sc+index);
+			}
+			
 
-			rec.receive(out_sc, x_size * y_size * sizeof(unsigned char));
+//			rec.receive(out_sc, x_size * y_size * sizeof(unsigned char));
 
 			sd.send(out_sc, x_size * y_size * sizeof(unsigned char));
 		}
