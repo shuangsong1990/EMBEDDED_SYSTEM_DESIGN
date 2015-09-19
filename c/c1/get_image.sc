@@ -51,6 +51,8 @@ behavior get_image(
 		char header [100];
 		int tmp;
 		int handshake = 0;
+		int i = 0;
+		int total_comm = 10;
 
 		if ((fd=fopen(filename,"r")) == NULL)
 			exit_error("Can't input image %s.\n",filename);
@@ -73,7 +75,17 @@ behavior get_image(
 
 		fclose(fd);
 
-		start.send(&handshake, sizeof(unsigned int));				
+		waitfor 1000;
+
+		sim_time_string buf_start;
+
+		printf("Time%4s: start sending images\n", time2str(buf_start, now()));
+
+		for (i = 0; i < total_comm; i ++){
+			start.send(&handshake, sizeof(unsigned int));				
+			waitfor 500;
+		}
+	
 	//	printf("the end of get_image\n");
 	}
 };
