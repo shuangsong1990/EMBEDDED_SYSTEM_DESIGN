@@ -23,6 +23,58 @@ import "SusanThin";
 
 //const unsigned long SIZE = 7220 * sizeof(unsigned)
 
+behavior DetectEdges_wp(
+	i_in_receiver in_buffer,
+	i_r_sender r_s,
+	i_mid_sender mid_s)
+{
+	DetectEdges D(in_buffer, r_s, mid_s);
+
+	void main(void){
+		fsm{
+			D: {goto D;}
+		}
+	}
+};
+
+behavior SusanThin_wp(
+	i_in_receiver r_r,
+	i_mid_receiver mid_r,
+	i_mid_sender mid_s)
+{
+
+	SusanThin S(r_r, mid_r, mid_s);
+	
+	void main(void){
+
+		fsm{
+			S: {goto S;}
+		}
+
+	}
+
+};
+
+behavior EdgeDraw(
+	i_in_receiver in_buffer,
+	i_mid_receiver  mid_r,
+	i_in_sender sd)
+{
+
+	int drawing_mode = 0;
+	EdgeDraw E(in_buffer, mid_r, drawing_mode, sd);
+
+	void main(void){
+
+		fsm{
+			E: {goto E;}
+		};
+
+	}
+	
+};
+
+
 behavior susan(i_receiver start, i_sender sd){
 	int r [image_size];
 	unsigned char image_buffer[image_size];

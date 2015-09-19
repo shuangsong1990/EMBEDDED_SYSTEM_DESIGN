@@ -11,16 +11,24 @@
 import "c_queue";
 
 behavior EdgeDraw(
-	inout unsigned char in_sc[image_size],
-	inout unsigned char mid[image_size],
-	in int drawing_mode,
-	i_sender sd)
+	i_in_receiver in_buffer,
+	i_mid_receiver  mid_r,
+	inout int drawing_mode,
+	i_in_sender sd)
 {
+	unsigned char in_sc[image_size];
+	unsigned char mid[image_size];
 	void main(void)
 	{
 
 		int   i;
 		unsigned char *inp, *midp;
+
+		for (i = 0; i < image_size; i ++)
+			in_buffer.receive(in_sc + i);
+
+		for (i = 0; i < image_size; i ++)
+			mid_r.receive(mid + i);
 		
 		if (drawing_mode==0)
 		{
@@ -47,7 +55,11 @@ behavior EdgeDraw(
 		      		*(in_sc + (midp - mid)) = 0;
 		    	midp++;
 		  }
-		  sd.send(in_sc,7220*sizeof(unsigned char));
+
+		  for (i = 0; i < image_size; i ++)
+			sd.send(*(in_sc + i));
+
+//		  sd.send(in_sc,7220*sizeof(unsigned char));
 		 // printf("the end of E\n");
 	}
 };

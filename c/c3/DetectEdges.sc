@@ -206,11 +206,13 @@ behavior SetupBrightnessLut(
 };
 
 behavior DetectEdges(
-	i_receiver start, 
-	inout unsigned char in_sc[image_size],
-	inout int r[image_size],
-	inout unsigned char mid[image_size])
+	i_in_receiver in_buffer,
+	i_r_sender r_s,
+	i_mid_sender mid_s)
 {
+	unsigned char in_sc[image_size];
+	int r[image_size];
+	unsigned char mid[image_size];
 
 	unsigned char bp[516];
 	SetupBrightnessLut SBLut(bp);
@@ -218,8 +220,20 @@ behavior DetectEdges(
 
 	void main(void)
 	{
+
+		int i = 0;
+
+		for (i = 0; i < image_size; i ++)
+			in_buffer.receive(in_sc + i);
+
 		SBLut.main();
 		Edge.main();		
+
+		for (i = 0; i < image_size; i ++){
+			r_s.send(*(r + i));
+			mid_s.send(*(mid + i));
+		}
+		
 //		printf("the end of D\n");
 	}
 };
