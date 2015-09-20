@@ -9,11 +9,12 @@
 
 
 import "c_queue";
+import "c_type_define";
 
 behavior EdgeDraw(
 	i_in_receiver in_buffer,
 	i_mid_receiver  mid_r,
-	inout int drawing_mode,
+	in int drawing_mode,
 	i_in_sender sd)
 {
 	unsigned char in_sc[image_size];

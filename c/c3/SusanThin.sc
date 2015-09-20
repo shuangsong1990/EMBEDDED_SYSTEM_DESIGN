@@ -7,8 +7,10 @@
 #define y_size 95
 #define image_size 7220
 
+import "c_type_define";
+
 behavior SusanThin(
-	i_in_receiver r_r,
+	i_r_receiver r_r,
 	i_mid_receiver mid_r,
 	i_mid_sender mid_s)
 {

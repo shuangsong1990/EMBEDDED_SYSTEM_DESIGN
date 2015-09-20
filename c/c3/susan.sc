@@ -11,7 +11,6 @@
 #define  exit_error(IFB,IFC) { fprintf(stderr,IFB,IFC); exit(0); }
 
 #define drawing_mode 0
-#define qlen 7220
 
 import "c_double_handshake";
 import "c_queue";
@@ -20,9 +19,10 @@ import "put_image";
 import "DetectEdges";
 import "EdgeDraw";
 import "SusanThin";
-
+import "c_type_define";
 
 //const unsigned long SIZE = 7220 * sizeof(unsigned)
+
 
 behavior DetectEdges_wp(
 	i_in_receiver in_buffer,
@@ -39,7 +39,7 @@ behavior DetectEdges_wp(
 };
 
 behavior SusanThin_wp(
-	i_in_receiver r_r,
+	i_r_receiver r_r,
 	i_mid_receiver mid_r,
 	i_mid_sender mid_s)
 {
@@ -58,18 +58,19 @@ behavior SusanThin_wp(
 
 behavior EdgeDraw_wp(
 	i_in_receiver in_buffer,
-	i_mid_receiver  mid_r,
+	i_mid_receiver mid_r,
 	i_in_sender sd)
 {
+//	unsigned int drawing_mode = 0;
 
-	int drawing_mode = 0;
-	EdgeDraw E(in_buffer, mid_r, drawing_mode, sd);
+//	EdgeDraw E(in_buffer, mid_r, drawing_mode, sd);
 
+	EdgeDraw E(in_buffer, mid_r, 0, sd);
 	void main(void){
 
 		fsm{
 			E: {goto E;}
-		};
+		}
 
 	}
 	
@@ -81,10 +82,11 @@ behavior susan(i_in_receiver buffer_in_d, i_in_receiver buffer_in_e,  i_in_sende
 //	unsigned char image_buffer[image_size];
 //	unsigned char mid[image_size];
 
-	i_in_queue iq(qlen);
-	i_mid_queue mq(qlen);
-	i_mid_queue mq2(qlen);
-	i_r_queue rq(qlen);
+	const unsigned long q_len = 7220;
+
+	c_mid_queue mq(q_len);
+	c_mid_queue mq2(q_len);
+	c_r_queue rq(q_len);
 		
 
 	DetectEdges_wp D(buffer_in_d, rq, mq);
@@ -92,12 +94,18 @@ behavior susan(i_in_receiver buffer_in_d, i_in_receiver buffer_in_e,  i_in_sende
 	EdgeDraw_wp E(buffer_in_e, mq2, buffer_out);
 	
 	void main(void){
-		fsm{
+/*		fsm{
 			D: {goto S;}
 			S: {goto E;}
 			E: {goto D;}
 				
 		}	
+*/
+		par{
+			D.main();
+			S.main();
+			E.main();
+		}
 	}
 };
 
@@ -106,7 +114,7 @@ behavior stimulus(i_sender start, inout unsigned char in_sc[7220],in char filena
 	unsigned int counter = 0;
 	unsigned int i;
 	get_image g(start,in_sc,filename);
-  	
+ 	 	
 	void main(void){
 		waitfor 1000;
 		for(i = 0; i < 10; i++){

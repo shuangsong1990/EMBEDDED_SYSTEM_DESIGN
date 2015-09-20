@@ -9,6 +9,7 @@
 #define y_size  95
 #define image_size 7220
 import "c_queue";
+import "c_type_define";
 
 behavior WriteImage(
 	i_in_receiver rec,
@@ -18,10 +19,10 @@ behavior WriteImage(
 
 	void main(void)
 	{
-		unsigned int index;
+		unsigned int i;
 		while(1){
-			for(index = 0; index < image_size; index++){
-				rec.receive(out_sc+index);
+			for(i = 0; i < image_size; i++){
+				rec.receive(out_sc+i);
 			}
 			
 

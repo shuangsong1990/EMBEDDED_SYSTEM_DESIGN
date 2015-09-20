@@ -13,7 +13,7 @@ import "c_double_handshake";
 import "c_type_define";
 
 behavior SusanEdges(
-	i_receiver start, 
+//	i_receiver start, 
 	inout unsigned char in_sc[image_size],
 	inout int r[image_size],
 	inout unsigned char mid[image_size],
@@ -91,7 +91,7 @@ behavior SusanEdges(
 		float z;
 		int do_symmetry, i, j, m, n, a, b, x, y, w;
 
-		start.receive(in_sc, image_size * sizeof(unsigned char));
+//		start.receive(in_sc, image_size * sizeof(unsigned char));
 		
 //		memset (r,0,x_size*y_size*sizeof(int));
 
@@ -217,7 +217,8 @@ behavior DetectEdges(
 
 	unsigned char bp[516];
 	SetupBrightnessLut SBLut(bp);
-	SusanEdges Edge(start, in_sc, r, mid, bp);
+//	SusanEdges Edge(start, in_sc, r, mid, bp);
+	SusanEdges Edge(in_sc,r,mid,bp);
 
 	void main(void)
 	{
@@ -226,15 +227,19 @@ behavior DetectEdges(
 
 		for (i = 0; i < image_size; i ++)
 			in_buffer.receive(in_sc + i);
+		//printf("receive image fine at detect edges\n");
+
 
 		SBLut.main();
 		Edge.main();		
+		
+		//printf("receive image fine at detect edges\n");
 
-		for (i = 0; i < image_size; i ++){
-			r_s.send(*(r + i));
-			mid_s.send(*(mid + i));
+		for (i = 0; i < image_size; i++){
+			r_s.send(r[i]);
+			mid_s.send(mid[i]);
 		}
 		
-//		printf("the end of D\n");
+		printf("the end of D\n");
 	}
 };

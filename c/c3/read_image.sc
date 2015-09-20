@@ -13,18 +13,19 @@
 
 import "c_double_handshake";
 import "c_queue";
-
+import "c_type_define";
 
 behavior rprocess(i_receiver start, inout unsigned char in_sc[7220], i_in_sender sd, i_in_sender se){
 	void main(void){
 		int handshake = 0;
-		int index;
+		int i;
 		start.receive(&handshake, sizeof(unsigned int));
 //		sd.send(in_sc, 7220*sizeof(unsigned char));
-		for(index = 0; index < image_size; index++ ){
-			sd.send(in_sc[index]);
-			se.send(in_sc[index]);
+		for(i = 0; i < image_size; i++ ){
+			sd.send(in_sc[i]);
+			se.send(in_sc[i]);
 		}
+		//printf("read_iamge fine\n");
 	}		
 };
 

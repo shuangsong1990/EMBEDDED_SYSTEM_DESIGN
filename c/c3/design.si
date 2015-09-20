@@ -2651,7 +2651,8 @@ extern int matherr (struct exception *__exc);
 # 465 "/usr/include/math.h" 3 4
 
 # 5 "design.sc" 2
-# 18 "design.sc"
+# 16 "design.sc"
+import "c_type_define";
 import "c_double_handshake";
 import "c_queue";
 import "get_image";
@@ -2665,9 +2666,6 @@ import "write_image";
 
 
 
-
-
-
 behavior Design(
  i_receiver start,
  unsigned char image_buffer[7220],
@@ -2675,15 +2673,21 @@ behavior Design(
 {
  const unsigned long SIZE = 7220 * sizeof(unsigned char);
 
+ const unsigned long q_len = 7220;
 
- c_in_queue buffer_in_d(7220);
- c_in_queue buffer_in_e(7220);
- c_in_queue buffer_out(7220);
+ c_in_queue buffer_in_d(q_len);
+ c_in_queue buffer_in_e(q_len);
+ c_in_queue buffer_out(q_len);
 
 
  ReadImage R(start, image_buffer, buffer_in_d, buffer_in_e);
+
  susan S(buffer_in_d, buffer_in_e , buffer_out);
+
+
  WriteImage W(buffer_out, sd);
+
+
 
  void main(void){
   par{

@@ -12,9 +12,8 @@
 
 #define drawing_mode 0
 
-#define qlen 7220
 
-
+import "c_type_define";
 import "c_double_handshake";
 import "c_queue";
 import "get_image";
@@ -26,9 +25,6 @@ import "susan";
 import "read_image";
 import "write_image";
 
-// import "monitor";
-// import "stimulus";
-
 
 
 behavior Design(
@@ -38,16 +34,22 @@ behavior Design(
 {
 	const unsigned long SIZE = image_size * sizeof(unsigned char);
 //	c_queue data_buffer_in(SIZE), data_buffer_out(SIZE);
+	const unsigned long q_len = 7220;
 
-	c_in_queue buffer_in_d(qlen);
-	c_in_queue buffer_in_e(qlen);
-	c_in_queue buffer_out(qlen);
+	c_in_queue buffer_in_d(q_len);
+	c_in_queue buffer_in_e(q_len);
+	c_in_queue buffer_out(q_len);
 
 
-	ReadImage 	R(start, image_buffer, buffer_in_d, buffer_in_e);
-	susan 	  	S(buffer_in_d, buffer_in_e , buffer_out);
-	WriteImage	W(buffer_out, sd);
+	ReadImage R(start, image_buffer, buffer_in_d, buffer_in_e);
+	//printf("readimage fine\n");
+	susan S(buffer_in_d, buffer_in_e , buffer_out);
 	
+//	printf("susan fine\n");
+	WriteImage W(buffer_out, sd);
+	
+	
+//	printf("writeimage fine\n");
 	void main(void){
 		par{
 			R.main();
