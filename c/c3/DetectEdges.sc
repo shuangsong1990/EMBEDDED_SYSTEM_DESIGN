@@ -14,9 +14,10 @@ import "c_type_define";
 
 behavior SusanEdges(
 //	i_receiver start, 
-	inout unsigned char in_sc[image_size],
-	inout int r[image_size],
-	inout unsigned char mid[image_size],
+//	inout unsigned char in_sc[image_size],
+	i_in_receiver in_buffer,
+	i_r_sender r_s,
+	i_mid_sender mid_s,
 	inout unsigned char bp[516])
 {
 
@@ -38,7 +39,7 @@ behavior SusanEdges(
 				  {0,1,1,1,1,1,0},
 				  {0,0,1,1,1,0,0}};
 		
-		//cp = cir_bp + cir_in[i*x_size+j] + 258;	
+//		cp = cir_bp + cir_in[i*x_size+j] + 258;	
 
 		cp = cir_bp + cir_in[i*x_size+j];	
 			
@@ -90,11 +91,19 @@ behavior SusanEdges(
 				
 		float z;
 		int do_symmetry, i, j, m, n, a, b, x, y, w;
+			
+		unsigned char in_sc[image_size];		
+		int r[image_size];
+		unsigned char mid[image_size];
+
 
 //		start.receive(in_sc, image_size * sizeof(unsigned char));
 		
 //		memset (r,0,x_size*y_size*sizeof(int));
 
+		for(i = 0; i < image_size; i++){
+			in_buffer.receive(in_sc+i);
+		}
 
 		for(i = 0; i < y_size; i++){
 			for(j = 0; j <x_size; j++ ){
@@ -175,6 +184,11 @@ behavior SusanEdges(
 			
 			}
 		}
+		
+		for(i = 0; i< image_size; i++){
+			mid_s.send(mid[i]);
+			r_s.send(r[i]);
+		}
 	}
 
 };
@@ -211,34 +225,34 @@ behavior DetectEdges(
 	i_r_sender r_s,
 	i_mid_sender mid_s)
 {
-	unsigned char in_sc[image_size];
-	int r[image_size];
-	unsigned char mid[image_size];
+//	unsigned char in_sc[image_size];
+//	int r[image_size];
+//	unsigned char mid[image_size];
 
 	unsigned char bp[516];
 	SetupBrightnessLut SBLut(bp);
 //	SusanEdges Edge(start, in_sc, r, mid, bp);
-	SusanEdges Edge(in_sc,r,mid,bp);
+//	SusanEdges Edge(in_sc,r,mid,bp);
+	SusanEdges Edge(in_buffer, r_s, mid_s, bp);
 
 	void main(void)
 	{
 
-		int i = 0;
-
-		for (i = 0; i < image_size; i ++)
-			in_buffer.receive(in_sc + i);
-		//printf("receive image fine at detect edges\n");
+//		int i = 0;
+//		for (i = 0; i < image_size; i ++)
+//			in_buffer.receive(in_sc + i);
+//		printf("receive image fine at detect edges\n");
 
 
 		SBLut.main();
 		Edge.main();		
 		
-		//printf("receive image fine at detect edges\n");
+		printf("receive image fine at detect edges\n");
 
-		for (i = 0; i < image_size; i++){
-			r_s.send(r[i]);
-			mid_s.send(mid[i]);
-		}
+//		for (i = 0; i < image_size; i++){
+//			r_s.send(r[i]);
+//			mid_s.send(mid[i]);
+//		}
 		
 		printf("the end of D\n");
 	}

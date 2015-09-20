@@ -94,18 +94,19 @@ behavior susan(i_in_receiver buffer_in_d, i_in_receiver buffer_in_e,  i_in_sende
 	EdgeDraw_wp E(buffer_in_e, mq2, buffer_out);
 	
 	void main(void){
-/*		fsm{
+		fsm{
 			D: {goto S;}
 			S: {goto E;}
 			E: {goto D;}
 				
 		}	
-*/
+/*
 		par{
 			D.main();
 			S.main();
 			E.main();
 		}
+*/
 	}
 };
 
