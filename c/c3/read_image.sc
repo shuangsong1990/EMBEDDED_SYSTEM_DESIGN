@@ -22,7 +22,7 @@ behavior rprocess(i_receiver start, inout unsigned char in_sc[7220], i_in_sender
 		start.receive(&handshake, sizeof(unsigned int));
 //		sd.send(in_sc, 7220*sizeof(unsigned char));
 		for(i = 0; i < image_size; i++ ){
-			sd.send(in_sc[i]); ///////here new commit///
+			sd.send(in_sc[i]);
 			se.send(in_sc[i]);
 		}
 		//printf("read_iamge fine\n");
