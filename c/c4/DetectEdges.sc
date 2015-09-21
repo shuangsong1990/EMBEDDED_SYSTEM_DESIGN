@@ -15,13 +15,13 @@ import "c_type_define";
 
 
 behavior cal_mid_thread(
-			inout unsigend char mid[image_size],
+			inout unsigned char mid[image_size],
 			inout unsigned char in_sc[image_size],
 			inout unsigned char bp[516],
-			inout unsigned int r[image_size],
-			in unsigend int sp,
-			in unsigned int ep,
-			in unsigend int max_no) 
+			inout int r[image_size],
+			in int sp,
+			in int ep,
+			in int max_no) 
 {
 
                 int cir_mask(unsigned char cir_in[image_size], unsigned char cir_bp[516], int i, int j, int sel){
@@ -50,11 +50,8 @@ behavior cal_mid_thread(
                                 for(j_d = -3; j_d <= 3 ; j_d++){
                                         if(mask[ci + i_d][cj + j_d] == 1){
                                                 c =  (unsigned int)*(cp - cir_in[(i + i_d) * x_size + j + j_d]);
-                                                //printf("%d\n",c);
                                                 if(sel == 0){ /// sel is the selector
                                                         n = n + c;
-                                        //              printf("%d\n",n);
-                                                }
                                                 }
                                                 else if (sel == 1){
                                                         n = n + j_d * c;
@@ -64,7 +61,6 @@ behavior cal_mid_thread(
                                                 }
                                                 else if (sel == 3){
                                                         n = n + j_d * j_d * c;
-                //                                      printf("%d\n", n);
                                                 }
                                                 else if (sel == 4){
                                                         n = n + i_d * i_d * c;
@@ -162,9 +158,9 @@ behavior cal_r_thread(
 	inout int r[image_size],
 	inout unsigned char in_sc[image_size],
 	inout unsigned char bp[516],
-	inout int row_start,
-	inout int row_end,
-	inout int max_no)
+	in int row_start,
+	in int row_end,
+	in int max_no)
 {
 	int cir_mask(unsigned char cir_in[image_size], unsigned char cir_bp[516], int i, int j, int sel){
 		int n = 0;
@@ -231,7 +227,7 @@ behavior cal_r_thread(
 
 	void main(void){
 
-		int i = 0, j = 0;
+		int i = 0, j = 0, n = 0;
 		for (i=3; i<y_size-3; i++){
 			for (j=row_start; j<row_end; j++){
 				n = cir_mask(in_sc, bp, i, j, 0);
@@ -254,23 +250,24 @@ behavior SusanEdges(
 {
 
 	int row_sep = x_size / 2;
-
-	
+	int x_end = x_size - 3;
+	int x_end_2 = x_size - 4;
 
 	int max_no = 2650;	
 	int r_thread1[image_size], r_thread2[image_size];
 	unsigned char mid_thread1[image_size], mid_thread2[image_size];
 	cal_r_thread cal_r_thread1(r_thread1, in_sc, bp, 3, row_sep, max_no);
-	cal_r_thread cal_r_thread2(r_thread2, in_sc, bp, row_sep, x_size-3, max_no);	
+	cal_r_thread cal_r_thread2(r_thread2, in_sc, bp, row_sep, x_end, max_no);	
 	cal_mid_thread cal_mid_thread1(mid_thread1, in_sc, bp, r, 4, row_sep, max_no );
-	cal_mid_thread cal_mid_thread2(mid_thread2, in_sc, bp, r, row_sep, x_size-4, max_no );
+	cal_mid_thread cal_mid_thread2(mid_thread2, in_sc, bp, r, row_sep, x_end_2, max_no );
 
 
 	void main(void)
 	{
 				
-		float z;
-		int do_symmetry, i, j, m, n, a, b, x, y, w;
+//		float z;
+		int i, j;
+//		int do_symmetry, i, j, m, n, a, b, x, y, w;
 
 //		start.receive(in_sc, image_size * sizeof(unsigned char));
 		
@@ -281,7 +278,7 @@ behavior SusanEdges(
 			for(j = 0; j <x_size; j++ ){
 			 	mid[i*x_size + j] = 100;
 				mid_thread1[i*x_size + j] = 100;
-				mid_thread1[i*x_size + j] = 100;
+				mid_thread2[i*x_size + j] = 100;
 			}
 		}
 
@@ -311,6 +308,7 @@ behavior SusanEdges(
 
 		/*combine*/
 
+
 		/*separate*/
 		
 		par{
@@ -326,7 +324,7 @@ behavior SusanEdges(
 					mid[i*x_size + j] = mid_thread2[i*x_size + j];
 			}
 		}
-		
+
 
 		/*combine*/
 	}
