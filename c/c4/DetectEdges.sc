@@ -111,8 +111,11 @@ behavior SusanEdges(
 
 	int max_no = 2650;	
 	int r_thread1[image_size], r_thread2[image_size];
+	unsigned char mid_thread1[image_size], mid_thread2[image_size];
 	cal_r_thread cal_r_thread1(r_thread1, in_sc, bp, 3, row_sep, max_no);
 	cal_r_thread cal_r_thread2(r_thread2, in_sc, bp, row_sep, x_size-3, max_no);	
+	cal_mid_thread cal_mid_thread1();
+	cal_mid_thread cal_mid_thread2();
 
 
 	void main(void)
@@ -160,64 +163,20 @@ behavior SusanEdges(
 
 		/*separate*/
 		
-		for (i=4;i<y_size-4;i++){
-			for (j=4;j<x_size-4;j++){
-				if (r[i*x_size + j] <= 0)
-					continue;
-				m = r[i*x_size + j];
-				n = max_no - m;
-				if (n > 600){
-					x = cir_mask(in_sc, bp, i, j, 1);
-					y = cir_mask(in_sc, bp, i, j, 2);
-		          		z = sqrt((float)((x*x) + (y*y)));
-			                if (z > (0.9*(float)n)) /* 0.5 */{
-			                	do_symmetry=0;
-			                	if (x==0)
-			                  		z=1000000.0;
-			                	else
-			                		z=((float)y) / ((float)x);
-			                	if (z < 0) { z=-z; w=-1; }
-			                	else w=1;
-			                	if (z < 0.5) { /* vert_edge */ a=0; b=1; }
-			                	else { 
-							if (z > 2.0) { /* hor_edge */ a=1; b=0; }
-			                		else { /* diag_edge */ 
-								if (w>0) { a=1; b=1; }
-		                                	   	else { a=-1; b=1; }
-							}
-						}
-		            			if ( (m > r[(i+a)*x_size+j+b]) && (m >= r[(i-a)*x_size+j-b]) && (m > r[(i+(2*a))*x_size+j+(2*b)]) && (m >= r[(i-(2*a))*x_size+j-(2*b)]) )
-		              				mid[i*x_size+j] = 1;
-					}
-					else
-						do_symmetry = 1;
-				}
+		par{
+			cal_mid_thread1.main();
+			cal_mid_thread2.main();
+		}
+
+		for (i=3;i<y_size-3;i++){
+			for (j=3;j<x_size-3;j++){
+				if (j < row_sep)
+					mid[i*x_size + j] = mid_thread1[i*x_size + j];
 				else
-					do_symmetry = 1;
-		
-				if (do_symmetry == 1){
-					x = cir_mask(in_sc, bp, i, j, 3);
-					y = cir_mask(in_sc, bp, i, j, 4);
-					w = cir_mask(in_sc, bp, i, j, 5);
-		          		if (y==0)
-		          			z = 1000000.0;
-		          		else
-		          			z = ((float)x) / ((float)y);
-		//			printf("%d, %d, %d, %d\n", x, y, z, w);
-		          		if (z < 0.5) { /* vertical */ a=0; b=1; }
-		          		else { 
-						if (z > 2.0) { /* horizontal */ a=1; b=0; }
-		          			else { /* diagonal */ 
-							if (w>0) { a=-1; b=1; }
-		                                	else { a=1; b=1; }
-						}
-					}
-		          		if ( (m > r[(i+a)*x_size+j+b]) && (m >= r[(i-a)*x_size+j-b]) && (m > r[(i+(2*a))*x_size+j+(2*b)]) && (m >= r[(i-(2*a))*x_size+j-(2*b)]) )
-						mid[i*x_size+j] = 2;	
-				}
-			
+					mid[i*x_size + j] = mid_thread2[i*x_size + j];
 			}
 		}
+		
 
 		/*combine*/
 	}
