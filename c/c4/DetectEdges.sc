@@ -12,14 +12,14 @@
 import "c_double_handshake";
 import "c_type_define";
 
-behavior SusanEdges(
-//	i_receiver start, 
-	inout unsigned char in_sc[image_size],
+behavior cal_r_thread(
 	inout int r[image_size],
-	inout unsigned char mid[image_size],
-	inout unsigned char bp[516])
+	inout unsigned char in_sc[image_size],
+	inout unsigned char bp[516],
+	inout int row_start,
+	inout int row_end,
+	inout int max_no)
 {
-
 	int cir_mask(unsigned char cir_in[image_size], unsigned char cir_bp[516], int i, int j, int sel){
 		int n = 0;
 		unsigned char *cp;
@@ -83,10 +83,40 @@ behavior SusanEdges(
 		}
 	}
 
+	void main(void){
+
+		int i = 0, j = 0;
+		for (i=3; i<y_size-3; i++){
+			for (j=row_start; j<row_end; j++){
+				n = cir_mask(in_sc, bp, i, j, 0);
+				if (n <= max_no){
+					r[i*x_size + j] = max_no - n;
+				}
+			}
+		}
+
+	}
+
+};
+
+behavior SusanEdges(
+//	i_receiver start, 
+	inout unsigned char in_sc[image_size],
+	inout int r[image_size],
+	inout unsigned char mid[image_size],
+	inout unsigned char bp[516])
+{
+
+	int row_sep = (x_size - 6)/2;
+
+	int max_no = 2650;	
+	int r_thread1[image_size], r_thread2[image_size];
+	cal_r_thread cal_r_thread1(r_thread1, in_sc, bp, 3, row_sep, max_no);
+	cal_r_thread cal_r_thread2(r_thread2, in_sc, bp, row_sep, x_size-3, max_no);	
+
+
 	void main(void)
 	{
-
-		int max_no = 2650;	
 				
 		float z;
 		int do_symmetry, i, j, m, n, a, b, x, y, w;
@@ -105,17 +135,30 @@ behavior SusanEdges(
 		for (i=0;i<y_size;i++){
 			for (j=0;j<x_size;j++){
 				r[i*x_size + j] = 0;
+				r_thread1[i*x_size + j] = 0;
+				r_thread2[i*x_size + j] = 0;
 			}
 		}
-		   
+
+		/*separate*/
+
+		par{
+			cal_r_thread1.main();
+			cal_r_thread2.main();
+		}
+
 		for (i=3;i<y_size-3;i++){
 		 	for (j=3;j<x_size-3;j++){
-		 		n = cir_mask(in_sc, bp, i, j, 0);
-		     		if(n <= max_no){
-		     			r[i*x_size + j] = max_no - n;
-		     		}
+				if (j < row_sep)
+					r[i*x_size + j] = r_thread1[i*x_size + j];
+				else
+					r[i*x_size + j] = r_thread2[i*x_size + j];
 		 	}
 		}
+
+		/*combine*/
+
+		/*separate*/
 		
 		for (i=4;i<y_size-4;i++){
 			for (j=4;j<x_size-4;j++){
@@ -175,6 +218,8 @@ behavior SusanEdges(
 			
 			}
 		}
+
+		/*combine*/
 	}
 
 };
