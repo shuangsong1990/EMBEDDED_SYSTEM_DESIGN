@@ -8,15 +8,15 @@ INFILE =   input_small.pgm
 OUTFILE =  output_edge.pgm
 
 
-all: susan
+all: susan_edge_detector
 
-susan: susan.sc SusanThin.sc EdgeDraw.sc DetectEdges.sc get_image.sc put_image.sc susan.sc
-	$(SCC) susan $(SCCOPT)
+susan_edge_detector: susan_edge_detector.sc SusanThin.sc EdgeDraw.sc DetectEdges.sc get_image.sc put_image.sc susan_edge_detector.sc
+	$(SCC) susan_edge_detector $(SCCOPT)
 
 test:
-	./susan
+	./susan_edge_detector
 	$(CMP) $(OUTFILE) $(GOLDFILE)
 
 clean:
 	-rm -f *~ *.o *.cc *.h
-	-rm -f *.si susan
+	-rm -f *.si susan_edge_detector
