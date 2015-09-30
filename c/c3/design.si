@@ -1,5 +1,5 @@
 # 1 "design.sc"
-# 1 "/home/ecelrc/students/mli2/EE382N/LAB1/EMBEDDED_SYSTEM_DESIGN/c/back_up_c3/c3_bk//"
+# 1 "/home/ecelrc/students/mli2/EE382N/LAB1/EMBEDDED_SYSTEM_DESIGN/c/c3//"
 # 1 "<built-in>"
 # 1 "<command line>"
 # 1 "design.sc"
@@ -2673,7 +2673,8 @@ behavior Design(
 {
  const unsigned long SIZE = 7220 * sizeof(unsigned char);
 
- const unsigned long q_len = 7220;
+
+ const unsigned long q_len = 1;
 
  c_in_queue buffer_in_d(q_len);
  c_in_queue buffer_in_e(q_len);

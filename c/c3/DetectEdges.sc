@@ -227,7 +227,7 @@ behavior DetectEdges(
 
 		for (i = 0; i < image_size; i ++)
 			in_buffer.receive(in_sc + i);
-		//printf("receive image fine at detect edges\n");
+//		printf("receive image fine at detect edges\n");
 
 
 		SBLut.main();

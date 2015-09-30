@@ -82,7 +82,8 @@ behavior susan(i_in_receiver buffer_in_d, i_in_receiver buffer_in_e,  i_in_sende
 //	unsigned char image_buffer[image_size];
 //	unsigned char mid[image_size];
 
-	const unsigned long q_len = 7220;
+//	const unsigned long q_len = 7220;
+	const unsigned long q_len = 1;
 
 	c_mid_queue mq(q_len);
 	c_mid_queue mq2(q_len);

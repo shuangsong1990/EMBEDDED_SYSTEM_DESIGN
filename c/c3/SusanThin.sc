@@ -22,11 +22,14 @@ behavior SusanThin(
 		int l[9], centre, b01, b12, b21, b10, p1, p2, p3, p4, b00, b02, b20, b22, m, n, a, b, x, y, i, j;
 		unsigned char *mp;
 
-		for (i = 0; i < image_size; i ++)
+		for (i = 0; i < image_size; i ++){
 			r_r.receive(r + i);
-
-		for (i = 0; i < image_size; i ++)
 			mid_r.receive(mid + i);
+		}
+
+//		for (i = 0; i < image_size; i ++)
+//			mid_r.receive(mid + i);
+
 
 		for (i=4;i<y_size-4;i++)
 			for (j=4;j<x_size-4;j++)
