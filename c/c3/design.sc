@@ -34,7 +34,8 @@ behavior Design(
 {
 	const unsigned long SIZE = image_size * sizeof(unsigned char);
 //	c_queue data_buffer_in(SIZE), data_buffer_out(SIZE);
-	const unsigned long q_len = 7220;
+	const unsigned long q_len = 7220;  //size modification 
+//	const unsigned long q_len = 3610;
 
 	c_in_queue buffer_in_d(q_len);
 	c_in_queue buffer_in_e(q_len);

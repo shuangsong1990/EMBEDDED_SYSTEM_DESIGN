@@ -82,7 +82,9 @@ behavior susan(i_in_receiver buffer_in_d, i_in_receiver buffer_in_e,  i_in_sende
 //	unsigned char image_buffer[image_size];
 //	unsigned char mid[image_size];
 
-	const unsigned long q_len = 7220;
+	const unsigned long q_len = 7220; //size modification
+//	const unsigned long q_len = 3610; //size modification
+
 
 	c_mid_queue mq(q_len);
 	c_mid_queue mq2(q_len);
@@ -119,6 +121,7 @@ behavior stimulus(i_sender start, inout unsigned char in_sc[7220],in char filena
 		waitfor 1000;
 		for(i = 0; i < 10; i++){
 			g.main();
+			//printf("i = %d\n",i);
 			waitfor 500;
 		}
 		exit(0);
