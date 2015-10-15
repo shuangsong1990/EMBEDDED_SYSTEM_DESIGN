@@ -1,4 +1,0 @@
-./new_susan input_small.pgm     output_edge.pgm
-thresh is 20
-diff -s output_edge.pgm golden.pgm
-Files output_edge.pgm and golden.pgm are identical
