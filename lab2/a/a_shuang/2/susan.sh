@@ -19,8 +19,7 @@ typedef float      TOTAL_TYPE; /* for my PowerPC accelerator only */
 #define  exit_error(IFB,IFC) { fprintf(stderr,IFB,IFC); exit(0); }
 #define  FTOI(a) ( (a) < 0 ? ((int)(a-0.5)) : ((int)(a+0.5)) )
 typedef  unsigned char uchar;
-typedef unsigned long Task;
-typedef unsigned long os_queue[100];
+
 
 #define X_SIZE 76
 #define Y_SIZE 95

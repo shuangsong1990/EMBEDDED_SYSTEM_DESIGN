@@ -38,7 +38,7 @@ behavior Design(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_sender out
     c_uchar7220_queue mid(1ul);
     c_uchar7220_queue image_edge_draw(1ul);
 
-    
+ 
     ReadImage_wp read_image(start, image_buffer, in_image);
     //Susan susan(in_image, out_image);
    
