@@ -14,23 +14,26 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
 
     void init(void){
 	me = rtos.task_create("SLUT");
+	rtos.push_t(me);
     }
  
     void main(void) {
-	//rtos.task_activate(me);        
 
 	int   k;
         float temp;
         int thresh, form;
+	rtos.task_activate(me);        
         
 
         thresh = BT;
         form = 6;
+	
+	printf("activate hahaha!\n");
 
         //for(k=-256;k<257;k++)
        for(k=(-256)+512/PROCESSORS*thID; k<(-256)+512/PROCESSORS*thID+512/PROCESSORS+1; k++){
 
-	    //waitfor(2700); /////waitfor statement in LUT
+	   /// waitfor(2700); /////waitfor statement in LUT
 	    rtos.time_wait(2700); /// only for 2        
 
  	    temp=((float)k)/((float)thresh);
@@ -40,6 +43,9 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
             temp=100.0*exp(-temp);
             bp[(k+258)] = (uchar) temp;
         }
+
+
+	rtos.task_terminate();
     }
 
 };
@@ -57,7 +63,7 @@ behavior SetupBrightnessLut(uchar bp[516], OSAPI rtos)
        	setup_brightness_thread_0.init();
     	setup_brightness_thread_1.init();
 	
-	//my_t = rtos.par_start();
+	my_t = rtos.par_start();
 
 	par {
             setup_brightness_thread_0.main();
