@@ -19,15 +19,15 @@ behavior DetectEdges(i_uchar7220_receiver in_image,  i_int7220_sender out_r, i_u
     struct Task sedge;
 
     SetupBrightnessLut setup_brightness_lut(bp, rtos);
-    SusanEdges susan_edges(in_image, out_r, out_mid, bp, out_image);
+    SusanEdges susan_edges(in_image, out_r, out_mid, bp, out_image, rtos);
     
     void main(void) {
 
 	sblut = rtos.task_create("SBLUT");
 	sedge = rtos.task_create("SEDGE");
 	rtos.init(sblut);
-
         setup_brightness_lut.main(); 
+	rtos.init(sedge);
         susan_edges.main();
     }
 

@@ -91,7 +91,7 @@ channel OS implements OSAPI{
 		unsigned int position;
 		position = head;
 		current = pop_t();
-		printf ("current.id = %d\n", current.id);
+		//printf ("current.id = %d\n", current.id);
 		//printf ("position = %d\n", position);
 		if(current.id != 0) ////may be wrong
 		{
@@ -199,6 +199,7 @@ channel OS implements OSAPI{
 	}
 	void time_wait(unsigned int t){
 		waitfor(t);
+		//printf("time to wait %d\n", t);
 		yield();
 	}
 
@@ -207,7 +208,7 @@ channel OS implements OSAPI{
 		struct Task ret_t ;
 		unsigned int i ;
 		ret_t = current;
-		printf ("wocao!\n");
+		//printf ("wocao!\n");
 		dispatch();
 		//for (i = 0; i < 10; i++){
 		//	printf("queue [%d] is %d\n", i, rdyq[i].id);
@@ -218,12 +219,13 @@ channel OS implements OSAPI{
 
 	void init(struct Task t){
 		current = t;
+		start = 0;	
 	}
 
 
-/*	void par_end(struct Task end_t){
-		
+	void par_end(struct Task end_t){
+				
 	}
-*/
+
 };
 
