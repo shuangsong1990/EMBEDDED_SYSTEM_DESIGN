@@ -15,7 +15,7 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID)
         //for(k=-256;k<257;k++)
        for(k=(-256)+512/PROCESSORS*thID; k<(-256)+512/PROCESSORS*thID+512/PROCESSORS+1; k++){
 
-	waitfor(360); /////waitfor statement in LUT
+	waitfor(2700); /////waitfor statement in LUT
         
  	    temp=((float)k)/((float)thresh);
             temp=temp*temp;

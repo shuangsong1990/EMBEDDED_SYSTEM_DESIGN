@@ -28,12 +28,13 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
         thresh = BT;
         form = 6;
 	
-	printf("activate hahaha!\n");
+	printf("activate hahaha! and my current id is %d\n", me.id);
 
         //for(k=-256;k<257;k++)
        for(k=(-256)+512/PROCESSORS*thID; k<(-256)+512/PROCESSORS*thID+512/PROCESSORS+1; k++){
 
 	   /// waitfor(2700); /////waitfor statement in LUT
+	    printf("compute thread id is %d \n", me.id);
 	    rtos.time_wait(2700); /// only for 2        
 
  	    temp=((float)k)/((float)thresh);
@@ -44,7 +45,7 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
             bp[(k+258)] = (uchar) temp;
         }
 
-
+	printf("current task to be termnidate is %d\n", me.id);
 	rtos.task_terminate();
     }
 
