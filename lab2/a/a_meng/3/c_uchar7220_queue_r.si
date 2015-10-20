@@ -22,20 +22,12 @@ extern void *memcpy(void*, const void*, unsigned int);
 # 76 "c_typed_queue_r.sh" 2
 
 import "os";
-# 97 "c_typed_queue_r.sh"
-    int position = 0;
-
-    void setup(void) { if (!buffer) { unsigned long i; type dummy; if (!(buffer = (type*) malloc(sizeof(type)*size))) { perror("c_typed_queue"); abort(); } for(i=0; i<size; i++) { memcpy(&buffer[i], &dummy, sizeof(type)); } } } void cleanup(void) { if (! n) { free(buffer); buffer = 0; } } void receive(type *d) { while(! n) { wr++; position = rtos.pre_wait();
-# 133 "c_typed_queue_r.sh"
-     wait r; rtos.post_wait(position);
-
-     wr--; } if (n <= p) { *d = buffer[p - n]; } else { *d = buffer[p + size - n]; } n--; if (ws) { notify s; } cleanup(); } void send(type d) { while(n >= size) { ws++; wait s; ws--; } setup(); buffer[p] = d; p++; if (p >= size) { p = 0; } n++; if (wr) { notify r; } } };
 # 2 "c_uchar7220_queue_r.sc" 2
 import "os";
 
 typedef unsigned char uchar7220[7220];
 
-DEFINE_I_TYPED_TRANCEIVER_R(uchar7220, uchar7220, OSAPI)
-DEFINE_I_TYPED_SENDER_R(uchar7220, uchar7220, OSAPI)
-DEFINE_I_TYPED_RECEIVER_R(uchar7220, uchar7220, OSAPI)
-DEFINE_C_TYPED_QUEUE_R(uchar7220, uchar7220, OSAPI)
+DEFINE_I_TYPED_TRANCEIVER_R(uchar7220, uchar7220)
+DEFINE_I_TYPED_SENDER_R(uchar7220, uchar7220)
+DEFINE_I_TYPED_RECEIVER_R(uchar7220, uchar7220)
+channel c_uchar7220_queue(in const unsigned long size, OSAPI rtos) implements i_uchar7220_sender, i_uchar7220_receiver, i_uchar7220_tranceiver { note _SCE_STANDARD_LIB = { "c_queue_r", "uchar7220", "uchar7220" }; event r, s; unsigned long wr = 0; unsigned long ws = 0; unsigned long p = 0; unsigned long n = 0; uchar7220 *buffer = 0; void setup(void) { if (!buffer) { unsigned long i; uchar7220 dummy; if (!(buffer = (uchar7220*) malloc(sizeof(uchar7220)*size))) { perror("c_typed_queue"); abort(); } for(i=0; i<size; i++) { memcpy(&buffer[i], &dummy, sizeof(uchar7220)); } } } void cleanup(void) { if (! n) { free(buffer); buffer = 0; } } void receive(uchar7220 *d) { int position; while(! n) { wr++; position = rtos.pre_wait(); wait r; rtos.post_wait(position); wr--; } if (n <= p) { *d = buffer[p - n]; } else { *d = buffer[p + size - n]; } n--; if (ws) { notify s; } cleanup(); } void send(uchar7220 d) { while(n >= size) { ws++; wait s; ws--; } setup(); buffer[p] = d; p++; if (p >= size) { p = 0; } n++; if (wr) { notify r; } } };

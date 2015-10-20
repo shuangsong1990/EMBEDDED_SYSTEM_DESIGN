@@ -57,8 +57,8 @@
 // - no restrictions exist for use of 'wait', 'notify', 'notifyone'
 
 
-#ifndef C_TYPED_QUEUE_SH
-#define C_TYPED_QUEUE_SH
+#ifndef C_TYPED_QUEUE_R_SH
+#define C_TYPED_QUEUE_R_SH
 
 //#include <stdio.h>	// avoid platform-dependent contents
 extern void perror(const char*);
@@ -77,14 +77,14 @@ extern void *memcpy(void*, const void*, unsigned int);
 import "os";
 
 
-#define DEFINE_C_TYPED_QUEUE(typename, type)				\
+#define DEFINE_C_TYPED_QUEUE_R(typename, type)				\
 									\
 channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 	implements i_ ## typename ## _sender,				\
 		i_ ## typename ## _receiver,				\
 		i_ ## typename ## _tranceiver				\
 {									\
-    note _SCE_STANDARD_LIB = { "my_c_queue_r", #typename, #type };		\
+    note _SCE_STANDARD_LIB = { "c_queue_r", #typename, #type };		\
 									\
     event         r,							\
                   s;							\
@@ -93,8 +93,6 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
     unsigned long p = 0;						\
     unsigned long n = 0;						\
     type          *buffer = 0;						\
-
-    int position = 0;
 									\
     void setup(void)							\
     {									\
@@ -126,12 +124,13 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 									\
     void receive(type *d)						\
     {									\
+        int position;							\
 	while(! n)							\
 	{								\
 	    wr++;							\
-	    position = rtos.pre_wait();
+	    position = rtos.pre_wait();					\	
 	    wait r;							\
-	    rtos.post_wait(position);
+	    rtos.post_wait(position);					\
 	    wr--;							\
 	}								\
 									\
@@ -187,12 +186,12 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
  *@param typename   user defined name for queue type
  *@param type       SpecC basic or composite type
  */
-#define DEFINE_IC_TYPED_QUEUE(typename, type)	                       \
+#define DEFINE_IC_TYPED_QUEUE_R(typename, type)	                       \
                                                                        \
-DEFINE_I_TYPED_TRANCEIVER(typename, type)                              \
-DEFINE_I_TYPED_SENDER(typename, type)                                  \
-DEFINE_I_TYPED_RECEIVER(typename, type)                                \
-DEFINE_C_TYPED_QUEUE(typename, type)  
+DEFINE_I_TYPED_TRANCEIVER_R(typename, type)                              \
+DEFINE_I_TYPED_SENDER_R(typename, type)                                  \
+DEFINE_I_TYPED_RECEIVER_R(typename, type)                                \
+DEFINE_C_TYPED_QUEUE_R(typename, type) 
 
 
 
