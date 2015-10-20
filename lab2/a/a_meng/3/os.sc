@@ -311,71 +311,71 @@ channel OS implements OSAPI{
 				e2.receive();
 				break;
 			case 3:
-				printf("e0 wait here\n");
+				printf("e3 wait here\n");
 				e3.receive();	
 				break;
 			case 4:
-				printf("e1 wait here\n");
+				printf("e4 wait here\n");
 				e4.receive();
 				break;
 			case 5:
-				printf("e2 wait here\n");
+				printf("e5 wait here\n");
 				e5.receive();
 				break;
 			case 6:
-				printf("e0 wait here\n");
+				printf("e6 wait here\n");
 				e6.receive();	
 				break;
 			case 7:
-				printf("e1 wait here\n");
+				printf("e7 wait here\n");
 				e7.receive();
 				break;
 			case 8:
-				printf("e2 wait here\n");
+				printf("e8 wait here\n");
 				e8.receive();
 				break;
 			case 9:
-				printf("e0 wait here\n");
+				printf("e9 wait here\n");
 				e9.receive();	
 				break;
 			case 10:
-				printf("e1 wait here\n");
+				printf("e10 wait here\n");
 				e10.receive();
 				break;
 			case 11:
-				printf("e2 wait here\n");
+				printf("e11 wait here\n");
 				e11.receive();
 				break;
 			case 12:
-				printf("e0 wait here\n");
+				printf("e12 wait here\n");
 				e12.receive();	
 				break;
 			case 13:
-				printf("e1 wait here\n");
+				printf("e13 wait here\n");
 				e13.receive();
 				break;
 			case 14:
-				printf("e2 wait here\n");
+				printf("e14 wait here\n");
 				e14.receive();
 				break;
 			case 15:
-				printf("e2 wait here\n");
+				printf("e15 wait here\n");
 				e15.receive();
 				break;
 			case 16:
-				printf("e0 wait here\n");
+				printf("e16 wait here\n");
 				e16.receive();	
 				break;
 			case 17:
-				printf("e1 wait here\n");
+				printf("e17 wait here\n");
 				e17.receive();
 				break;
 			case 18:
-				printf("e2 wait here\n");
+				printf("e18 wait here\n");
 				e18.receive();
 				break;
 			case 19:
-				printf("e2 wait here\n");
+				printf("e19 wait here\n");
 				e19.receive();
 				break;
 		}	
@@ -425,6 +425,74 @@ channel OS implements OSAPI{
 			case 2:
 				printf("e2 wait here\n");
 				e2.receive();
+				break;
+			case 3:
+				printf("e3 wait here\n");
+				e3.receive();	
+				break;
+			case 4:
+				printf("e4 wait here\n");
+				e4.receive();
+				break;
+			case 5:
+				printf("e5 wait here\n");
+				e5.receive();
+				break;
+			case 6:
+				printf("e6 wait here\n");
+				e6.receive();	
+				break;
+			case 7:
+				printf("e7 wait here\n");
+				e7.receive();
+				break;
+			case 8:
+				printf("e8 wait here\n");
+				e8.receive();
+				break;
+			case 9:
+				printf("e9 wait here\n");
+				e9.receive();	
+				break;
+			case 10:
+				printf("e10 wait here\n");
+				e10.receive();
+				break;
+			case 11:
+				printf("e11 wait here\n");
+				e11.receive();
+				break;
+			case 12:
+				printf("e12 wait here\n");
+				e12.receive();	
+				break;
+			case 13:
+				printf("e13 wait here\n");
+				e13.receive();
+				break;
+			case 14:
+				printf("e14 wait here\n");
+				e14.receive();
+				break;
+			case 15:
+				printf("e15 wait here\n");
+				e15.receive();	
+				break;
+			case 16:
+				printf("e16 wait here\n");
+				e16.receive();
+				break;
+			case 17:
+				printf("e17 wait here\n");
+				e17.receive();
+				break;
+			case 18:
+				printf("e18 wait here\n");
+				e18.receive();
+				break;
+			case 19:
+				printf("e19 wait here\n");
+				e19.receive();
 				break;
 		}	
 	}
