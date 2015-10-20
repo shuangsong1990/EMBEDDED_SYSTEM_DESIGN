@@ -49,7 +49,7 @@ channel OS implements OSAPI{
 			struct Task new_id;
 			new_id.id = task_pool;
 			task_pool = task_pool + 1;
-			printf("name is %s and id is %d", a, new_id.id);
+			printf("name is %s and id is %d\n", a, new_id.id);
 			return new_id;
 		}
 		else{

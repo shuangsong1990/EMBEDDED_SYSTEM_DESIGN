@@ -85,7 +85,8 @@ behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int 
         //for (i=0; i<X_SIZE*Y_SIZE; i++)
         for (i=X_SIZE*Y_SIZE/PROCESSORS*thID; i<X_SIZE*Y_SIZE/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && X_SIZE*Y_SIZE%PROCESSORS!=0 ?X_SIZE*Y_SIZE%PROCESSORS : 0); i++)
         {
-	    waitfor(12000000); ///waitfor statements
+	    rtos.time_wait(12000000);
+//	    waitfor(12000000); ///waitfor statements
             if (*midp<8) 
                 *(image_buffer+ (midp - mid)) = 0;
             midp++;
