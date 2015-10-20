@@ -41,15 +41,12 @@ behavior Design(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_sender out
 
     PE1 pe1(in_image, out_image, rtos);
 
-//    Susan susan(in_image, out_image);
-
     WriteImage_wp write_image(out_image, out_image_susan);
 
     void main(void) {
        par {
             read_image.main();
 	    pe1.main();
-//            susan.main();
             write_image.main();
         }
     }

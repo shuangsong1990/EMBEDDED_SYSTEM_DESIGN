@@ -12,37 +12,8 @@ import "susan_thin";
 import "edge_draw";
 import "os";
 
-/*     
-behavior Susan(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image) 
-{
-
-    OS rtos;
-
-    c_int7220sr_queue r(1ul);
-    c_uchar7220sr_queue mid(1ul);
-    c_uchar7220sr_queue mid_edge_draw(1ul);
-    c_uchar7220sr_queue image_edge_draw(1ul);
-
-    Edges edges(in_image, r, mid, image_edge_draw, rtos);
-    Thin thin(r, mid, mid_edge_draw, rtos);
-    Draw draw(image_edge_draw, mid_edge_draw, out_image, rtos);
-        
-    void main(void)
-    {
-        par {
-            edges;
-            thin;
-            draw;
-        }      
-    }
-   
-};   
-*/
 behavior TASK_PE1(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image, OSAPI rtos){
 
-//    struct Task sedge;
-//    struct Task sthin;
-//    struct Task sdraw;
 
     c_int7220sr_queue r(1ul, rtos);
     c_uchar7220sr_queue mid(1ul, rtos);
@@ -55,8 +26,18 @@ behavior TASK_PE1(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image,
 
     struct Task my_t;
 
+    struct Task e;
+    struct Task t;
+    struct Task d;
+
+
     void main(void){
 
+	//e = rtos.task_create("edges");
+	//t = rtos.task_create("thin");
+	//d = rtos.task_create("draw"):
+
+	//rtos.init(e);
 	edges.init();
 	thin.init();
 	draw.init();

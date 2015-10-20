@@ -1,5 +1,5 @@
 # 1 "design.sc"
-# 1 "/home/ecelrc/students/mli2/EE382N/LAB1/EMBEDDED_SYSTEM_DESIGN/lab2/a/a_meng/3//"
+# 1 "/home/ecelrc/students/ssong/labs/lab2/a/a_meng/3//"
 # 1 "<built-in>"
 # 1 "<command line>"
 # 1 "design.sc"
@@ -2775,15 +2775,12 @@ behavior Design(i_receive start, in uchar image_buffer[7220], i_sender out_image
 
     PE1 pe1(in_image, out_image, rtos);
 
-
-
     WriteImage_wp write_image(out_image, out_image_susan);
 
     void main(void) {
        par {
             read_image.main();
      pe1.main();
-
             write_image.main();
         }
     }

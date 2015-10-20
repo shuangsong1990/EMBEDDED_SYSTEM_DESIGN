@@ -1,5 +1,5 @@
 # 1 "susan.sc"
-# 1 "/home/ecelrc/students/mli2/EE382N/LAB1/EMBEDDED_SYSTEM_DESIGN/lab2/a/a_meng/3//"
+# 1 "/home/ecelrc/students/ssong/labs/lab2/a/a_meng/3//"
 # 1 "<built-in>"
 # 1 "<command line>"
 # 1 "susan.sc"
@@ -2745,11 +2745,8 @@ import "detect_edges";
 import "susan_thin";
 import "edge_draw";
 import "os";
-# 41 "susan.sc"
+
 behavior TASK_PE1(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image, OSAPI rtos){
-
-
-
 
 
     c_int7220sr_queue r(1ul, rtos);
@@ -2763,7 +2760,17 @@ behavior TASK_PE1(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image,
 
     struct Task my_t;
 
+    struct Task e;
+    struct Task t;
+    struct Task d;
+
+
     void main(void){
+
+
+
+
+
 
  edges.init();
  thin.init();

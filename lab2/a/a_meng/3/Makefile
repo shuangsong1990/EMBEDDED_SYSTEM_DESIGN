@@ -8,8 +8,8 @@ SCC = scc
 CMP = diff -s
 RM  = rm -f
 
-SCFILES = 	c_uchar7220_queue_r.sc c_int7220_queue_r.sc\
-		c_uchar7220_queue_s.sc c_int7220_queue_s.sc\
+SCFILES = 	c_uchar7220_queue_s.sc c_int7220_queue_r.sc\
+		c_uchar7220_queue_r.sc c_int7220_queue_s.sc\
 		c_uchar7220_queue_sr.sc c_int7220_queue_sr.sc\
         setup_brightness_lut.sc susan_edges.sc detect_edges.sc susan_thin.sc edge_draw.sc read_image.sc\
 		write_image.sc susan.sc design.sc stimulus.sc monitor.sc design.sc susan_edge_detector.sc

@@ -32,9 +32,9 @@ interface OSAPI
 channel OS implements OSAPI{
 
         struct Task current;
-	struct Task rdyq[3];
+	struct Task rdyq[20];
 
-	c_handshake e0, e1, e2;
+	c_handshake e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19;
 
 	unsigned int head = 0;
 	unsigned int tail = 0;
@@ -64,7 +64,7 @@ channel OS implements OSAPI{
 		else{
 			printf( "push task id : %d\n", t.id);
 			rdyq[tail] = t;
-			if(tail == 2){
+			if(tail == 19){
 				tail = 0;
 			}else{
 				tail = tail + 1;
@@ -80,7 +80,7 @@ channel OS implements OSAPI{
 		else{
 			t = rdyq[head];
 			printf( "pop task id : %d\n", t.id);
-			if(head == 2){
+			if(head == 19){
 				head = 0;
 			}else{
 				head = head + 1;
@@ -107,6 +107,57 @@ channel OS implements OSAPI{
 				case 2:
 					e2.send();	
 					break;
+				case 3:
+					e3.send();
+					break; 
+				case 4:
+					e4.send();	
+					break;
+				case 5:
+					e5.send();	
+					break;
+				case 6:
+					e6.send();
+					break; 
+				case 7:
+					e7.send();	
+					break;
+				case 8:
+					e8.send();	
+					break;
+				case 9:
+					e9.send();
+					break; 
+				case 10:
+					e10.send();	
+					break;
+				case 11:
+					e11.send();	
+					break;
+				case 12:
+					e12.send();
+					break; 
+				case 13:
+					e13.send();	
+					break;
+				case 14:
+					e14.send();	
+					break;
+				case 15:
+					e15.send();
+					break; 
+				case 16:
+					e16.send();	
+					break;
+				case 17:
+					e17.send();	
+					break;
+				case 18:
+					e18.send();
+					break; 
+				case 19:
+					e19.send();	
+					break;
 			}
 		} 
 	}
@@ -120,7 +171,7 @@ channel OS implements OSAPI{
 				break;
 			}
 			else{
-			    if (i == 2)
+			    if (i == 19)
 				i = 0;
 			    else
 				i = i + 1;
@@ -136,6 +187,57 @@ channel OS implements OSAPI{
 			case 2:
 				e2.receive();
 				break;
+			case 3:
+				e3.receive();	
+				break;
+			case 4:
+				e4.receive();
+				break;
+			case 5:
+				e5.receive();
+				break;
+			case 6:
+				e6.receive();	
+				break;
+			case 7:
+				e7.receive();
+				break;
+			case 8:
+				e8.receive();
+				break;
+			case 9:
+				e9.receive();	
+				break;
+			case 10:
+				e10.receive();
+				break;
+			case 11:
+				e11.receive();
+				break;
+			case 12:
+				e12.receive();	
+				break;
+			case 13:
+				e13.receive();
+				break;
+			case 14:
+				e14.receive();
+				break;
+			case 15:
+				e15.receive();	
+				break;
+			case 16:
+				e16.receive();
+				break;
+			case 17:
+				e17.receive();
+				break;
+			case 18:
+				e18.receive();
+				break;
+			case 19:
+				e19.receive();
+				break;
 		}
 	}
 	void task_terminate(void){
@@ -150,7 +252,7 @@ channel OS implements OSAPI{
 			dispatch();
 		}
 	*/
-			if( (head + 1 == tail ) || (head == 2 && tail == 0)){
+			if( (head + 1 == tail ) || (head == 19 && tail == 0)){
 				unsigned int i ;
 				for ( i=0; i < 3; i++){
 					if( rdyq[i].valid == 1)
@@ -183,7 +285,7 @@ channel OS implements OSAPI{
 					break;
 				}
 				else{
-					if( i == 2 ){
+					if( i == 19 ){
 						i = 0;
 					}
 					else{
@@ -208,6 +310,74 @@ channel OS implements OSAPI{
 				printf("e2 wait here\n");
 				e2.receive();
 				break;
+			case 3:
+				printf("e0 wait here\n");
+				e3.receive();	
+				break;
+			case 4:
+				printf("e1 wait here\n");
+				e4.receive();
+				break;
+			case 5:
+				printf("e2 wait here\n");
+				e5.receive();
+				break;
+			case 6:
+				printf("e0 wait here\n");
+				e6.receive();	
+				break;
+			case 7:
+				printf("e1 wait here\n");
+				e7.receive();
+				break;
+			case 8:
+				printf("e2 wait here\n");
+				e8.receive();
+				break;
+			case 9:
+				printf("e0 wait here\n");
+				e9.receive();	
+				break;
+			case 10:
+				printf("e1 wait here\n");
+				e10.receive();
+				break;
+			case 11:
+				printf("e2 wait here\n");
+				e11.receive();
+				break;
+			case 12:
+				printf("e0 wait here\n");
+				e12.receive();	
+				break;
+			case 13:
+				printf("e1 wait here\n");
+				e13.receive();
+				break;
+			case 14:
+				printf("e2 wait here\n");
+				e14.receive();
+				break;
+			case 15:
+				printf("e2 wait here\n");
+				e15.receive();
+				break;
+			case 16:
+				printf("e0 wait here\n");
+				e16.receive();	
+				break;
+			case 17:
+				printf("e1 wait here\n");
+				e17.receive();
+				break;
+			case 18:
+				printf("e2 wait here\n");
+				e18.receive();
+				break;
+			case 19:
+				printf("e2 wait here\n");
+				e19.receive();
+				break;
 		}	
 	}
 
@@ -230,7 +400,7 @@ channel OS implements OSAPI{
 					break;
 				}
 				else{
-					if( i == 2 ){
+					if( i == 19 ){
 						i = 0;
 					}
 					else{
