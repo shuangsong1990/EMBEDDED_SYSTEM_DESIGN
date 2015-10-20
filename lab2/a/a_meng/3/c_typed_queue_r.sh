@@ -186,7 +186,7 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
  *@param typename   user defined name for queue type
  *@param type       SpecC basic or composite type
  */
-#define DEFINE_IC_TYPED_R_QUEUE(typename, type)	                       \
+#define DEFINE_IC_TYPED_QUEUE(typename, type)	                       \
                                                                        \
 DEFINE_I_TYPED_TRANCEIVER(typename, type)                              \
 DEFINE_I_TYPED_SENDER(typename, type)                                  \

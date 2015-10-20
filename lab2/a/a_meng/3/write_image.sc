@@ -1,9 +1,9 @@
 #include "susan.sh"
 
 import "i_sender";
-import "c_uchar7220_queue";
+import "c_uchar7220_queue_s";
 
-behavior WriteImage(i_uchar7220_receiver in_image, i_sender out_image)
+behavior WriteImage(i_uchar7220s_receiver in_image, i_sender out_image)
 {
 
     void main(void) {

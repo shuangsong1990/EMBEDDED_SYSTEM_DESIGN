@@ -317,7 +317,7 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
     
 };  
 
-behavior  SusanEdges_ReadInput(i_uchar7220_receiver in_image, uchar in_image_buffer[IMAGE_SIZE], int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE]) 
+behavior  SusanEdges_ReadInput(i_uchar7220r_receiver in_image, uchar in_image_buffer[IMAGE_SIZE], int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE]) 
 {
     void main(void) {
         in_image.receive(&in_image_buffer);
@@ -327,8 +327,8 @@ behavior  SusanEdges_ReadInput(i_uchar7220_receiver in_image, uchar in_image_buf
     }
 };
 
-behavior SusanEdges_WriteOutput(i_int7220_sender out_r, i_uchar7220_sender out_mid, 
-                                                            i_uchar7220_sender out_image, int r[IMAGE_SIZE], 
+behavior SusanEdges_WriteOutput(i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, 
+                                                            i_uchar7220sr_sender out_image, int r[IMAGE_SIZE], 
                                                             uchar mid[IMAGE_SIZE], uchar out_image_buffer[IMAGE_SIZE])
 {
 
@@ -400,7 +400,7 @@ interface SE{
 
 };
 
-behavior SusanEdges(i_uchar7220_receiver in_image, i_int7220_sender out_r, i_uchar7220_sender out_mid, uchar bp[516], i_uchar7220_sender out_image, OSAPI rtos)
+behavior SusanEdges(i_uchar7220r_receiver in_image, i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, uchar bp[516], i_uchar7220sr_sender out_image, OSAPI rtos)
 {
   
     struct Task me;

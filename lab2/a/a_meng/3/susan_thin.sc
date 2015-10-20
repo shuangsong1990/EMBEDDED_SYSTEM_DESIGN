@@ -1,7 +1,7 @@
 #include "susan.sh"
 
-import "c_uchar7220_queue";
-import "c_int7220_queue";
+import "c_uchar7220_queue_sr";
+import "c_int7220_queue_sr";
 import "os";
 
 interface STT{
@@ -226,7 +226,7 @@ behavior SusanThinThread(int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE], in int thID, 
     }                
 };
 
-behavior SusanThin_ReadInput(i_int7220_receiver in_r, i_uchar7220_receiver in_mid, int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE])
+behavior SusanThin_ReadInput(i_int7220sr_receiver in_r, i_uchar7220sr_receiver in_mid, int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE])
 {
 
     void main(void) {
@@ -235,7 +235,7 @@ behavior SusanThin_ReadInput(i_int7220_receiver in_r, i_uchar7220_receiver in_mi
     }
 };
 
-behavior SusanThin_WriteOutput(i_uchar7220_sender out_mid, uchar mid[IMAGE_SIZE])
+behavior SusanThin_WriteOutput(i_uchar7220sr_sender out_mid, uchar mid[IMAGE_SIZE])
 {
     void main(void) {
         out_mid.send(mid);      
@@ -270,7 +270,7 @@ interface ST{
     void main(void);
 };
 
-behavior Thin(i_int7220_receiver in_r, i_uchar7220_receiver in_mid, i_uchar7220_sender out_mid, OSAPI rtos) implements ST
+behavior Thin(i_int7220sr_receiver in_r, i_uchar7220sr_receiver in_mid, i_uchar7220sr_sender out_mid, OSAPI rtos) implements ST
 {
 
     int r[IMAGE_SIZE];

@@ -12,16 +12,16 @@ import "susan_thin";
 import "edge_draw";
 import "os";
 
-     
-behavior Susan(i_uchar7220_receiver in_image, i_uchar7220_sender out_image) 
+/*     
+behavior Susan(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image) 
 {
 
     OS rtos;
 
-    c_int7220_queue_sr r(1ul);
-    c_uchar7220_queue_sr mid(1ul);
-    c_uchar7220_queue_sr mid_edge_draw(1ul);
-    c_uchar7220_queue_sr image_edge_draw(1ul);
+    c_int7220sr_queue r(1ul);
+    c_uchar7220sr_queue mid(1ul);
+    c_uchar7220sr_queue mid_edge_draw(1ul);
+    c_uchar7220sr_queue image_edge_draw(1ul);
 
     Edges edges(in_image, r, mid, image_edge_draw, rtos);
     Thin thin(r, mid, mid_edge_draw, rtos);
@@ -37,17 +37,17 @@ behavior Susan(i_uchar7220_receiver in_image, i_uchar7220_sender out_image)
     }
    
 };   
-
-behavior TASK_PE1(i_uchar7220_receiver_r in_image, i_uchar7220_sender_s out_image, OSAPI rtos){
+*/
+behavior TASK_PE1(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image, OSAPI rtos){
 
 //    struct Task sedge;
 //    struct Task sthin;
 //    struct Task sdraw;
 
-    c_int7220_queue_sr r(1ul, rtos);
-    c_uchar7220_queue_sr mid(1ul, rtos);
-    c_uchar7220_queue_sr mid_edge_draw(1ul, rtos);
-    c_uchar7220_queue_sr image_edge_draw(1ul, rtos);
+    c_int7220sr_queue r(1ul, rtos);
+    c_uchar7220sr_queue mid(1ul, rtos);
+    c_uchar7220sr_queue mid_edge_draw(1ul, rtos);
+    c_uchar7220sr_queue image_edge_draw(1ul, rtos);
 
     Edges edges(in_image, r, mid, image_edge_draw, rtos);
     Thin thin(r, mid, mid_edge_draw, rtos);
@@ -75,7 +75,7 @@ behavior TASK_PE1(i_uchar7220_receiver_r in_image, i_uchar7220_sender_s out_imag
 
 };
 
-behavior PE1(i_uchar7220_receiver_r in_image, i_uchar7220_sender_s out_image, OSAPI rtos){
+behavior PE1(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image, OSAPI rtos){
     TASK_PE1 task_pe1(in_image, out_image, rtos);
 
     void main(void){

@@ -8,7 +8,7 @@ import "c_uchar7220_queue_r";
 import "c_uchar7220_queue_s";
 import "os";
 
-behavior ReadImage_wp(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_uchar7220_sender out_image){
+behavior ReadImage_wp(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_uchar7220r_sender out_image){
 	ReadImage R(start, image_buffer, out_image);
 	
 	void main(void){
@@ -19,7 +19,7 @@ behavior ReadImage_wp(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_ucha
 };
 
 
-behavior WriteImage_wp(i_uchar7220_receiver in_image, i_sender out_image){
+behavior WriteImage_wp(i_uchar7220s_receiver in_image, i_sender out_image){
 	WriteImage W(in_image, out_image);
 
 	void main(void){
@@ -29,13 +29,13 @@ behavior WriteImage_wp(i_uchar7220_receiver in_image, i_sender out_image){
 	}
 };
 
-behavior Design(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_sender out_image_susan, OSAPI rtos)
+behavior Design(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_sender out_image_susan)
 {
 
     OS rtos;
 
-    c_uchar7220_queue_r in_image(1ul);
-    c_uchar7220_queue_s out_image(1ul);
+    c_uchar7220r_queue in_image(1ul, rtos);
+    c_uchar7220s_queue out_image(1ul, rtos);
     
     ReadImage_wp read_image(start, image_buffer, in_image);
 

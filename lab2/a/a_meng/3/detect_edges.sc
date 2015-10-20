@@ -11,7 +11,7 @@ import "susan_edges";
 import "os";
 
 
-behavior DetectEdges(i_uchar7220_receiver in_image,  i_int7220_sender out_r, i_uchar7220_sender out_mid, i_uchar7220_sender out_image, OSAPI rtos)
+behavior DetectEdges(i_uchar7220r_receiver in_image,  i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, i_uchar7220sr_sender out_image, OSAPI rtos)
 {
 
     uchar bp[516];
@@ -38,7 +38,7 @@ interface DE{
     void main(void);
 };
 
-behavior Edges(i_uchar7220_receiver in_image,  i_int7220_sender out_r, i_uchar7220_sender out_mid, i_uchar7220_sender out_image, OSAPI rtos) implements DE
+behavior Edges(i_uchar7220r_receiver in_image,  i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, i_uchar7220sr_sender out_image, OSAPI rtos) implements DE
 {
 
     struct Task me;

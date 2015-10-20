@@ -1,6 +1,7 @@
 #include "susan.sh"
 
-import "c_uchar7220_queue";
+import "c_uchar7220_queue_sr";
+import "c_uchar7220_queue_s";
 import "os";
 
 interface EDTPA{
@@ -95,7 +96,7 @@ behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int 
     
 };    
 
-behavior EdgeDraw_ReadInput(i_uchar7220_receiver in_image, i_uchar7220_receiver in_mid, uchar image_buffer[IMAGE_SIZE], uchar mid[IMAGE_SIZE])
+behavior EdgeDraw_ReadInput(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid, uchar image_buffer[IMAGE_SIZE], uchar mid[IMAGE_SIZE])
 {
     void main(void) {
         in_image.receive(&image_buffer);
@@ -103,7 +104,7 @@ behavior EdgeDraw_ReadInput(i_uchar7220_receiver in_image, i_uchar7220_receiver 
     }      
 };
 
-behavior EdgeDraw_WriteOutput(uchar image_buffer[IMAGE_SIZE],  i_uchar7220_sender out_image)
+behavior EdgeDraw_WriteOutput(uchar image_buffer[IMAGE_SIZE],  i_uchar7220s_sender out_image)
 {
     void main(void) {
         out_image.send(image_buffer);
@@ -164,7 +165,7 @@ behavior EdgeDraw_PartB(uchar image_buffer[7220], uchar mid[7220], OSAPI rtos)
 };
 
 
-behavior EdgeDraw(i_uchar7220_receiver in_image, i_uchar7220_receiver in_mid,  i_uchar7220_sender out_image, OSAPI rtos)
+behavior EdgeDraw(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid,  i_uchar7220s_sender out_image, OSAPI rtos)
 {
 
     
@@ -192,7 +193,7 @@ interface ED{
     void main(void);
 };
 
-behavior Draw(i_uchar7220_receiver in_image, i_uchar7220_receiver in_mid,  i_uchar7220_sender out_image, OSAPI rtos) implements ED
+behavior Draw(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid,  i_uchar7220s_sender out_image, OSAPI rtos) implements ED
 {
 
     struct Task me;
