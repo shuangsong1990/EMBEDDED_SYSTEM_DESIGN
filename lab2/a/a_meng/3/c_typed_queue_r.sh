@@ -57,8 +57,8 @@
 // - no restrictions exist for use of 'wait', 'notify', 'notifyone'
 
 
-#ifndef C_TYPED_QUEUE_R_SH
-#define C_TYPED_QUEUE_R_SH
+#ifndef C_TYPED_QUEUE_SH
+#define C_TYPED_QUEUE_SH
 
 //#include <stdio.h>	// avoid platform-dependent contents
 extern void perror(const char*);
@@ -77,7 +77,7 @@ extern void *memcpy(void*, const void*, unsigned int);
 import "os";
 
 
-#define DEFINE_C_TYPED_QUEUE_R(typename, type)				\
+#define DEFINE_C_TYPED_QUEUE(typename, type)				\
 									\
 channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 	implements i_ ## typename ## _sender,				\
@@ -186,12 +186,12 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
  *@param typename   user defined name for queue type
  *@param type       SpecC basic or composite type
  */
-#define DEFINE_IC_TYPED_QUEUE_R(typename, type)	                       \
+#define DEFINE_IC_TYPED_R_QUEUE(typename, type)	                       \
                                                                        \
-DEFINE_I_TYPED_TRANCEIVER_R(typename, type)                              \
-DEFINE_I_TYPED_SENDER_R(typename, type)                                  \
-DEFINE_I_TYPED_RECEIVER_R(typename, type)                                \
-DEFINE_C_TYPED_QUEUE_R(typename, type) 
+DEFINE_I_TYPED_TRANCEIVER(typename, type)                              \
+DEFINE_I_TYPED_SENDER(typename, type)                                  \
+DEFINE_I_TYPED_RECEIVER(typename, type)                                \
+DEFINE_C_TYPED_QUEUE(typename, type) 
 
 
 

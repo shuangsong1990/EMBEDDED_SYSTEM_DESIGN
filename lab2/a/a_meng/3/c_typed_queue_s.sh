@@ -151,13 +151,13 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 									\
     void send(type d)							\
     {									\
-	int position = 0;
+	int position = 0;						\
 	while(n >= size)						\
 	{								\
 	    ws++;							\
-	    position = pre_wait();
+	    position = rtos.pre_wait();					\
 	    wait s;							\
-	    post_wait(position);
+	    rtos.post_wait(position);					\
 	    ws--;							\
 	}								\
 									\

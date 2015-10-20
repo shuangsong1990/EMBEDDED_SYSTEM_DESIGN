@@ -84,7 +84,7 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 		i_ ## typename ## _receiver,				\
 		i_ ## typename ## _tranceiver				\
 {									\
-    note _SCE_STANDARD_LIB = { "c_queue", #typename, #type };		\
+    note _SCE_STANDARD_LIB = { "c_queue_sr", #typename, #type };		\
 									\
     event         r,							\
                   s;							\
@@ -124,13 +124,13 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 									\
     void receive(type *d)						\
     {									\
-	int position;
+	int position;							\
 	while(! n)							\
 	{								\
 	    wr++;							\
-	    position = pre_wait();
+	    position = rtos.pre_wait();					\
 	    wait r;							\
-	    post_wait(position);
+	    rtos.post_wait(position);					\
 	    wr--;							\
 	}								\
 									\
@@ -154,13 +154,13 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 									\
     void send(type d)							\
     {									\
-	int position;
+	int position;							\
 	while(n >= size)						\
 	{								\
 	    ws++;							\
-	    position = pre_wait();
+	    position = rtos.pre_wait();					\
 	    wait s;							\
-	    post_wait(position);
+	    rtos.post_wait(position);					\
 	    ws--;							\
 	}								\
 									\
