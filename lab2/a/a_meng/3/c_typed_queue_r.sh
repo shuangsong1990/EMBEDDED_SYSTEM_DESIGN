@@ -124,13 +124,14 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 									\
     void receive(type *d)						\
     {									\
-        int position;							\
+	struct Task t;							\
 	while(! n)							\
 	{								\
 	    wr++;							\
-	    position = rtos.pre_wait();					\	
+	    t = rtos.pre_wait();					\	
 	    wait r;							\
-	    rtos.post_wait(position);					\
+	    printf("receive post wait \n");				\
+	    rtos.post_wait(t);						\
 	    wr--;							\
 	}								\
 									\

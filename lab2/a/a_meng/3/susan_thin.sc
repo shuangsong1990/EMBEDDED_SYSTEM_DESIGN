@@ -221,6 +221,7 @@ behavior SusanThinThread(int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE], in int thID, 
 
 	} //add one }
 
+	printf("susan thin thread terminate\n");
 	rtos.task_terminate();
  
     }                
@@ -291,14 +292,19 @@ behavior Thin(i_int7220sr_receiver in_r, i_uchar7220sr_receiver in_mid, i_uchar7
     void main(void) {
   	rtos.task_activate(me);
 	printf("activate! current id is %d\n", me.id);
-	fsm {
-            susan_thin_read_input: goto susan_thin;
-            susan_thin: { goto susan_thin_write_output;}
-            susan_thin_write_output: goto susan_thin_read_input;
-	}
+
+	susan_thin_read_input;
+	susan_thin;
+	susan_thin_write_output;
+
+//	fsm {
+//            susan_thin_read_input: goto susan_thin;
+//            susan_thin: { goto susan_thin_write_output;}
+//            susan_thin_write_output: goto susan_thin_read_input;
+//	}
 
 	rtos.task_terminate();
-	printf("terminate! current id is %d\n", me.id);
+	printf("!!!!!!!terminate! current id is %d\n", me.id);
     }
     
 };

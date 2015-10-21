@@ -334,8 +334,11 @@ behavior SusanEdges_WriteOutput(i_int7220sr_sender out_r, i_uchar7220sr_sender o
 
     void main(void) {
         out_r.send(r);
+	printf("send r\n");
         out_mid.send(mid);
+	printf("send mid\n");
         out_image.send(out_image_buffer);
+	printf("send out image\n");
     }
 };
 

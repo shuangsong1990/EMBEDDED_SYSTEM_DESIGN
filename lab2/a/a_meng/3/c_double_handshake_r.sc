@@ -79,16 +79,17 @@ channel my_c_double_handshake_r (OSAPI rtos) implements i_sender, i_receiver, i_
     const void    *tmpd;
     unsigned long tmpl;
 
-    int position = 0;
+    //int position = 0;
+    struct Task t;
 
     void receive(void *d, unsigned long l)
     {
 	if (!v)
 	{
 	    w = true;
-	    position = rtos.pre_wait();
+	    t = rtos.pre_wait();
 	    wait req;
-	    rtos.post_wait(position);
+	    rtos.post_wait(t);
 	    w = false;
 	}
 	if (l != tmpl)
@@ -98,9 +99,9 @@ channel my_c_double_handshake_r (OSAPI rtos) implements i_sender, i_receiver, i_
 	memcpy(d, tmpd, l);
 	v = false;
 	notify ack;
-	position = rtos.pre_wait();
+	t = rtos.pre_wait();
 	wait ack;
-	rtos.post_wait(position);
+	rtos.post_wait(t);
     }
 
     void send(const void *d, unsigned long l)

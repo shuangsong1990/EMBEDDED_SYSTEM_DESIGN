@@ -1,0 +1,5273 @@
+./susan_edge_detector
+Starting process 1...
+name is SEDGE and id is 1
+push task id : 1
+name is STHIN and id is 2
+push task id : 2
+name is SDRAW and id is 3
+push task id : 3
+pop task id : 1
+current.id = 1
+e0 send
+activate! current id is 1
+name is SBLUT and id is 4
+name is SEDGE and id is 5
+name is SLUT and id is 6
+push task id : 6
+name is SLUT and id is 7
+push task id : 7
+pop task id : 2
+current.id = 2
+e1 send
+activate! current id is 2
+pop task id : 3
+current.id = 3
+e2 send
+activate! current id is 3
+pop task id : 6
+current.id = 6
+e3 send
+compute thread id is 6 
+Starting process 2...
+Starting process 3...
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+compute thread id is 6 
+time to wait 2700
+push task id : 6
+pop task id : 7
+current.id = 7
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+compute thread id is 7 
+time to wait 2700
+push task id : 7
+pop task id : 6
+current.id = 6
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+current task to be termnidate is 6
+TERMINATION head 18 tail 19 
+pop task id : 7
+current.id = 7
+head 19 tail 19 
+current task to be termnidate is 7
+name is SETPA and id is 8
+push task id : 8
+name is SETPA and id is 9
+push task id : 9
+pop task id : 8
+current.id = 8
+e0 send
+SEPTA i is 3 
+Starting process 4...
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+SEPTA i is 47 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+SEPTA i is 4 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+SEPTA i is 48 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+SEPTA i is 5 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+SEPTA i is 49 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+SEPTA i is 6 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+SEPTA i is 50 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+SEPTA i is 7 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+SEPTA i is 51 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+SEPTA i is 8 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+SEPTA i is 52 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+SEPTA i is 9 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+SEPTA i is 53 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+SEPTA i is 10 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+SEPTA i is 54 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+SEPTA i is 11 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+SEPTA i is 55 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+SEPTA i is 12 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+SEPTA i is 56 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+SEPTA i is 13 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+SEPTA i is 57 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+SEPTA i is 14 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+SEPTA i is 58 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+SEPTA i is 15 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+SEPTA i is 59 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+SEPTA i is 16 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+SEPTA i is 60 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+SEPTA i is 17 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+SEPTA i is 61 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+SEPTA i is 18 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+SEPTA i is 62 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+SEPTA i is 19 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+SEPTA i is 63 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+SEPTA i is 20 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+SEPTA i is 64 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+SEPTA i is 21 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+SEPTA i is 65 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+SEPTA i is 22 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+SEPTA i is 66 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+SEPTA i is 23 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+SEPTA i is 67 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+SEPTA i is 24 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+SEPTA i is 68 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+SEPTA i is 25 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+SEPTA i is 69 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+SEPTA i is 26 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+SEPTA i is 70 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+SEPTA i is 27 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+SEPTA i is 71 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+SEPTA i is 28 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+SEPTA i is 72 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+SEPTA i is 29 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+SEPTA i is 73 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+SEPTA i is 30 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+SEPTA i is 74 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+SEPTA i is 31 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+SEPTA i is 75 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+SEPTA i is 32 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+SEPTA i is 76 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+SEPTA i is 33 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+SEPTA i is 77 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+SEPTA i is 34 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+SEPTA i is 78 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+SEPTA i is 35 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+SEPTA i is 79 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+SEPTA i is 36 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+SEPTA i is 80 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+SEPTA i is 37 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+SEPTA i is 81 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+SEPTA i is 38 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+SEPTA i is 82 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+SEPTA i is 39 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+SEPTA i is 83 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+SEPTA i is 40 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+SEPTA i is 84 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+SEPTA i is 41 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+SEPTA i is 85 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+SEPTA i is 42 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+SEPTA i is 86 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+SEPTA i is 43 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+SEPTA i is 87 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+SEPTA i is 44 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+SEPTA i is 88 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+SEPTA i is 45 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+SEPTA i is 89 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+SEPTA i is 46 
+time to wait 19000000
+push task id : 8
+pop task id : 9
+current.id = 9
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+SEPTA i is 90 
+time to wait 19000000
+push task id : 9
+pop task id : 8
+current.id = 8
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+TERMINATION head 9 tail 10 
+pop task id : 9
+current.id = 9
+e9 send
+head 10 tail 10 
+SEPTA i is 91 
+time to wait 19000000
+push task id : 9
+pop task id : 9
+current.id = 9
+e0 send
+head is 1 ; tail is 1 ;  position is 0
+e0 wait here
+name is SEPT2 and id is 10
+name is SETPB and id is 11
+push task id : 11
+name is SETPB and id is 12
+push task id : 12
+pop task id : 11
+current.id = 11
+e1 send
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e8 send
+head is 9 ; tail is 10 ;  position is 9
+e9 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e9 send
+head is 10 ; tail is 11 ;  position is 10
+e10 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e10 send
+head is 11 ; tail is 12 ;  position is 11
+e11 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e11 send
+head is 12 ; tail is 13 ;  position is 12
+e12 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e12 send
+head is 13 ; tail is 14 ;  position is 13
+e13 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 14 ; tail is 15 ;  position is 14
+e14 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 15 ; tail is 16 ;  position is 15
+e15 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 16 ; tail is 17 ;  position is 16
+e16 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 17 ; tail is 18 ;  position is 17
+e17 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 18 ; tail is 19 ;  position is 18
+e18 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+head is 19 ; tail is 0 ;  position is 19
+e19 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+head is 0 ; tail is 1 ;  position is 0
+e0 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e0 send
+head is 1 ; tail is 2 ;  position is 1
+e1 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e1 send
+head is 2 ; tail is 3 ;  position is 2
+e2 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e2 send
+head is 3 ; tail is 4 ;  position is 3
+e3 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e3 send
+head is 4 ; tail is 5 ;  position is 4
+e4 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e4 send
+head is 5 ; tail is 6 ;  position is 5
+e5 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e5 send
+head is 6 ; tail is 7 ;  position is 6
+e6 wait here
+time to wait 20000000
+push task id : 11
+pop task id : 12
+current.id = 12
+e6 send
+head is 7 ; tail is 8 ;  position is 7
+e7 wait here
+time to wait 20000000
+push task id : 12
+pop task id : 11
+current.id = 11
+e7 send
+head is 8 ; tail is 9 ;  position is 8
+e8 wait here
+TERMINATION head 8 tail 9 
+pop task id : 12
+current.id = 12
+e8 send
+head 9 tail 9 
+time to wait 20000000
+push task id : 12
+pop task id : 12
+current.id = 12
+e0 send
+head is 1 ; tail is 1 ;  position is 0
+e0 wait here
+terminate! current id is 1
+queue is full
+queue is empty
+current.id = 134606208
+e1 send
+post_wait : e0 wait here
+queue is full
+queue is empty
+current.id = 134606208
+e1 send
+post_wait : e0 wait here
+diff -s out.pgm golden.pgm
+Binary files out.pgm and golden.pgm differ

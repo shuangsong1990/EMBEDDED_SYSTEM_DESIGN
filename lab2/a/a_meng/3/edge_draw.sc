@@ -100,8 +100,10 @@ behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int 
 behavior EdgeDraw_ReadInput(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid, uchar image_buffer[IMAGE_SIZE], uchar mid[IMAGE_SIZE])
 {
     void main(void) {
-        in_image.receive(&image_buffer);
         in_mid.receive(&mid);
+	printf("receive mid in edge draw\n");
+        in_image.receive(&image_buffer);
+	printf("receive image in edge draw\n");
     }      
 };
 
@@ -122,8 +124,8 @@ behavior EdgeDraw_PartA(uchar image_buffer[7220], uchar mid[7220], OSAPI rtos)
     
     void main(void) {
 
-        edge_draw_a_thread_0.main();
-        edge_draw_a_thread_1.main();
+        edge_draw_a_thread_0.init();
+        edge_draw_a_thread_1.init();
 
 	my_t = rtos.par_start();
 
