@@ -270,7 +270,7 @@ channel OS implements OSAPI{
 		}
 	*/
 //			if( (head + 1 <= tail ) || (head == 19 && tail == 0)){
-			if ((head + 1 <= tail) || (head + 1 > tail && head + 1 <= tail + 20)){
+			if ((head + 1 <= tail) || ((head + 1 > tail) && (head + 1 <= tail + 20))){
 				unsigned int i ;
 				for ( i=0; i < 20; i++){
 					if( rdyq[i].valid == 1)
@@ -279,10 +279,10 @@ channel OS implements OSAPI{
 				printf("TERMINATION head %d tail %d \n", head, tail);
 				printf("current id is %d\n", current.id);
 				dispatch();
-				printf("head %d tail %d \n", head, tail);
-				head = 0;
-				tail = 0; /// try
-				start = 0;	
+				printf("my head %d tail %d \n", head, tail);
+//				head = 0;
+//				tail = 0; /// try
+//				start = 0;	
 			}	
 			else{
 				start = 0;
@@ -291,7 +291,7 @@ channel OS implements OSAPI{
 	}
 	void yield(void){
 		unsigned int position;
-		unsigned int i;
+		unsigned int i, flag;
 		struct Task t;
 		t = current;
 		position = head;
@@ -319,6 +319,13 @@ channel OS implements OSAPI{
 		}	
 	
 		printf("head is %d ; tail is %d ;  position is %d\n", head, tail, position);
+
+		flag = 0;
+
+		if (position <= tail && position >= head)
+		    flag = 1;
+
+		if (flag == 1){
 
 		switch(position){
 			case 0:
@@ -401,7 +408,10 @@ channel OS implements OSAPI{
 				printf("e19 wait here\n");
 				e19.receive();
 				break;
+			default:
+				break;
 		}	
+		}
 	}
 
 	struct Task pre_wait(){

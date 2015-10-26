@@ -35,7 +35,7 @@ behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int 
             midp=mid + IMAGE_SIZE/PROCESSORS *thID;
             for (i=X_SIZE*Y_SIZE/PROCESSORS*thID; i<X_SIZE*Y_SIZE/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && X_SIZE*Y_SIZE%PROCESSORS!=0 ?X_SIZE*Y_SIZE%PROCESSORS : 0); i++)
             {
-		printf("EDPTA i is %d, maximum is %d \n", i, X_SIZE*Y_SIZE/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && X_SIZE*Y_SIZE%PROCESSORS!=0 ?X_SIZE*Y_SIZE%PROCESSORS : 0));
+		printf("EDPTA i is %d, maximum is %d, id is %d \n", i, X_SIZE*Y_SIZE/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && X_SIZE*Y_SIZE%PROCESSORS!=0 ?X_SIZE*Y_SIZE%PROCESSORS : 0), thID);
 		rtos.time_wait(12000000);
 //		waitfor(12000000); //////waitfor statements
                 if (*midp<8) 
@@ -112,6 +112,7 @@ behavior EdgeDraw_WriteOutput(uchar image_buffer[IMAGE_SIZE],  i_uchar7220s_send
 {
     void main(void) {
         out_image.send(image_buffer);
+	printf("edge draw terminate\n");
     }
 };
 
