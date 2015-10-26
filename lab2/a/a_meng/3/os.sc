@@ -271,7 +271,7 @@ channel OS implements OSAPI{
 	*/
 			if( (head + 1 == tail ) || (head == 19 && tail == 0)){
 				unsigned int i ;
-				for ( i=0; i < 3; i++){
+				for ( i=0; i < 20; i++){
 					if( rdyq[i].valid == 1)
 						printf("valid --------------- i %d id %d valid %d\n", i, rdyq[i].id, rdyq[i].valid);
 				}

@@ -60,10 +60,11 @@ behavior PE1(i_uchar7220r_receiver in_image, i_uchar7220s_sender out_image, OSAP
     TASK_PE1 task_pe1(in_image, out_image, rtos);
 
     void main(void){
+	task_pe1.main();
 
-	fsm{
-	    task_pe1: {goto task_pe1;}
-	}
+//	fsm{
+//	    task_pe1: {goto task_pe1;}
+//	}
 
     }
 };

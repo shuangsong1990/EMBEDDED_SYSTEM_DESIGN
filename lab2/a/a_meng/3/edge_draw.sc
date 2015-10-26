@@ -35,7 +35,7 @@ behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int 
             midp=mid + IMAGE_SIZE/PROCESSORS *thID;
             for (i=X_SIZE*Y_SIZE/PROCESSORS*thID; i<X_SIZE*Y_SIZE/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && X_SIZE*Y_SIZE%PROCESSORS!=0 ?X_SIZE*Y_SIZE%PROCESSORS : 0); i++)
             {
-		printf("EDPTA i is %d\n", i);
+		printf("EDPTA i is %d, maximum is %d \n", i, X_SIZE*Y_SIZE/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && X_SIZE*Y_SIZE%PROCESSORS!=0 ?X_SIZE*Y_SIZE%PROCESSORS : 0));
 		rtos.time_wait(12000000);
 //		waitfor(12000000); //////waitfor statements
                 if (*midp<8) 
@@ -48,6 +48,7 @@ behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int 
                 midp++;
             }
         }
+	printf("jump out of EDPTA");
 	rtos.task_terminate();
      }   
    
@@ -66,7 +67,7 @@ behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int 
     struct Task me;
 
     void init(void){
-	me = rtos.task_create("EDPTA");
+	me = rtos.task_create("EDPTB");
 	rtos.push_t(me);
     }
 
@@ -133,6 +134,8 @@ behavior EdgeDraw_PartA(uchar image_buffer[7220], uchar mid[7220], OSAPI rtos)
             edge_draw_a_thread_0;
             edge_draw_a_thread_1;
 	}
+
+	printf("end of EDPTA\n");
 
 //	rtos.par_end(my_t);
     }     
@@ -211,7 +214,9 @@ behavior Draw(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid,  i
     void main(void) {
 	rtos.task_activate(me);
 	printf("activate! current id is %d\n", me.id);
-        edge_draw.main();
+	fsm{
+            edge_draw: {goto edge_draw;}
+	}
 	rtos.task_terminate();
 	printf("terminate! current id is %d\n", me.id);
     }

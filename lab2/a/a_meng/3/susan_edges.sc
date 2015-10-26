@@ -39,7 +39,7 @@ behavior SusanEdgesThread_PartA(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
         for (i=3+(Y_SIZE-3-3)/PROCESSORS*thID; i<3+(Y_SIZE-3-3)/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && (Y_SIZE-3-3)%PROCESSORS!=0 ? (Y_SIZE-3-3)%PROCESSORS : 0); i++){
 
 //	waitfor(19000000); ///////waitfor statement in SE_A
-	    printf("SEPTA i is %d \n", i);
+	    printf("SEPTA i is %d, maximum is %d \n", i, 3+(Y_SIZE-3-3)/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && (Y_SIZE-3-3)%PROCESSORS!=0 ? (Y_SIZE-3-3)%PROCESSORS : 0));
 	    //printf("current process is %d\n", me.id);
 
 	    rtos.time_wait(19000000);
