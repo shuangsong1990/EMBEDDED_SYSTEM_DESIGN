@@ -269,7 +269,8 @@ channel OS implements OSAPI{
 			dispatch();
 		}
 	*/
-			if( (head + 1 == tail ) || (head == 19 && tail == 0)){
+//			if( (head + 1 <= tail ) || (head == 19 && tail == 0)){
+			if ((head + 1 <= tail) || (head + 1 > tail && head + 1 <= tail + 20)){
 				unsigned int i ;
 				for ( i=0; i < 20; i++){
 					if( rdyq[i].valid == 1)

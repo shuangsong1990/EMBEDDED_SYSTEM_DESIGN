@@ -303,8 +303,8 @@ behavior Thin(i_int7220sr_receiver in_r, i_uchar7220sr_receiver in_mid, i_uchar7
             susan_thin_write_output: goto susan_thin_read_input;
 	}
 
-	rtos.task_terminate();
 	printf("!!!!!!!terminate! current id is %d\n", me.id);
+	rtos.task_terminate();
     }
     
 };

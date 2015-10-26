@@ -217,8 +217,8 @@ behavior Draw(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid,  i
 	fsm{
             edge_draw: {goto edge_draw;}
 	}
-	rtos.task_terminate();
 	printf("terminate! current id is %d\n", me.id);
+	rtos.task_terminate();
     }
     
 };

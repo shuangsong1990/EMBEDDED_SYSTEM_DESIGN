@@ -56,8 +56,8 @@ behavior Edges(i_uchar7220r_receiver in_image,  i_int7220sr_sender out_r, i_ucha
 	fsm{
             detect_edges: {goto detect_edges;}
 	}
-	rtos.task_terminate();
 	printf("terminate! current id is %d\n", me.id);
+//	rtos.task_terminate();
     }
 };
 

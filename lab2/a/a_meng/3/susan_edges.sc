@@ -106,7 +106,7 @@ behavior SusanEdgesThread_PartA(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
 
 	} //// add one }
 
-	//printf("finally I catch you, task is %d\n", me.id);
+	printf("finally I catch you, task is %d\n", me.id);
 	rtos.task_terminate();
                                
     }           
