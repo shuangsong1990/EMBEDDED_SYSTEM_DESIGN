@@ -2734,24 +2734,25 @@ typedef int TOTAL_TYPE;
 typedef unsigned char uchar;
 # 2 "susan_thin.sc" 2
 
+
+import "c_uchar7220_queue_r";
+import "c_uchar7220_queue_s";
 import "c_uchar7220_queue_sr";
+import "c_int7220_queue_r";
+import "c_int7220_queue_s";
 import "c_int7220_queue_sr";
 import "os";
+import "init";
 
-interface STT{
-
-    void init(void);
-    void main(void);
-
-};
-
-behavior SusanThinThread(int r[7220], uchar mid[7220], in int thID, OSAPI rtos) implements STT
+behavior SusanThinThread(int r[7220], uchar mid[7220], in int thID, OSAPI rtos) implements INIT
 {
 
-    struct Task me;
+    struct Task task;
+
     void init(void){
- me = rtos.task_create("STT");
- rtos.push_t(me);
+ task = rtos.task_create("STT");
+ rtos.push_t(task);
+ return;
     }
 
     void main (void) {
@@ -2762,13 +2763,11 @@ behavior SusanThinThread(int r[7220], uchar mid[7220], in int thID, OSAPI rtos) 
                 m, n, a, b, x, y, i, j;
         uchar *mp;
 
- rtos.task_activate(me);
 
 
- for (i=4+(95 -4-4)/2*thID; i<4+(95 -4-4)/2*(thID+1) + (thID+1==2 && (95 -4-4)%2!=0 ? (95 -4-4)%2 : 0); i++){
+     for (i=4+(95 -4-4)/2*thID; i<4+(95 -4-4)/2*(thID+1) + (thID+1==2 && (95 -4-4)%2!=0 ? (95 -4-4)%2 : 0); i++){
 
  rtos.time_wait(6400000);
-
 
             for (j=4;j<76 -4;j++)
                 if (mid[i*76 +j]<8)
@@ -2883,7 +2882,7 @@ behavior SusanThinThread(int r[7220], uchar mid[7220], in int thID, OSAPI rtos) 
                             b12 = mid[(i )*76 +j+1]<8;
                             b21 = mid[(i+1)*76 +j ]<8;
                             b10 = mid[(i )*76 +j-1]<8;
-# 176 "susan_thin.sc"
+# 175 "susan_thin.sc"
                             if (((b01+b12+b21+b10)==2) && ((b10|b12)&(b01|b21)) &&
                                 ((b01&((mid[(i-2)*76 +j-1]<8)|(mid[(i-2)*76 +j+1]<8)))|(b10&((mid[(i-1)*76 +j-2]<8)|(mid[(i+1)*76 +j-2]<8)))|
                                 (b12&((mid[(i-1)*76 +j+2]<8)|(mid[(i+1)*76 +j+2]<8)))|(b21&((mid[(i+2)*76 +j-1]<8)|(mid[(i+2)*76 +j+1]<8)))) )
@@ -2932,8 +2931,7 @@ behavior SusanThinThread(int r[7220], uchar mid[7220], in int thID, OSAPI rtos) 
 
  }
 
- printf("susan thin thread terminate\n");
- rtos.task_terminate();
+
 
     }
 };
@@ -2942,8 +2940,12 @@ behavior SusanThin_ReadInput(i_int7220sr_receiver in_r, i_uchar7220sr_receiver i
 {
 
     void main(void) {
+ printf("susan thin r pre wait\n");
         in_r.receive(&r);
+ printf("susan thin r post wait\n");
+ printf("susan thin mid pre wait\n");
         in_mid.receive(&mid);
+ printf("susan thin mid post wait\n");
     }
 };
 
@@ -2957,65 +2959,62 @@ behavior SusanThin_WriteOutput(i_uchar7220sr_sender out_mid, uchar mid[7220])
 behavior SusanThin(int r[7220], uchar mid[7220], OSAPI rtos)
 {
 
+    struct Task task;
+
     SusanThinThread susan_thin_thread_0(r, mid, 0, rtos);
     SusanThinThread susan_thin_thread_1(r, mid, 1, rtos);
 
-    struct Task my_t;
-
     void main(void) {
 
- susan_thin_thread_0.init();
- susan_thin_thread_1.init();
 
- my_t = rtos.par_start();
 
- par{
-            susan_thin_thread_0.main();
-            susan_thin_thread_1.main();
-     }
 
+       printf("susan thin: par start\n");
+
+
+
+            susan_thin_thread_0;
+            susan_thin_thread_1;
+
+
+
+
+ return;
     }
+
 };
 
-interface ST{
-    void init(void);
-    void main(void);
-};
-
-behavior Thin(i_int7220sr_receiver in_r, i_uchar7220sr_receiver in_mid, i_uchar7220sr_sender out_mid, OSAPI rtos) implements ST
+behavior Thin(i_int7220sr_receiver in_r, i_uchar7220sr_receiver in_mid, i_uchar7220sr_sender out_mid, OSAPI rtos) implements INIT
 {
+
+    struct Task task;
 
     int r[7220];
     uchar mid[7220];
-
-    struct Task me;
 
     SusanThin_ReadInput susan_thin_read_input(in_r, in_mid, r, mid);
     SusanThin_WriteOutput susan_thin_write_output(out_mid, mid);
     SusanThin susan_thin(r, mid, rtos);
 
+
     void init(void){
- me = rtos.task_create("STHIN");
- rtos.push_t(me);
+ task = rtos.task_create("STHIN");
+ rtos.push_t(task);
+ return;
     }
 
-
     void main(void) {
-   rtos.task_activate(me);
- printf("activate! current id is %d\n", me.id);
 
- susan_thin_read_input;
- susan_thin;
- susan_thin_write_output;
+ rtos.task_activate(task);
 
-
-
-
-
-
+        fsm {
+            susan_thin_read_input: goto susan_thin;
+            susan_thin: { goto susan_thin_write_output;}
+            susan_thin_write_output: goto susan_thin_read_input;
+        }
 
  rtos.task_terminate();
- printf("!!!!!!!terminate! current id is %d\n", me.id);
+
     }
 
 };

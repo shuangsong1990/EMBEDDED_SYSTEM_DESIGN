@@ -29,7 +29,7 @@ behavior SusanThinThread(int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE], in int thID, 
                 m, n, a, b, x, y, i, j;
         uchar *mp;
 
-	rtos.task_activate(task);
+//	rtos.task_activate(task);
 
 	    for (i=4+(Y_SIZE-4-4)/PROCESSORS*thID; i<4+(Y_SIZE-4-4)/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && (Y_SIZE-4-4)%PROCESSORS!=0 ? (Y_SIZE-4-4)%PROCESSORS : 0); i++){
  
@@ -220,7 +220,7 @@ behavior SusanThinThread(int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE], in int thID, 
 
 	} //add one }
 
-	rtos.task_terminate();
+//	rtos.task_terminate();
  
     }                
 };
@@ -255,18 +255,18 @@ behavior SusanThin(int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE], OSAPI rtos)
     
     void main(void) {        
 
-       susan_thin_thread_0.init(); 
-       susan_thin_thread_1.init();       
+//       susan_thin_thread_0.init(); 
+//       susan_thin_thread_1.init();       
 
        printf("susan thin: par start\n");
-       task = rtos.par_start();
+//       task = rtos.par_start();
 
-       par {
+//       par {
             susan_thin_thread_0;
             susan_thin_thread_1;
-        }                   
+//        }                   
 
-       rtos.par_end(task);
+//       rtos.par_end(task);
 
 	return;
     }

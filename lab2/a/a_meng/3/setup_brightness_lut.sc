@@ -20,7 +20,7 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
         thresh = BT;
         form = 6;
 
-	rtos.task_activate(task);
+//	rtos.task_activate(task);
 
         //for(k=-256;k<257;k++)
        for(k=(-256)+512/PROCESSORS*thID; k<(-256)+512/PROCESSORS*thID+512/PROCESSORS+1; k++){
@@ -35,7 +35,7 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
             bp[(k+258)] = (uchar) temp;
         }
 
-	rtos.task_terminate();
+//	rtos.task_terminate();
 
 	return;
 
@@ -53,18 +53,18 @@ behavior SetupBrightnessLut(uchar bp[516], OSAPI rtos)
        
     void main(void) {
 
-        setup_brightness_thread_0.init();
-        setup_brightness_thread_1.init();
+//        setup_brightness_thread_0.init();
+//        setup_brightness_thread_1.init();
 
       printf("set up brightness: par start\n");
-	task = rtos.par_start();
+//	task = rtos.par_start();
 
-        par {
+//        par {
             setup_brightness_thread_0;
             setup_brightness_thread_1;
-        }
+//        }
 
-	rtos.par_end(task);
+//	rtos.par_end(task);
 	return;
 	
     }

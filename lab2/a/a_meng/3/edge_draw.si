@@ -2734,25 +2734,28 @@ typedef int TOTAL_TYPE;
 typedef unsigned char uchar;
 # 2 "edge_draw.sc" 2
 
-import "c_uchar7220_queue_sr";
+
+import "c_uchar7220_queue_r";
 import "c_uchar7220_queue_s";
+import "c_uchar7220_queue_sr";
+import "c_int7220_queue_r";
+import "c_int7220_queue_s";
+import "c_int7220_queue_sr";
 import "os";
+import "init";
 
-interface EDTPA{
-
-    void init(void);
-    void main(void);
-};
-
-behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int thID, OSAPI rtos) implements EDTPA
+behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int thID, OSAPI rtos) implements INIT
 {
 
-    struct Task me;
+    struct Task task;
+
 
     void init(void){
- me = rtos.task_create("EDTPA");
- rtos.push_t(me);
+ task = rtos.task_create("EDTPA");
+ rtos.push_t(task);
+ return;
     }
+
 
     void main(void) {
 
@@ -2760,18 +2763,18 @@ behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int 
         uchar *inp, *midp;
         int drawing_mode;
 
- rtos.task_activate(me);
-
         drawing_mode = 0;
+
+
+
         if (drawing_mode==0)
         {
 
             midp=mid + 7220/2 *thID;
+
             for (i=76*95/2*thID; i<76*95/2*(thID+1) + (thID+1==2 && 76*95%2!=0 ?76*95%2 : 0); i++)
             {
-  printf("EDPTA i is %d\n", i);
   rtos.time_wait(12000000);
-
                 if (*midp<8)
                 {
                     inp = image_buffer + (midp - mid) - 76 - 1;
@@ -2782,27 +2785,26 @@ behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int 
                 midp++;
             }
         }
- rtos.task_terminate();
+
+
+
      }
 
 };
 
-interface EDTPB{
 
-    void init(void);
-    void main(void);
-
-};
-
-behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int thID, OSAPI rtos) implements EDTPB
+behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int thID, OSAPI rtos) implements INIT
 {
 
-    struct Task me;
+    struct Task task;
+
 
     void init(void){
- me = rtos.task_create("EDPTA");
- rtos.push_t(me);
+ task = rtos.task_create("EDTPB");
+ rtos.push_t(task);
+ return;
     }
+
 
     void main(void) {
 
@@ -2810,23 +2812,24 @@ behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int 
         uchar *midp;
         int drawing_mode;
 
- rtos.task_activate(me);
-
         drawing_mode = 0;
 
 
         midp=mid+ 7220/2 *thID;
 
+ printf("EDTPB activate check\n");
+
+
+
         for (i=76*95/2*thID; i<76*95/2*(thID+1) + (thID+1==2 && 76*95%2!=0 ?76*95%2 : 0); i++)
         {
      rtos.time_wait(12000000);
-
             if (*midp<8)
                 *(image_buffer+ (midp - mid)) = 0;
             midp++;
         }
 
- rtos.task_terminate();
+
     }
 
 };
@@ -2834,10 +2837,12 @@ behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int 
 behavior EdgeDraw_ReadInput(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid, uchar image_buffer[7220], uchar mid[7220])
 {
     void main(void) {
-        in_mid.receive(&mid);
- printf("receive mid in edge draw\n");
+ printf("edge draw image pre wait\n");
         in_image.receive(&image_buffer);
- printf("receive image in edge draw\n");
+ printf("edge draw image post wait\n");
+ printf("edge draw mid pre wait\n");
+        in_mid.receive(&mid);
+ printf("edge draw mid post wait\n");
     }
 };
 
@@ -2851,52 +2856,51 @@ behavior EdgeDraw_WriteOutput(uchar image_buffer[7220], i_uchar7220s_sender out_
 behavior EdgeDraw_PartA(uchar image_buffer[7220], uchar mid[7220], OSAPI rtos)
 {
 
+    struct Task task;
+
     EdgeDrawThread_PartA edge_draw_a_thread_0(image_buffer, mid, 0, rtos);
     EdgeDrawThread_PartA edge_draw_a_thread_1(image_buffer, mid, 1, rtos);
 
-    struct Task my_t;
-
     void main(void) {
 
-        edge_draw_a_thread_0.init();
-        edge_draw_a_thread_1.init();
 
- my_t = rtos.par_start();
 
- par{
+      printf("edge draw part A: par start\n");
+
+
+
             edge_draw_a_thread_0;
             edge_draw_a_thread_1;
- }
 
 
+
+
+ return;
     }
 };
 
 behavior EdgeDraw_PartB(uchar image_buffer[7220], uchar mid[7220], OSAPI rtos)
 {
 
+    struct Task task;
+
     EdgeDrawThread_PartB edge_draw_b_thread_0(image_buffer, mid, 0, rtos);
     EdgeDrawThread_PartB edge_draw_b_thread_1(image_buffer, mid, 1, rtos);
 
-    struct Task my_t;
-    struct Task edtp2;
-
     void main(void) {
 
- edtp2 = rtos.task_create("EDPT2");
 
- rtos.init(edtp2);
 
-        edge_draw_b_thread_0.init();
-        edge_draw_b_thread_1.init();
+      printf("edge draw part B: par start\n");
 
- my_t = rtos.par_start();
 
- par{
+
             edge_draw_b_thread_0;
             edge_draw_b_thread_1;
- }
 
+
+
+ return;
 
     }
 };
@@ -2914,40 +2918,38 @@ behavior EdgeDraw(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid
     EdgeDraw_PartA edge_draw_a(image_buffer, mid, rtos);
     EdgeDraw_PartB edge_draw_b(image_buffer, mid, rtos);
 
+
     void main(void) {
- fsm{
+
+        fsm{
             edge_draw_read_input: goto edge_draw_a;
             edge_draw_a: goto edge_draw_b;
             edge_draw_b: goto edge_draw_write_output;
             edge_draw_write_output: {}
- }
+        }
     }
 
 };
 
-interface ED{
-    void init(void);
-    void main(void);
-};
-
-behavior Draw(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid, i_uchar7220s_sender out_image, OSAPI rtos) implements ED
+behavior Draw(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid, i_uchar7220s_sender out_image, OSAPI rtos) implements INIT
 {
 
-    struct Task me;
+    struct Task task;
 
     EdgeDraw edge_draw(in_image, in_mid, out_image, rtos);
 
-    void init(void) {
- me = rtos.task_create("SDRAW");
- rtos.push_t(me);
+    void init(void){
+ task = rtos.task_create("SDRAW");
+ rtos.push_t(task);
+ return;
     }
 
     void main(void) {
- rtos.task_activate(me);
- printf("activate! current id is %d\n", me.id);
-        edge_draw.main();
+ rtos.task_activate(task);
+        fsm {
+            edge_draw: {goto edge_draw;}
+        }
  rtos.task_terminate();
- printf("terminate! current id is %d\n", me.id);
     }
 
 };

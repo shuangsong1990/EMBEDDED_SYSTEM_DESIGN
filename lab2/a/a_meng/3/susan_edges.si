@@ -2734,29 +2734,26 @@ typedef int TOTAL_TYPE;
 typedef unsigned char uchar;
 # 2 "susan_edges.sc" 2
 
-import "c_uchar7220_queue_s";
+
 import "c_uchar7220_queue_r";
+import "c_uchar7220_queue_s";
 import "c_uchar7220_queue_sr";
-import "c_int7220_queue_s";
 import "c_int7220_queue_r";
+import "c_int7220_queue_s";
 import "c_int7220_queue_sr";
 import "os";
+import "init";
 
-
-interface SETPA{
- void init(void);
- void main(void);
-};
-
-
-behavior SusanEdgesThread_PartA(uchar image_buffer[7220], int r[7220], uchar bp[516], in int thID, OSAPI rtos) implements SETPA
+behavior SusanEdgesThread_PartA(uchar image_buffer[7220], int r[7220], uchar bp[516], in int thID, OSAPI rtos) implements INIT
 {
 
-    struct Task me;
+    struct Task task;
+
 
     void init(void){
- me = rtos.task_create("SETPA");
- rtos.push_t(me);
+ task = rtos.task_create("SETPA");
+ rtos.push_t(task);
+ return;
     }
 
     void main(void) {
@@ -2765,19 +2762,16 @@ behavior SusanEdgesThread_PartA(uchar image_buffer[7220], int r[7220], uchar bp[
         int i, j, n;
         uchar *p,*cp;
 
- rtos.task_activate(me);
-
 
         max_no = 2650;
 
+
+
+
         for (i=3+(95 -3-3)/2*thID; i<3+(95 -3-3)/2*(thID+1) + (thID+1==2 && (95 -3-3)%2!=0 ? (95 -3-3)%2 : 0); i++){
 
-
-     printf("SEPTA i is %d \n", i);
-
-
-     rtos.time_wait(19000000);
-
+ printf("id is %d, current i is %d, max is %d, thid is %d\n", task.id, i, 3+(95 -3-3)/2*(thID+1) + (thID+1==2 && (95 -3-3)%2!=0 ? (95 -3-3)%2 : 0), thID);
+ rtos.time_wait(19000000);
             for (j=3;j<76 -3;j++)
             {
                 n=100;
@@ -2840,27 +2834,25 @@ behavior SusanEdgesThread_PartA(uchar image_buffer[7220], int r[7220], uchar bp[
 
  }
 
+ printf("id is %d, terminate!!\n", task.id);
 
- rtos.task_terminate();
 
     }
 
 };
 
-interface SETPB{
- void init(void);
- void main(void);
-};
-
-behavior SusanEdgesThread_PartB(uchar image_buffer[7220], int r[7220], uchar mid[7220], uchar bp[516], in int thID, OSAPI rtos) implements SETPB
+behavior SusanEdgesThread_PartB(uchar image_buffer[7220], int r[7220], uchar mid[7220], uchar bp[516], in int thID, OSAPI rtos) implements INIT
 {
 
-    struct Task me;
+    struct Task task;
+
 
     void init(void){
- me = rtos.task_create("SETPB");
- rtos.push_t(me);
+ task = rtos.task_create("SETPB");
+ rtos.push_t(task);
+ return;
     }
+
 
     void main(void) {
 
@@ -2870,18 +2862,15 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[7220], int r[7220], uchar mid
         uchar c,*p,*cp;
 
 
- rtos.task_activate(me);
-
 
         max_no = 2650;
 
 
 
+
+
             for (i=4+(95 -4-4)/2*thID; i<4+(95 -4-4)/2*(thID+1) + (thID+1==2 && (95 -4-4)%2!=0 ? (95 -4-4)%2 : 0); i++) {
-
   rtos.time_wait(20000000);
-
-
                 for (j=4;j<76 -4;j++)
                 {
                     if (r[i*76 +j]>0)
@@ -3045,7 +3034,7 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[7220], int r[7220], uchar mid
 
  }
 
- rtos.task_terminate();
+
 
     }
 
@@ -3054,7 +3043,9 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[7220], int r[7220], uchar mid
 behavior SusanEdges_ReadInput(i_uchar7220r_receiver in_image, uchar in_image_buffer[7220], int r[7220], uchar mid[7220])
 {
     void main(void) {
+ printf("susan edges read input pre wait\n");
         in_image.receive(&in_image_buffer);
+ printf("susan edges read input post wait\n");
 
         memset (mid,100,76 * 95);
         memset (r,0,76 * 95 * sizeof(int));
@@ -3068,79 +3059,65 @@ behavior SusanEdges_WriteOutput(i_int7220sr_sender out_r, i_uchar7220sr_sender o
 
     void main(void) {
         out_r.send(r);
- printf("send r\n");
         out_mid.send(mid);
- printf("send mid\n");
         out_image.send(out_image_buffer);
- printf("send out image\n");
     }
 };
 
 behavior SusanEdges_PartA (uchar image_buffer[7220], int r[7220], uchar bp[516], OSAPI rtos)
 {
+
+    struct Task task;
+
     SusanEdgesThread_PartA susan_edges_a_thread_0(image_buffer, r, bp, 0, rtos);
     SusanEdgesThread_PartA susan_edges_a_thread_1(image_buffer, r, bp, 1, rtos);
 
-    struct Task my_t;
-
     void main(void) {
 
- susan_edges_a_thread_0.init();
- susan_edges_a_thread_1.init();
 
- my_t = rtos.par_start();
 
- par{
+
+ printf("susan edges part A: par start\n");
+
+
+
             susan_edges_a_thread_0;
             susan_edges_a_thread_1;
 
- }
 
 
+ return;
     }
 };
 
 behavior SusanEdges_PartB(uchar image_buffer[7220], int r[7220], uchar mid[7220], uchar bp[516], OSAPI rtos)
 {
+
+    struct Task task;
+
     SusanEdgesThread_PartB susan_edges_b_thread_0(image_buffer, r, mid, bp, 0, rtos);
     SusanEdgesThread_PartB susan_edges_b_thread_1(image_buffer, r, mid, bp, 1, rtos);
 
-    struct Task my_t;
-    struct Task sept2;
-
     void main(void) {
 
- sept2 = rtos.task_create("SEPT2");
 
- rtos.init(sept2);
 
- susan_edges_b_thread_0.init();
- susan_edges_b_thread_1.init();
 
- my_t = rtos.par_start();
+ printf("susan edges part B: par start\n");
 
- par {
+
 
             susan_edges_b_thread_0;
             susan_edges_b_thread_1;
 
- }
 
 
+ return;
     }
-};
-
-interface SE{
-
-    void init(void);
-    void main(void);
-
 };
 
 behavior SusanEdges(i_uchar7220r_receiver in_image, i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, uchar bp[516], i_uchar7220sr_sender out_image, OSAPI rtos)
 {
-
-    struct Task me;
 
     uchar image_buffer[7220];
     int r[7220];
@@ -3151,18 +3128,15 @@ behavior SusanEdges(i_uchar7220r_receiver in_image, i_int7220sr_sender out_r, i_
     SusanEdges_PartA susan_edges_a(image_buffer, r, bp, rtos);
     SusanEdges_PartB susan_edges_b(image_buffer, r, mid, bp, rtos);
 
-    void init(void){
- me = rtos.task_create("SE");
- rtos.push_t(me);
-    }
 
     void main(void) {
- fsm{
-            susan_edges_read_input: goto susan_edges_a;
-            susan_edges_a: goto susan_edges_b;
-            susan_edges_b: goto susan_edges_write_output;
-            susan_edges_write_output: {}
- }
+
+        fsm {
+                    susan_edges_read_input: goto susan_edges_a;
+                    susan_edges_a: goto susan_edges_b;
+                    susan_edges_b: goto susan_edges_write_output;
+                    susan_edges_write_output: {}
+        }
     }
 
 };

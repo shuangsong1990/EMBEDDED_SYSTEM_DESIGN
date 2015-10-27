@@ -32,7 +32,7 @@ behavior SusanEdgesThread_PartA(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
         max_no = MAX_NO_EDGES;
         //for (i=3;i<Y_SIZE-3;i++)
 
-	rtos.task_activate(task);
+//	rtos.task_activate(task);
 
         for (i=3+(Y_SIZE-3-3)/PROCESSORS*thID; i<3+(Y_SIZE-3-3)/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && (Y_SIZE-3-3)%PROCESSORS!=0 ? (Y_SIZE-3-3)%PROCESSORS : 0); i++){
 
@@ -101,7 +101,7 @@ behavior SusanEdgesThread_PartA(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
 	} //// add one }
 
 	printf("id is %d, terminate!!\n", task.id);
-	rtos.task_terminate();
+//	rtos.task_terminate();
                                
     }           
     
@@ -132,7 +132,7 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
         max_no = MAX_NO_EDGES;
 	
 
-	rtos.task_activate(task);
+//	rtos.task_activate(task);
              
             //for (i=4;i<Y_SIZE-4;i++)
             for (i=4+(Y_SIZE-4-4)/PROCESSORS*thID; i<4+(Y_SIZE-4-4)/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && (Y_SIZE-4-4)%PROCESSORS!=0 ? (Y_SIZE-4-4)%PROCESSORS : 0); i++) {
@@ -300,7 +300,7 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
 	
 	} ///add one } 	
 
-	rtos.task_terminate();
+//	rtos.task_terminate();
                  
     }           
     
@@ -340,18 +340,18 @@ behavior SusanEdges_PartA (uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZE], u
     
     void main(void) {
 
-        susan_edges_a_thread_0.init();
-        susan_edges_a_thread_1.init();
+//        susan_edges_a_thread_0.init();
+//        susan_edges_a_thread_1.init();
 
 	printf("susan edges part A: par start\n");
-	task = rtos.par_start();
+//	task = rtos.par_start();
 
-        par {
+//        par {
             susan_edges_a_thread_0;
             susan_edges_a_thread_1;
-        }
+//        }
 
-	rtos.par_end(task);
+//	rtos.par_end(task);
 	return;
     }
 };
@@ -366,18 +366,18 @@ behavior SusanEdges_PartB(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZE], uc
     
     void main(void) {                 
 
-        susan_edges_b_thread_0.init();
-        susan_edges_b_thread_1.init();
+//        susan_edges_b_thread_0.init();
+//        susan_edges_b_thread_1.init();
 
 	printf("susan edges part B: par start\n");
-	task = rtos.par_start();
+//	task = rtos.par_start();
 
-        par {
+//        par {
             susan_edges_b_thread_0;
             susan_edges_b_thread_1;
-        }  
+//        }  
 
-	rtos.par_end(task);
+//	rtos.par_end(task);
 	return;
     }
 };
