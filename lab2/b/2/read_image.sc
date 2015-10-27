@@ -5,7 +5,7 @@ import "i_receive";
 
 import ""
 
-behavior ReadImage(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_uchar7220read_sender out_image)
+behavior ReadImage(i_receive start, in uchar image_buffer[IMAGE_SIZE], slave_sender out_image)
 {
 
     void main(void) {
