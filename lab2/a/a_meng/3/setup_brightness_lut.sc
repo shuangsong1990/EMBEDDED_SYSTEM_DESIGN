@@ -1,40 +1,31 @@
 #include "susan.sh"
 import "os";
+import "init";
 
-
-interface SLUT{
-	void init(void);
-	void main(void);	
-};
-
-
-behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implements SLUT
+behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implements INIT
 {
-
-    struct Task me;
-
+    struct Task task;
+ 
     void init(void){
-	me = rtos.task_create("SLUT");
-	rtos.push_t(me);
+	task = rtos.task_create("SLUT");
+	rtos.push_t(task);
+	return;
     }
        
     void main(void) {
         int   k;
         float temp;
         int thresh, form;
-
-	rtos.task_activate(me);
         
         thresh = BT;
         form = 6;
 
+	rtos.task_activate(task);
+
         //for(k=-256;k<257;k++)
        for(k=(-256)+512/PROCESSORS*thID; k<(-256)+512/PROCESSORS*thID+512/PROCESSORS+1; k++){
 
-	   /// waitfor(2700); /////waitfor statement in LUT
-
-	    printf("compute thread id is %d \n", me.id);
-	    rtos.time_wait(2700); /// only for 2        
+	    rtos.time_wait(2700); /////waitfor statement in LUT
         
             temp=((float)k)/((float)thresh);
             temp=temp*temp;
@@ -44,8 +35,10 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
             bp[(k+258)] = (uchar) temp;
         }
 
-	printf("current task to be termnidate is %d\n", me.id);
 	rtos.task_terminate();
+
+	return;
+
     }
 
 };
@@ -56,23 +49,24 @@ behavior SetupBrightnessLut(uchar bp[516], OSAPI rtos)
     SetupBrightnessLutThread setup_brightness_thread_0(bp, 0, rtos);
     SetupBrightnessLutThread setup_brightness_thread_1(bp, 1, rtos);
 
-    struct Task my_t;
+    struct Task task;
        
     void main(void) {
 
-       	setup_brightness_thread_0.init();
-    	setup_brightness_thread_1.init();
+        setup_brightness_thread_0.init();
+        setup_brightness_thread_1.init();
+
+      printf("set up brightness: par start\n");
+	task = rtos.par_start();
+
+        par {
+            setup_brightness_thread_0;
+            setup_brightness_thread_1;
+        }
+
+	rtos.par_end(task);
+	return;
 	
-	my_t = rtos.par_start();
-
-	par{
-
-            setup_brightness_thread_0.main();
-            setup_brightness_thread_1.main();
-
-	}
-
-//	rtos.par_end(my_t);
     }
 
 };

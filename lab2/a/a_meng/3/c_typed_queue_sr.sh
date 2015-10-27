@@ -129,6 +129,7 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 	{								\
 	    wr++;							\
 	    t = rtos.pre_wait();					\
+	    printf("pre_wait id is %d\n", t.id);			\
 	    wait r;							\
 	    printf("receive post wait\n");				\
 	    rtos.post_wait(t);					\
@@ -160,6 +161,7 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
 	{								\
 	    ws++;							\
 	    t = rtos.pre_wait();					\
+	    printf("pre_wait id is %d\n", t.id);			\
 	    wait s;							\
 	    printf("send post wait\n");				\
 	    rtos.post_wait(t);					\

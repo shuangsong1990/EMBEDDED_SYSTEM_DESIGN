@@ -1,12 +1,10 @@
 #include "susan.sh"
 
 import "susan";
+import "os";
 import "read_image";
 import "write_image";
-import "c_uchar7220_queue_sr";
-import "c_uchar7220_queue_r";
-import "c_uchar7220_queue_s";
-import "os";
+import "c_uchar7220_queue";
 
 behavior ReadImage_wp(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_uchar7220r_sender out_image){
 	ReadImage R(start, image_buffer, out_image);
@@ -41,12 +39,15 @@ behavior Design(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_sender out
 
     PE1 pe1(in_image, out_image, rtos);
 
+//    Susan susan(in_image, out_image);
+
     WriteImage_wp write_image(out_image, out_image_susan);
 
     void main(void) {
        par {
             read_image.main();
 	    pe1.main();
+//            susan.main();
             write_image.main();
         }
     }

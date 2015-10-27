@@ -21,6 +21,7 @@ interface OSAPI
 	void time_wait(unsigned int t);
 	void yield(void);
 	struct Task par_start(void);
+	void par_end(struct Task t);
 	void dispatch(void);
 	void task_activate(struct Task t);
 	void init(struct Task t);
@@ -36,8 +37,8 @@ channel OS implements OSAPI{
 
 	c_handshake e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, e19;
 
-	unsigned int head = 0;
-	unsigned int tail = 0;
+	int head = 0;
+	int tail = 0;
 
 	unsigned int task_pool = 1;
 
@@ -58,6 +59,20 @@ channel OS implements OSAPI{
 	} 
 
 	void push_t(struct Task t){
+
+		if (start == 1){
+		    printf("queue is full\n");
+		    exit(0);
+		}
+		printf("push %d\n", t.id);
+		rdyq[tail] = t;
+		tail = (tail + 1) % 20;
+		if (tail == head)
+		    start = 1;
+		return;
+
+
+/*
 		if( (head == tail) && (start == 1)){
 			printf("queue is full\n");
 		}
@@ -71,9 +86,24 @@ channel OS implements OSAPI{
 			}
 			start = 1;
 		}
+*/
 	}
 	struct Task pop_t(void){
 		struct Task t; 
+		if ( (head == tail) && (start == 0) ){
+		    printf("queue is empty\n");
+		    exit(0);
+		}
+		else{
+		    t = rdyq[head];
+		    printf("pop id is %d\n", t.id);
+   		    head = (head + 1) % 20;
+		    if (start == 1)
+			start = 0;
+		    return t;
+		}
+
+/*
 		if( ( head == tail) ){ // seems to be problematic
 			printf("queue is empty\n");
 		}
@@ -92,9 +122,12 @@ channel OS implements OSAPI{
 
 			return t;
 		}
+*/
 	}
 	void dispatch(void){
 		unsigned int position;
+//		if (head == tail && start == 0)
+//			return;
 		position = head;
 		current = pop_t();
 		printf ("current.id = %d\n", current.id);
@@ -156,24 +189,31 @@ channel OS implements OSAPI{
 					break; 
 				case 13:
 					e13.send();	
+					printf("e13 send\n");
 					break;
 				case 14:
 					e14.send();	
+					printf("e14 send\n");
 					break;
 				case 15:
 					e15.send();
+					printf("e15 send\n");
 					break; 
 				case 16:
 					e16.send();	
+					printf("e16 send\n");
 					break;
 				case 17:
 					e17.send();	
+					printf("e17 send\n");
 					break;
 				case 18:
 					e18.send();
+					printf("e18 send\n");
 					break; 
 				case 19:
 					e19.send();	
+					printf("e19 send\n");
 					break;
 			}
 		} 
@@ -255,38 +295,25 @@ channel OS implements OSAPI{
 			case 19:
 				e19.receive();
 				break;
+			default:
+				break;
 		}
 	}
 	void task_terminate(void){
-	/*	if(head == tail ) {
-			printf("head == tail head %d tail %d\n", head, tail);	
-			//pop_t();
+			//if ((head + 1 <= tail) || ((head > tail) && (head + 1 <= tail + 20))){
 			
-			printf("current is %d\n", current.id);
-			head = head + 1;
-		}else{
-			printf("terminate head %d tail %d\n", head, tail);
-			dispatch();
-		}
-	*/
-//			if( (head + 1 <= tail ) || (head == 19 && tail == 0)){
-			if ((head + 1 <= tail) || ((head + 1 > tail) && (head + 1 <= tail + 20))){
-				unsigned int i ;
-				for ( i=0; i < 20; i++){
-					if( rdyq[i].valid == 1)
-						printf("valid --------------- i %d id %d valid %d\n", i, rdyq[i].id, rdyq[i].valid);
-				}
+//			pop_t();
+			if (!(head == tail && start == 0)){
+				//unsigned int i ;
 				printf("TERMINATION head %d tail %d \n", head, tail);
 				printf("current id is %d\n", current.id);
+				if (head == 8)
+					printf("MAYBE WRONG HERE");
 				dispatch();
 				printf("my head %d tail %d \n", head, tail);
-//				head = 0;
-//				tail = 0; /// try
-//				start = 0;	
 			}	
 			else{
-				start = 0;
-				printf("TERMINATION head %d tail %d\n!!!", head, tail);
+				printf("TERMINATION head %d tail %d!!!\n", head, tail);
 			}
 	}
 	void yield(void){
@@ -294,39 +321,25 @@ channel OS implements OSAPI{
 		unsigned int i, flag;
 		struct Task t;
 		t = current;
-		position = head;
+		//position = head;
 		push_t(t);
+		printf("YIELD dispatch \n");
+		if (head == 8)
+			printf("MAYBE WRONG HERE");
 		dispatch();
-	
-		i = head;
-	
-		if ( head != tail ){
 
-			while ((i >= head )||(i <= tail)){
-				if(rdyq[i].id == t.id){
-					position = i;
-					break;
-				}
-				else{
-					if( i == 19 ){
-						i = 0;
-					}
-					else{
-						i = i + 1;
-					}
-				}
-			}
-		}	
+		position = (tail - 1) >= 0 ? (tail - 1) : (tail - 1 + 20);
+//		position = (tail - 1) % 20;
 	
 		printf("head is %d ; tail is %d ;  position is %d\n", head, tail, position);
 
-		flag = 0;
-
-		if (position <= tail && position >= head)
-		    flag = 1;
-
-		if (flag == 1){
-
+		printf("ready queue: \n");
+		i = head;
+		while (i != tail){
+			printf("%d:%d ", i, rdyq[i].id);
+			i = (i + 1) % 20;
+		}
+		
 		switch(position){
 			case 0:
 				printf("e0 wait here\n");
@@ -411,16 +424,10 @@ channel OS implements OSAPI{
 			default:
 				break;
 		}	
-		}
-	}
 
-	struct Task pre_wait(){
-		struct Task t;
-		t = current;
-		//push_t(t);
-		dispatch();
-		return t;
-	/*	
+
+/*
+	
 		i = head;
 	
 		if ( head != tail ){
@@ -439,12 +446,43 @@ channel OS implements OSAPI{
 					}
 				}
 			}
+		}	
+		else{
+
 		}
-		printf("pre_wait position %d \n", position);	
-		return position;
-		*/
+	
+
+		flag = 0;
+
+		if (position >= head)
+		    flag = 1;
+		else if (tail <= head && position + 20 >= head)
+		    flag = 1;
+	
+
+		if (flag == 1){
+
+		}
 
 
+*/
+
+
+	}
+
+	struct Task pre_wait(){
+		struct Task t;
+//		pop_t();
+		t = current;
+		printf("pre wait, current id is %d, head is %d, tail is %d\n", t.id, head, tail);
+		if (head == tail && start == 0){
+			printf("pre_wait queue empty nothing to dispath\n");
+		}else{	
+			if (head == 8)
+				printf("MAYBE WRONG HERE");
+			dispatch();
+		}
+		return t;
 	}
 
 	void post_wait(struct Task t){
@@ -454,96 +492,101 @@ channel OS implements OSAPI{
 		printf("start post wait\n");
 		printf("id of task is %d\n", t.id);
 		printf("is start equals to %d\n", start);
-		push_t(t);
-		if( current.id != t.id){
-			dispatch();
+
+		if( head == tail && start == 0){
+			push_t(t);
 		}
-		if( tail == 0){
-			position = 19;
-		}else{
-			position = tail - 1;
-		}
-		switch(position){
-			case 0:
-				printf("post_wait : e0 wait here\n");
-				e0.receive();	
-				break;
-			case 1:
-				printf("post_wait :e1 wait here\n");
-				e1.receive();
-				break;
-			case 2:
-				printf("post_wait :e2 wait here\n");
-				e2.receive();
-				break;
-			case 3:
-				printf("post_wait :e3 wait here\n");
-				e3.receive();	
-				break;
-			case 4:
-				printf("post_wait :e4 wait here\n");
-				e4.receive();
-				break;
-			case 5:
-				printf("post_wait :e5 wait here\n");
-				e5.receive();
-				break;
-			case 6:
-				printf("post_wait :e6 wait here\n");
-				e6.receive();	
-				break;
-			case 7:
-				printf("post_wait :e7 wait here\n");
-				e7.receive();
-				break;
-			case 8:
-				printf("post_wait :e8 wait here\n");
-				e8.receive();
-				break;
-			case 9:
-				printf("post_wait :e9 wait here\n");
-				e9.receive();	
-				break;
-			case 10:
-				printf("post_wait :e10 wait here\n");
-				e10.receive();
-				break;
-			case 11:
-				printf("post_wait :e11 wait here\n");
-				e11.receive();
-				break;
-			case 12:
-				printf("post_wait :e12 wait here\n");
-				e12.receive();	
-				break;
-			case 13:
-				printf("post_wait :e13 wait here\n");
-				e13.receive();
-				break;
-			case 14:
-				printf("post_wait :e14 wait here\n");
-				e14.receive();
-				break;
-			case 15:
-				printf("post_wait :e15 wait here\n");
-				e15.receive();	
-				break;
-			case 16:
-				printf("post_wait :e16 wait here\n");
-				e16.receive();
-				break;
-			case 17:
-				printf("post_wait :e17 wait here\n");
-				e17.receive();
-				break;
-			case 18:
-				printf("e18 wait here\n");
-				e18.receive();
-				break;
-			case 19:
-				printf("e19 wait here\n");
-				e19.receive();
-				break;
+		else{
+			push_t(t);
+			if( tail == 0){
+				position = 19;
+			}else{
+				position = tail - 1;
+			}
+			switch(position){
+				case 0:
+					printf("post_wait : e0 wait here\n");
+					e0.receive();	
+					break;
+				case 1:
+					printf("post_wait :e1 wait here\n");
+					e1.receive();
+					break;
+				case 2:
+					printf("post_wait :e2 wait here\n");
+					e2.receive();
+					break;
+				case 3:
+					printf("post_wait :e3 wait here\n");
+					e3.receive();	
+					break;
+				case 4:
+					printf("post_wait :e4 wait here\n");
+					e4.receive();
+					break;
+				case 5:
+					printf("post_wait :e5 wait here\n");
+					e5.receive();
+					break;
+				case 6:
+					printf("post_wait :e6 wait here\n");
+					e6.receive();	
+					break;
+				case 7:
+					printf("post_wait :e7 wait here\n");
+					e7.receive();
+					break;
+				case 8:
+					printf("post_wait :e8 wait here\n");
+					e8.receive();
+					break;
+				case 9:
+					printf("post_wait :e9 wait here\n");
+					e9.receive();	
+					break;
+				case 10:
+					printf("post_wait :e10 wait here\n");
+					e10.receive();
+					break;
+				case 11:
+					printf("post_wait :e11 wait here\n");
+					e11.receive();
+					break;
+				case 12:
+					printf("post_wait :e12 wait here\n");
+					e12.receive();	
+					break;
+				case 13:
+					printf("post_wait :e13 wait here\n");
+					e13.receive();
+					break;
+				case 14:
+					printf("post_wait :e14 wait here\n");
+					e14.receive();
+					break;
+				case 15:
+					printf("post_wait :e15 wait here\n");
+					e15.receive();	
+					break;
+				case 16:
+					printf("post_wait :e16 wait here\n");
+					e16.receive();
+					break;
+				case 17:
+					printf("post_wait :e17 wait here\n");
+					e17.receive();
+					break;
+				case 18:
+					printf("e18 wait here\n");
+					e18.receive();
+					break;
+				case 19:
+					printf("e19 wait here\n");
+					e19.receive();
+					break;
+				default:
+					break;
+			}
 		}	
 	}
 
@@ -556,12 +599,114 @@ channel OS implements OSAPI{
 	struct Task par_start(void){
 		struct Task ret_t ;
 		ret_t = current;
-		dispatch();
+//		ret_t = pop_t();
+		if ((head == tail) && (start == 0))
+		    printf("empty queue before par start\n");
+		else{
+		    dispatch();
+		}
+		printf("par start, current id is %d\n", ret_t.id);
 		return ret_t;	
+	}
+
+	void par_end(struct Task t){
+		int position;
+		if (head == tail && start == 0)
+			current = t;
+		else{
+			push_t(current);
+			current = t;
+			position = tail - 1;
+			switch(position){
+				case 0:
+					printf("par end : e0 wait here\n");
+					e0.receive();	
+					break;
+				case 1:
+					printf("par end :e1 wait here\n");
+					e1.receive();
+					break;
+				case 2:
+					printf("par end :e2 wait here\n");
+					e2.receive();
+					break;
+				case 3:
+					printf("par end :e3 wait here\n");
+					e3.receive();	
+					break;
+				case 4:
+					printf("par end :e4 wait here\n");
+					e4.receive();
+					break;
+				case 5:
+					printf("par end :e5 wait here\n");
+					e5.receive();
+					break;
+				case 6:
+					printf("par end :e6 wait here\n");
+					e6.receive();	
+					break;
+				case 7:
+					printf("par end :e7 wait here\n");
+					e7.receive();
+					break;
+				case 8:
+					printf("par end :e8 wait here\n");
+					e8.receive();
+					break;
+				case 9:
+					printf("par end :e9 wait here\n");
+					e9.receive();	
+					break;
+				case 10:
+					printf("par end :e10 wait here\n");
+					e10.receive();
+					break;
+				case 11:
+					printf("par end :e11 wait here\n");
+					e11.receive();
+					break;
+				case 12:
+					printf("par end :e12 wait here\n");
+					e12.receive();	
+					break;
+				case 13:
+					printf("par end :e13 wait here\n");
+					e13.receive();
+					break;
+				case 14:
+					printf("par end :e14 wait here\n");
+					e14.receive();
+					break;
+				case 15:
+					printf("par end :e15 wait here\n");
+					e15.receive();	
+					break;
+				case 16:
+					printf("par end :e16 wait here\n");
+					e16.receive();
+					break;
+				case 17:
+					printf("par end :e17 wait here\n");
+					e17.receive();
+					break;
+				case 18:
+					printf("par end :e18 wait here\n");
+					e18.receive();
+					break;
+				case 19:
+					printf("par end :e19 wait here\n");
+					e19.receive();
+					break;
+				default:
+					break;
+			}
+		}
+//		push_t(t);
+		return;
 	}
 
 	void init(struct Task t){
 		current = t;
-		start = 0;
 	}
 };

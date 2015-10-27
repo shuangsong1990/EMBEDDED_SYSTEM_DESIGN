@@ -1,7 +1,13 @@
 #include "susan.sh"
 
 import "i_receive";
+
 import "c_uchar7220_queue_r";
+import "c_uchar7220_queue_s";
+import "c_uchar7220_queue_sr";
+import "c_int7220_queue_r";
+import "c_int7220_queue_s";
+import "c_int7220_queue_sr";
 
 behavior ReadImage(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_uchar7220r_sender out_image)
 {
