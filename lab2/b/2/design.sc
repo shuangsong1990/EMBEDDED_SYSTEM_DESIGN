@@ -9,15 +9,26 @@ import "input";
 import "output";
 import "pe1";
 import "os";
+
+import "HWBus";
+
 behavior Design(i_receive start, in uchar image_buffer[IMAGE_SIZE], i_sender out_image_susan)
 {
     OS os;
-    c_uchar7220read_queue in_image(1ul, os);
-    c_uchar7220write_queue out_image(1ul, os);
+    //c_uchar7220read_queue in_image(1ul, os);
+    //c_uchar7220write_queue out_image(1ul, os);
 
-    INPUT input(start, image_buffer, in_image);
-    PE1 pe1(in_image, out_image, os);
-    OUTPUT output(out_image, out_image_susan);
+    HardwareBus hdbus; 
+
+//    INPUT input(start, image_buffer, in_image);
+//    PE1 pe1(in_image, out_image, os);
+//    OUTPUT output(out_image, out_image_susan);
+
+    INPUT input(start, image_buffer, hdbus);
+    PE1 pe1(os, hdbus);
+    OUTPUT output(hdbus, out_image_susan);
+    
+	
 
     void main(void) {
         par {

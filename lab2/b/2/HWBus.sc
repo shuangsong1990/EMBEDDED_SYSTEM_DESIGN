@@ -5,12 +5,9 @@
 import "i_send";
 import "i_receive";
 
-import "c_handshake";
-#include "stdio.h"
 // Simple hardware bus
 
 #define DATA_WIDTH	32u
-#define ADDR_WIDTH      16u
 
 #if DATA_WIDTH == 32u
 # define DATA_BYTES 4u
@@ -140,22 +137,23 @@ channel SlaveHardwareBus(in  signal unsigned bit[ADDR_WIDTH-1:0] A,
 
 /* -----  Physical layer, interrupt handling ----- */
 
-channel MasterHardwareSyncDetect(i_receive intr)
+channel MasterHardwareSyncDetect(in signal unsigned bit[1] intr)
   implements i_receive
 {
   void receive(void)
-  {	
-   intr.receive();
+  {
+    wait(rising intr);
   }
 };
 
-channel SlaveHardwareSyncGenerate(i_send intr)
+channel SlaveHardwareSyncGenerate(out signal unsigned bit[1] intr)
   implements i_send
 {
   void send(void)
   {
-    intr.send();
+    intr = 1;
     waitfor(5000);
+    intr = 0;
   }
 };
 
@@ -269,9 +267,7 @@ interface IMasterHardwareBus
   void MasterRead(unsigned bit[ADDR_WIDTH-1:0] addr, void *data, unsigned long len);
   void MasterWrite(unsigned bit[ADDR_WIDTH-1:0] addr, const void* data, unsigned long len);
   
-  void MasterSyncReceive0();
-  void MasterSyncReceive1();
-//  void print();
+  void MasterSyncReceive();
 };
   
 interface ISlaveHardwareBus
@@ -279,9 +275,7 @@ interface ISlaveHardwareBus
   void SlaveRead(unsigned bit[ADDR_WIDTH-1:0] addr, void *data, unsigned long len);
   void SlaveWrite(unsigned bit[ADDR_WIDTH-1:0] addr, const void* data, unsigned long len);
   
-  void SlaveSyncSend0();
-  void SlaveSyncSend1();
- // void print();
+  void SlaveSyncSend();
 };
 
 
@@ -296,16 +290,14 @@ channel HardwareBus()
   signal unsigned bit[1]    ack = 0;
 
   // interrupts
-  c_handshake    intr0,intr1;
+  signal unsigned bit[1]    int0 = 0;
+  signal unsigned bit[1]    int1 = 0;
 
- // int itr0=int0[1];
- // int itr1=int1[1]; 
+  MasterHardwareSyncDetect  MasterSync0(int0);
+  SlaveHardwareSyncGenerate SlaveSync0(int0);
 
-  MasterHardwareSyncDetect  MasterSync0(intr0);
-  SlaveHardwareSyncGenerate SlaveSync0(intr0);
-
-  MasterHardwareSyncDetect  MasterSync1(intr1);
-  SlaveHardwareSyncGenerate SlaveSync1(intr1);
+  MasterHardwareSyncDetect  MasterSync1(int1);
+  SlaveHardwareSyncGenerate SlaveSync1(int1);
   
   MasterHardwareBus Master(A, D, ready, ack);
   SlaveHardwareBus  Slave(A, D, ready, ack);
@@ -313,11 +305,6 @@ channel HardwareBus()
   MasterHardwareBusLinkAccess MasterLink(Master);
   SlaveHardwareBusLinkAccess SlaveLink(Slave);
 
-//    void print() {
-//	if(intr0)
-//        printf("1\n");
-//	else printf("0\n");
-//    }
   
   void MasterRead(unsigned bit[ADDR_WIDTH-1:0] addr, void *data, unsigned long len) {
     MasterLink.MasterRead(addr, data, len);
@@ -335,28 +322,11 @@ channel HardwareBus()
     SlaveLink.SlaveWrite(addr, data, len);
   }
 
-
-  
-  void SlaveSyncSend0() {
-//print();
-    SlaveSync0.send();
-//intr0[0]=0;
-//print();
-  }
-
-  void MasterSyncReceive0() {
-//print();
+  void MasterSyncReceive() {
     MasterSync0.receive();
-//print();
-  }
-
-  void MasterSyncReceive1() {
-    MasterSync1.receive();
   }
   
-  void SlaveSyncSend1() {
-    SlaveSync1.send();
+  void SlaveSyncSend() {
+    SlaveSync0.send();
   }
-
-
 };
