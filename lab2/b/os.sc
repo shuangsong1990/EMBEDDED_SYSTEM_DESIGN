@@ -208,6 +208,7 @@ channel OS implements OSAPI {
             os_wait(currPt->id);
         }
         NumCreated++;
+
     }
 
     /* Event handling */

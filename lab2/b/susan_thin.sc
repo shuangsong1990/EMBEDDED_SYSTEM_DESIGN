@@ -250,7 +250,6 @@ behavior SusanThin(int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE], OSAPI os)
         os.par_end(task);
 
     }
-
 };
 
 behavior Thin(i_int7220_receiver in_r, i_uchar7220_receiver in_mid, i_uchar7220_sender out_mid, OSAPI os) implements Init

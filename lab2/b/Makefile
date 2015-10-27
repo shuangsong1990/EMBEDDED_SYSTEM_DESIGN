@@ -11,7 +11,7 @@ RM  = rm -f
 SCFILES = 	c_uchar7220_queue.sc c_int7220_queue.sc\
         setup_brightness_lut.sc susan_edges.sc detect_edges.sc susan_thin.sc edge_draw.sc read_image.sc\
 		write_image.sc design.sc stimulus.sc monitor.sc design.sc susan_edge_detector.sc input.sc output.sc pe1.sc os.sc\
-		c_uchar7220read_queue.sc c_uchar7220write_queue.sc task_pe1.sc HWBus.sc master_driver_read.sc master_driver_write.sc slave_driver_read.sc slave_driver_write.sc
+		c_uchar7220read_queue.sc c_uchar7220write_queue.sc task_pe1.sc
 
 SIRFILES=$(SCFILES:.sc=.sir)
 

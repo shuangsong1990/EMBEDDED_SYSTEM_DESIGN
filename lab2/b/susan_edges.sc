@@ -4,12 +4,8 @@ import "c_uchar7220_queue"; //Need another Queue(Receive)!!
 import "c_int7220_queue";
 import "os";
 import "init";
-import "read";
 
 import "c_uchar7220read_queue";
-
-import "HWBus";
-import "master_driver_read";
 
 behavior SusanEdgesThread_PartA(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZE], uchar bp[516],  in int thID, OSAPI os) implements Init
 {
@@ -291,10 +287,9 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
 
 };
 
-behavior  SusanEdges_ReadInput(i_master_receiver master_driver_read, uchar in_image_buffer[IMAGE_SIZE], int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE])
+behavior  SusanEdges_ReadInput(int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE])
 {
     void main(void) {
-        master_driver_read.receive(in_image_buffer);
         memset (mid,100,X_SIZE * Y_SIZE); /* note not set to zero */
         memset (r,0,X_SIZE * Y_SIZE * sizeof(int));
     }
@@ -321,6 +316,7 @@ behavior SusanEdges_PartA (uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZE], u
     void main(void) {
         susan_edges_a_thread_0.init();
         susan_edges_a_thread_1.init();
+
         task = os.par_start();
         par {
             susan_edges_a_thread_0;
@@ -349,26 +345,21 @@ behavior SusanEdges_PartB(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZE], uc
     }
 };
 
-behavior SusanEdges(i_master_receiver master_driver_read, i_int7220_sender out_r, i_uchar7220_sender out_mid, uchar bp[516], i_uchar7220_sender out_image, OSAPI os) implements Read
+behavior SusanEdges(uchar in_image[IMAGE_SIZE], i_int7220_sender out_r, i_uchar7220_sender out_mid, uchar bp[516], i_uchar7220_sender out_image, OSAPI os)
 {
 
-    uchar image_buffer[IMAGE_SIZE];
     int r[IMAGE_SIZE];
     uchar mid[IMAGE_SIZE];
 
-    SusanEdges_ReadInput susan_edges_read_input(master_driver_read, image_buffer, r, mid);
-    SusanEdges_WriteOutput susan_edges_write_output(out_r, out_mid, out_image,  r, mid, image_buffer);
-    SusanEdges_PartA susan_edges_a(image_buffer, r, bp, os);
-    SusanEdges_PartB susan_edges_b(image_buffer, r, mid, bp, os);
-
-    void read_image(void) {
-	susan_edges_read_input.main();
-	}
+    SusanEdges_ReadInput susan_edges_read_input(r, mid);
+    SusanEdges_WriteOutput susan_edges_write_output(out_r, out_mid, out_image,  r, mid, in_image);
+    SusanEdges_PartA susan_edges_a(in_image, r, bp, os);
+    SusanEdges_PartB susan_edges_b(in_image, r, mid, bp, os);
 
     void main(void) {
 
         fsm {
- //           susan_edges_read_input: goto susan_edges_a;
+            susan_edges_read_input: goto susan_edges_a;
             susan_edges_a: goto susan_edges_b;
             susan_edges_b: goto susan_edges_write_output;
             susan_edges_write_output: {}

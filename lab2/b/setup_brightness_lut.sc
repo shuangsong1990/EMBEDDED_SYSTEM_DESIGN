@@ -1,4 +1,6 @@
 #include "susan.sh"
+import "c_uchar7220_queue"; //Need another Queue(Receive)!!
+import "c_uchar7220read_queue";
 import "os";
 import "init";
 
@@ -37,18 +39,21 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI os) implemen
 
 };
 
-behavior SetupBrightnessLut(uchar bp[516], OSAPI os) implements Init
+behavior SetupBrightnessLut_ReadInput(i_uchar7220read_receiver in_image, uchar in_image_buffer[IMAGE_SIZE])
+{
+    void main(void) {
+        in_image.receive(&in_image_buffer);
+    }
+};
+
+behavior SetupBrightnessLut(uchar bp[516], OSAPI os)
 {
     Task *task;
+
     SetupBrightnessLutThread setup_brightness_thread_0(bp, 0, os);
     SetupBrightnessLutThread setup_brightness_thread_1(bp, 1, os);
 
-    void init(void) {
-        task = os.task_create("sbl");
-    }
-
     void main(void) {
-
         setup_brightness_thread_0.init();
         setup_brightness_thread_1.init();
 
@@ -58,6 +63,19 @@ behavior SetupBrightnessLut(uchar bp[516], OSAPI os) implements Init
             setup_brightness_thread_1;
         }
         os.par_end(task);
+    }
+};
+
+behavior SetupBright(i_uchar7220read_receiver in_image, uchar image_buffer[IMAGE_SIZE], uchar bp[516], OSAPI os)
+{
+    SetupBrightnessLut_ReadInput setup_read_input(in_image, image_buffer);
+    SetupBrightnessLut setup(bp, os);
+
+    void main(void) {
+        fsm {
+            setup_read_input: goto setup;
+            setup: {}
+        }
     }
 };
 
