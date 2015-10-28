@@ -3,7 +3,7 @@
 import "i_receive";
 //import "c_uchar7220read_queue";
 
-import ""
+import "SlaveDriveWrite";
 
 behavior ReadImage(i_receive start, in uchar image_buffer[IMAGE_SIZE], slave_sender out_image)
 {

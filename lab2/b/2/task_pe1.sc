@@ -10,10 +10,17 @@ import "detect_edges";
 import "susan_thin";
 import "edge_draw";
 import "os";
+import "HWBus";
+
+import "MasterDriveRead";
+import "MasterDriveWrite";
 
 import "init";
      
-behavior TASK_PE1(i_uchar7220read_receiver in_image, i_uchar7220write_sender out_image, OSAPI os) implements Init
+//behavior TASK_PE1(i_uchar7220read_receiver in_image, i_uchar7220write_sender out_image, OSAPI os) implements Init
+
+
+behavior TASK_PE1(master_receiver in_image,master_sender out_image, OSAPI os) implements Init
 {
     c_int7220_queue r(1ul, os);
     c_uchar7220_queue mid(1ul, os);

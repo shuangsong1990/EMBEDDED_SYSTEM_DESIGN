@@ -9,7 +9,7 @@ import "init";
 
 import "c_uchar7220read_queue";
 
-behavior DetectEdges(i_uchar7220read_receiver in_image, i_int7220_sender out_r, i_uchar7220_sender out_mid, i_uchar7220_sender out_image, OSAPI os)
+behavior DetectEdges(master_receiver in_image, i_int7220_sender out_r, i_uchar7220_sender out_mid, i_uchar7220_sender out_image, OSAPI os)
 {
 
     uchar bp[516];
@@ -25,7 +25,7 @@ behavior DetectEdges(i_uchar7220read_receiver in_image, i_int7220_sender out_r, 
 
 };
 
-behavior Edges(i_uchar7220read_receiver in_image,  i_int7220_sender out_r, i_uchar7220_sender out_mid, i_uchar7220_sender out_image, OSAPI os) implements Init
+behavior Edges(master_receiver in_image,  i_int7220_sender out_r, i_uchar7220_sender out_mid, i_uchar7220_sender out_image, OSAPI os) implements Init
 {
     Task *task;
 

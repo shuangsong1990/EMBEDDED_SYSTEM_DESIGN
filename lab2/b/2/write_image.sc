@@ -1,9 +1,10 @@
 #include "susan.sh"
 
 import "i_sender";
-import "c_uchar7220write_queue";
+//import "c_uchar7220write_queue";
 
 import "HWBus";
+import "SlaveDriveRead";
 
 behavior WriteImage(i_sender out_image,  slave_receiver in_image)
 {

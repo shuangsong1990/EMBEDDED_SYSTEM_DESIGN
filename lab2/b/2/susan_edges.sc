@@ -6,6 +6,9 @@ import "os";
 import "init";
 
 import "c_uchar7220read_queue";
+import "HWBus";
+import "MasterDriveRead";
+import "MasterDriveWrite";
 
 behavior SusanEdgesThread_PartA(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZE], uchar bp[516],  in int thID, OSAPI os) implements Init
 {

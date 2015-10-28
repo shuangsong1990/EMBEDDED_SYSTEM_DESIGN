@@ -1,8 +1,13 @@
 #include "susan.sh"
-import "c_uchar7220_queue"; //Need another Queue(Receive)!!
+import "c_uchar7220_queue"; 
 import "c_uchar7220read_queue";
 import "os";
 import "init";
+
+import "HWBus";
+import "MasterDriveRead";
+import "MasterDriveWrite";
+
 
 behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI os) implements Init
 {
@@ -39,10 +44,10 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI os) implemen
 
 };
 
-behavior SetupBrightnessLut_ReadInput(i_uchar7220read_receiver in_image, uchar in_image_buffer[IMAGE_SIZE])
+behavior SetupBrightnessLut_ReadInput(master_receiver in_image, uchar in_image_buffer[IMAGE_SIZE])
 {
     void main(void) {
-        in_image.receive(&in_image_buffer);
+        in_image.receive(in_image_buffer);
     }
 };
 
@@ -66,7 +71,7 @@ behavior SetupBrightnessLut(uchar bp[516], OSAPI os)
     }
 };
 
-behavior SetupBright(i_uchar7220read_receiver in_image, uchar image_buffer[IMAGE_SIZE], uchar bp[516], OSAPI os)
+behavior SetupBright(master_receiver in_image, uchar image_buffer[IMAGE_SIZE], uchar bp[516], OSAPI os)
 {
     SetupBrightnessLut_ReadInput setup_read_input(in_image, image_buffer);
     SetupBrightnessLut setup(bp, os);

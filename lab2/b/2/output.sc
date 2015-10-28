@@ -9,7 +9,7 @@ import "HWBus";
 
 import "SlaveDriveRead";
 
-behavior OUTPUT(i_uchar7220write_receiver in_image, i_sender out_image, ISlaveHardwareBus hdbus)
+behavior OUTPUT( ISlaveHardwareBus hdbus, i_sender out_image)
 {
 
     SlaveDriveRead slave_drive_read(hdbus);

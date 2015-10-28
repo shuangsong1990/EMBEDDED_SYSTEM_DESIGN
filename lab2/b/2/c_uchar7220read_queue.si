@@ -1,0 +1,24 @@
+# 1 "c_uchar7220read_queue.sc"
+# 1 "/home/ecelrc/students/ssong/labs/lab2/b/2//"
+# 1 "<built-in>"
+# 1 "<command line>"
+# 1 "c_uchar7220read_queue.sc"
+
+
+
+import "os";
+# 55 "c_uchar7220read_queue.sc"
+extern void perror(const char*);
+
+
+extern void abort(void);
+extern void *malloc(unsigned int);
+extern void free(void*);
+extern void *memcpy(void*, const void*, unsigned int);
+# 192 "c_uchar7220read_queue.sc"
+typedef unsigned char uchar7220read[7220];
+
+interface i_uchar7220read_tranceiver { note _SCE_STANDARD_LIB = { "i_tranceiver", "uchar7220read", "uchar7220read" }; void send(uchar7220read d); void receive(uchar7220read *d); };
+interface i_uchar7220read_sender { note _SCE_STANDARD_LIB = { "i_sender", "uchar7220read", "uchar7220read" }; void send(uchar7220read d); };
+interface i_uchar7220read_receiver { note _SCE_STANDARD_LIB = { "i_receiver", "uchar7220read", "uchar7220read" }; void receive(uchar7220read *d); };
+channel c_uchar7220read_queue(in const unsigned long size, OSAPI os) implements i_uchar7220read_sender, i_uchar7220read_receiver, i_uchar7220read_tranceiver { note _SCE_STANDARD_LIB = { "c_queue", "uchar7220read", "uchar7220read" }; event r, s; unsigned long wr = 0; unsigned long ws = 0; unsigned long p = 0; unsigned long n = 0; uchar7220read *buffer = 0; void setup(void) { if (!buffer) { unsigned long i; uchar7220read dummy; if (!(buffer = (uchar7220read*) malloc(sizeof(uchar7220read)*size))) { perror("c_typed_queue"); abort(); } for(i=0; i<size; i++) { memcpy(&buffer[i], &dummy, sizeof(uchar7220read)); } } } void cleanup(void) { if (! n) { free(buffer); buffer = 0; } } void receive(uchar7220read *d) { Task *t; while(! n) { wr++; t=os.pre_wait(); wait r; os.post_wait(t); wr--; } if (n <= p) { *d = buffer[p - n]; } else { *d = buffer[p + size - n]; } n--; if (ws) { notify s; } cleanup(); } void send(uchar7220read d) { while(n >= size) { ws++; wait s; ws--; } setup(); buffer[p] = d; p++; if (p >= size) { p = 0; } n++; if (wr) { notify r; } } };

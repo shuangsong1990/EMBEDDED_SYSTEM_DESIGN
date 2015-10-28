@@ -5,6 +5,9 @@ import "os";
 import "init";
 
 import "c_uchar7220write_queue";
+import "HWBus";
+import "MasterDriveRead";
+import "MasterDriveWrite";
 
 behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int thID, OSAPI os) implements Init
 {
@@ -91,7 +94,7 @@ behavior EdgeDraw_ReadInput(i_uchar7220_receiver in_image, i_uchar7220_receiver 
     }
 };
 
-behavior EdgeDraw_WriteOutput(uchar image_buffer[IMAGE_SIZE],  i_uchar7220write_sender out_image)
+behavior EdgeDraw_WriteOutput(uchar image_buffer[IMAGE_SIZE],  master_sender out_image)
 {
     void main(void) {
         out_image.send(image_buffer);
@@ -136,7 +139,7 @@ behavior EdgeDraw_PartB(uchar image_buffer[7220], uchar mid[7220], OSAPI os)
     }
 };
 
-behavior EdgeDraw(i_uchar7220_receiver in_image, i_uchar7220_receiver in_mid,  i_uchar7220write_sender out_image, OSAPI os)
+behavior EdgeDraw(i_uchar7220_receiver in_image, i_uchar7220_receiver in_mid,  master_sender out_image, OSAPI os)
 {
 
 
@@ -160,7 +163,7 @@ behavior EdgeDraw(i_uchar7220_receiver in_image, i_uchar7220_receiver in_mid,  i
     }
 };
 
-behavior Draw(i_uchar7220_receiver in_image, i_uchar7220_receiver in_mid,  i_uchar7220write_sender out_image, OSAPI os)  implements Init
+behavior Draw(i_uchar7220_receiver in_image, i_uchar7220_receiver in_mid, master_sender out_image, OSAPI os)  implements Init
 {
     Task *task;
     EdgeDraw edge_draw(in_image, in_mid,  out_image, os);
