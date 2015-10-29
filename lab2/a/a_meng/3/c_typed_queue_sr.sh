@@ -125,6 +125,7 @@ channel c_ ## typename ## _queue(in const unsigned long size, OSAPI rtos)		\
     void receive(type *d)						\
     {									\
 	struct Task t;							\
+	printf("SRN is %d\n", n);								\
 	while(! n)							\
 	{								\
 	    wr++;							\

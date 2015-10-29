@@ -494,10 +494,10 @@ channel OS implements OSAPI{
 		printf("id of task is %d\n", t.id);
 		printf("is start equals to %d\n", start);
 
-		if( head == tail && start == 0){
-			push_t(t);
-		}
-		else{
+//		if( head == tail && start == 0){
+//			push_t(t);
+//		}
+//		else{
 			push_t(t);
 			if( tail == 0){
 				position = 19;
@@ -588,7 +588,7 @@ channel OS implements OSAPI{
 				default:
 					break;
 			}
-		}	
+//		}	
 	}
 
 	void time_wait(unsigned int t){
