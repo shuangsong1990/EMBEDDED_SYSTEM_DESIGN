@@ -1,0 +1,24 @@
+# 1 "c_uchar7220write_queue.sc"
+# 1 "/home/ecelrc/students/ssong/labs/lab2/b/4//"
+# 1 "<built-in>"
+# 1 "<command line>"
+# 1 "c_uchar7220write_queue.sc"
+
+
+
+import "os";
+# 55 "c_uchar7220write_queue.sc"
+extern void perror(const char*);
+
+
+extern void abort(void);
+extern void *malloc(unsigned int);
+extern void free(void*);
+extern void *memcpy(void*, const void*, unsigned int);
+# 192 "c_uchar7220write_queue.sc"
+typedef unsigned char uchar7220write[7220];
+
+interface i_uchar7220write_tranceiver { note _SCE_STANDARD_LIB = { "i_tranceiver", "uchar7220write", "uchar7220write" }; void send(uchar7220write d); void receive(uchar7220write *d); };
+interface i_uchar7220write_sender { note _SCE_STANDARD_LIB = { "i_sender", "uchar7220write", "uchar7220write" }; void send(uchar7220write d); };
+interface i_uchar7220write_receiver { note _SCE_STANDARD_LIB = { "i_receiver", "uchar7220write", "uchar7220write" }; void receive(uchar7220write *d); };
+channel c_uchar7220write_queue(in const unsigned long size, OSAPI os) implements i_uchar7220write_sender, i_uchar7220write_receiver, i_uchar7220write_tranceiver { note _SCE_STANDARD_LIB = { "c_queue", "uchar7220write", "uchar7220write" }; event r, s; unsigned long wr = 0; unsigned long ws = 0; unsigned long p = 0; unsigned long n = 0; uchar7220write *buffer = 0; void setup(void) { if (!buffer) { unsigned long i; uchar7220write dummy; if (!(buffer = (uchar7220write*) malloc(sizeof(uchar7220write)*size))) { perror("c_typed_queue"); abort(); } for(i=0; i<size; i++) { memcpy(&buffer[i], &dummy, sizeof(uchar7220write)); } } } void cleanup(void) { if (! n) { free(buffer); buffer = 0; } } void receive(uchar7220write *d) { while(! n) { wr++; wait r; wr--; } if (n <= p) { *d = buffer[p - n]; } else { *d = buffer[p + size - n]; } n--; if (ws) { notify s; } cleanup(); } void send(uchar7220write d) { Task *t; while(n >= size) { ws++; t=os.pre_wait(); wait s; os.post_wait(t); ws--; } setup(); buffer[p] = d; p++; if (p >= size) { p = 0; } n++; if (wr) { notify r; } } };

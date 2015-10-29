@@ -1,0 +1,24 @@
+# 1 "c_int7220_queue.sc"
+# 1 "/home/ecelrc/students/ssong/labs/lab2/b/4//"
+# 1 "<built-in>"
+# 1 "<command line>"
+# 1 "c_int7220_queue.sc"
+
+
+
+import "os";
+# 55 "c_int7220_queue.sc"
+extern void perror(const char*);
+
+
+extern void abort(void);
+extern void *malloc(unsigned int);
+extern void free(void*);
+extern void *memcpy(void*, const void*, unsigned int);
+# 191 "c_int7220_queue.sc"
+typedef int int7220[7220];
+
+interface i_int7220_tranceiver { note _SCE_STANDARD_LIB = { "i_tranceiver", "int7220", "int7220" }; void send(int7220 d); void receive(int7220 *d); };
+interface i_int7220_sender { note _SCE_STANDARD_LIB = { "i_sender", "int7220", "int7220" }; void send(int7220 d); };
+interface i_int7220_receiver { note _SCE_STANDARD_LIB = { "i_receiver", "int7220", "int7220" }; void receive(int7220 *d); };
+channel c_int7220_queue(in const unsigned long size, OSAPI os) implements i_int7220_sender, i_int7220_receiver, i_int7220_tranceiver { note _SCE_STANDARD_LIB = { "c_queue", "int7220", "int7220" }; event r, s; unsigned long wr = 0; unsigned long ws = 0; unsigned long p = 0; unsigned long n = 0; int7220 *buffer = 0; void setup(void) { if (!buffer) { unsigned long i; int7220 dummy; if (!(buffer = (int7220*) malloc(sizeof(int7220)*size))) { perror("c_typed_queue"); abort(); } for(i=0; i<size; i++) { memcpy(&buffer[i], &dummy, sizeof(int7220)); } } } void cleanup(void) { if (! n) { free(buffer); buffer = 0; } } void receive(int7220 *d) { Task *t; while(! n) { wr++; t=os.pre_wait(); wait r; os.post_wait(t); wr--; } if (n <= p) { *d = buffer[p - n]; } else { *d = buffer[p + size - n]; } n--; if (ws) { notify s; } cleanup(); } void send(int7220 d) { Task *t1; while(n >= size) { ws++; t1=os.pre_wait(); wait s; os.post_wait(t1); ws--; } setup(); buffer[p] = d; p++; if (p >= size) { p = 0; } n++; if (wr) { notify r; } } };
