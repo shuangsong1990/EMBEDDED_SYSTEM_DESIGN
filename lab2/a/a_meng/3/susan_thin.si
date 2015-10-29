@@ -2967,17 +2967,12 @@ behavior SusanThin(int r[7220], uchar mid[7220], OSAPI rtos)
     void main(void) {
 
 
-
-
        printf("susan thin: par start\n");
-
-
 
             susan_thin_thread_0;
             susan_thin_thread_1;
 
-
-
+ printf("SUSAN THIN DONE\n");
 
  return;
     }

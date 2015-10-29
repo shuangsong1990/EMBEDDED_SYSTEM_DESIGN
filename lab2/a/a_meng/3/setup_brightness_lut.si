@@ -2735,6 +2735,12 @@ typedef unsigned char uchar;
 # 2 "setup_brightness_lut.sc" 2
 import "os";
 import "init";
+import "c_uchar7220_queue_r";
+import "c_uchar7220_queue_s";
+import "c_uchar7220_queue_sr";
+import "c_int7220_queue_r";
+import "c_int7220_queue_s";
+import "c_int7220_queue_sr";
 
 behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implements INIT
 {
@@ -2777,7 +2783,9 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
 
 };
 
-behavior SetupBrightnessLut(uchar bp[516], OSAPI rtos)
+
+
+behavior SetupBrightnessLut( uchar bp[516], OSAPI rtos)
 {
 
     SetupBrightnessLutThread setup_brightness_thread_0(bp, 0, rtos);
@@ -2785,21 +2793,14 @@ behavior SetupBrightnessLut(uchar bp[516], OSAPI rtos)
 
     struct Task task;
 
+
     void main(void) {
 
 
-
-
       printf("set up brightness: par start\n");
-
-
-
-            setup_brightness_thread_0;
-            setup_brightness_thread_1;
-
-
-
- return;
+      setup_brightness_thread_0;
+      setup_brightness_thread_1;
+      return;
 
     }
 

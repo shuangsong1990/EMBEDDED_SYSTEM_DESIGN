@@ -40,6 +40,7 @@ behavior EdgeDrawThread_PartA(uchar image_buffer[7220], uchar mid[7220], in int 
 
             for (i=X_SIZE*Y_SIZE/PROCESSORS*thID; i<X_SIZE*Y_SIZE/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && X_SIZE*Y_SIZE%PROCESSORS!=0 ?X_SIZE*Y_SIZE%PROCESSORS : 0); i++)
             {
+		printf("ED PARTA\n");
 		rtos.time_wait(12000000); //////waitfor statements
                 if (*midp<8) 
                 {
@@ -89,6 +90,7 @@ behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int 
         //for (i=0; i<X_SIZE*Y_SIZE; i++)
         for (i=X_SIZE*Y_SIZE/PROCESSORS*thID; i<X_SIZE*Y_SIZE/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && X_SIZE*Y_SIZE%PROCESSORS!=0 ?X_SIZE*Y_SIZE%PROCESSORS : 0); i++)
         {
+		printf("ED PARTB\n");
 	    rtos.time_wait(12000000); ///waitfor statements
             if (*midp<8) 
                 *(image_buffer+ (midp - mid)) = 0;
@@ -103,12 +105,12 @@ behavior EdgeDrawThread_PartB(uchar image_buffer[7220], uchar mid[7220], in int 
 behavior EdgeDraw_ReadInput(i_uchar7220sr_receiver in_image, i_uchar7220sr_receiver in_mid, uchar image_buffer[IMAGE_SIZE], uchar mid[IMAGE_SIZE])
 {
     void main(void) {
-	printf("edge draw image pre wait\n");
-        in_image.receive(&image_buffer);
-	printf("edge draw image post wait\n");
 	printf("edge draw mid pre wait\n");
         in_mid.receive(&mid);
 	printf("edge draw mid post wait\n");
+	printf("edge draw image pre wait\n");
+        in_image.receive(&image_buffer);
+	printf("edge draw image post wait\n");
     }      
 };
 
@@ -141,6 +143,7 @@ behavior EdgeDraw_PartA(uchar image_buffer[7220], uchar mid[7220], OSAPI rtos)
 
 //	rtos.par_end(task);
 
+	printf("EDGE DRAW A DONE\n");
 	return;
     }     
 };
@@ -154,18 +157,14 @@ behavior EdgeDraw_PartB(uchar image_buffer[7220], uchar mid[7220], OSAPI rtos)
     EdgeDrawThread_PartB edge_draw_b_thread_1(image_buffer, mid, 1, rtos);
     
     void main(void) {
-//      edge_draw_b_thread_0.init();
-//      edge_draw_b_thread_1.init();
 
       printf("edge draw part B: par start\n");
-//      task = rtos.par_start();
 
-//      par {
             edge_draw_b_thread_0;
             edge_draw_b_thread_1;
-//        }    
 
-//	rtos.par_end(task);
+	printf("EDGE DRAW B DONE\n");
+
 	return;
 
     }     

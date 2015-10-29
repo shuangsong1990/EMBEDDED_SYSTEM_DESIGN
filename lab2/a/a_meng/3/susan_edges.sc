@@ -37,6 +37,7 @@ behavior SusanEdgesThread_PartA(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
         for (i=3+(Y_SIZE-3-3)/PROCESSORS*thID; i<3+(Y_SIZE-3-3)/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && (Y_SIZE-3-3)%PROCESSORS!=0 ? (Y_SIZE-3-3)%PROCESSORS : 0); i++){
 
 	printf("id is %d, current i is %d, max is %d, thid is %d\n", task.id, i, 3+(Y_SIZE-3-3)/PROCESSORS*(thID+1) + (thID+1==PROCESSORS && (Y_SIZE-3-3)%PROCESSORS!=0 ? (Y_SIZE-3-3)%PROCESSORS : 0), thID);
+	printf("I AM HERE !!!!!!!!!!!!\n");	
 	rtos.time_wait(19000000); ///////waitfor statement in SE_A
             for (j=3;j<X_SIZE-3;j++)
             {
@@ -309,9 +310,9 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZ
 behavior  SusanEdges_ReadInput(i_uchar7220r_receiver in_image, uchar in_image_buffer[IMAGE_SIZE], int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE]) 
 {
     void main(void) {
-	printf("susan edges read input pre wait\n");
+	//printf("susan edges read input pre wait\n");
         in_image.receive(&in_image_buffer);
-	printf("susan edges read input post wait\n");
+	//printf("susan edges read input post wait\n");
         
         memset (mid,100,X_SIZE * Y_SIZE); /* note not set to zero */
         memset (r,0,X_SIZE * Y_SIZE * sizeof(int));
@@ -382,14 +383,14 @@ behavior SusanEdges_PartB(uchar image_buffer[IMAGE_SIZE],  int r[IMAGE_SIZE], uc
     }
 };
 
-behavior SusanEdges(i_uchar7220r_receiver in_image, i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, uchar bp[516], i_uchar7220sr_sender out_image, OSAPI rtos)
+behavior SusanEdges(i_uchar7220r_receiver in_image , i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, uchar bp[516], i_uchar7220sr_sender out_image, OSAPI rtos)
 {
   
     uchar image_buffer[IMAGE_SIZE];
     int r[IMAGE_SIZE];
     uchar mid[IMAGE_SIZE];
 
-    SusanEdges_ReadInput susan_edges_read_input(in_image, image_buffer, r, mid); 
+    SusanEdges_ReadInput susan_edges_read_input(in_image, image_buffer , r, mid); 
     SusanEdges_WriteOutput susan_edges_write_output(out_r, out_mid, out_image,  r, mid, image_buffer);
     SusanEdges_PartA susan_edges_a(image_buffer, r, bp, rtos);
     SusanEdges_PartB susan_edges_b(image_buffer, r, mid, bp, rtos);

@@ -322,6 +322,7 @@ channel OS implements OSAPI{
 		struct Task t;
 		t = current;
 		//position = head;
+		printf("DEBUG: CURRENT ID is %d\n",t.id);
 		push_t(t);
 		printf("YIELD dispatch \n");
 		if (head == 8)
@@ -591,6 +592,7 @@ channel OS implements OSAPI{
 	}
 
 	void time_wait(unsigned int t){
+		printf("t is %d \n",t);
 		waitfor(t);
 		printf("time to wait %d\n", t);
 		yield();

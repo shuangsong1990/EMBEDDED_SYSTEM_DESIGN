@@ -17,12 +17,14 @@ behavior DetectEdges(i_uchar7220r_receiver in_image, i_int7220sr_sender out_r, i
 
     uchar bp[516];
         
-    SetupBrightnessLut setup_brightness_lut(bp, rtos);
+    SetupBrightnessLut setup_brightness_lut( bp, rtos);
     SusanEdges susan_edges(in_image, out_r, out_mid, bp, out_image, rtos);
     
     void main(void) {
-        setup_brightness_lut.main(); 
+        setup_brightness_lut.main();
+	printf("SETUP BRIGHTNESS DONE\n"); 
         susan_edges.main();
+	printf("SUSAN EDGES DONE\n"); 
     }
 
 };

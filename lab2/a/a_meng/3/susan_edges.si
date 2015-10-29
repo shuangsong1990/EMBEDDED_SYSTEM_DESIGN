@@ -2771,6 +2771,7 @@ behavior SusanEdgesThread_PartA(uchar image_buffer[7220], int r[7220], uchar bp[
         for (i=3+(95 -3-3)/2*thID; i<3+(95 -3-3)/2*(thID+1) + (thID+1==2 && (95 -3-3)%2!=0 ? (95 -3-3)%2 : 0); i++){
 
  printf("id is %d, current i is %d, max is %d, thid is %d\n", task.id, i, 3+(95 -3-3)/2*(thID+1) + (thID+1==2 && (95 -3-3)%2!=0 ? (95 -3-3)%2 : 0), thID);
+ printf("I AM HERE !!!!!!!!!!!!\n");
  rtos.time_wait(19000000);
             for (j=3;j<76 -3;j++)
             {
@@ -3043,9 +3044,9 @@ behavior SusanEdgesThread_PartB(uchar image_buffer[7220], int r[7220], uchar mid
 behavior SusanEdges_ReadInput(i_uchar7220r_receiver in_image, uchar in_image_buffer[7220], int r[7220], uchar mid[7220])
 {
     void main(void) {
- printf("susan edges read input pre wait\n");
+
         in_image.receive(&in_image_buffer);
- printf("susan edges read input post wait\n");
+
 
         memset (mid,100,76 * 95);
         memset (r,0,76 * 95 * sizeof(int));
@@ -3116,14 +3117,14 @@ behavior SusanEdges_PartB(uchar image_buffer[7220], int r[7220], uchar mid[7220]
     }
 };
 
-behavior SusanEdges(i_uchar7220r_receiver in_image, i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, uchar bp[516], i_uchar7220sr_sender out_image, OSAPI rtos)
+behavior SusanEdges(i_uchar7220r_receiver in_image , i_int7220sr_sender out_r, i_uchar7220sr_sender out_mid, uchar bp[516], i_uchar7220sr_sender out_image, OSAPI rtos)
 {
 
     uchar image_buffer[7220];
     int r[7220];
     uchar mid[7220];
 
-    SusanEdges_ReadInput susan_edges_read_input(in_image, image_buffer, r, mid);
+    SusanEdges_ReadInput susan_edges_read_input(in_image, image_buffer , r, mid);
     SusanEdges_WriteOutput susan_edges_write_output(out_r, out_mid, out_image, r, mid, image_buffer);
     SusanEdges_PartA susan_edges_a(image_buffer, r, bp, rtos);
     SusanEdges_PartB susan_edges_b(image_buffer, r, mid, bp, rtos);

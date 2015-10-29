@@ -1,6 +1,12 @@
 #include "susan.sh"
 import "os";
 import "init";
+import "c_uchar7220_queue_r";
+import "c_uchar7220_queue_s";
+import "c_uchar7220_queue_sr";
+import "c_int7220_queue_r";
+import "c_int7220_queue_s";
+import "c_int7220_queue_sr";
 
 behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implements INIT
 {
@@ -42,30 +48,25 @@ behavior SetupBrightnessLutThread(uchar bp[516], in int thID, OSAPI rtos) implem
     }
 
 };
- 
-behavior SetupBrightnessLut(uchar bp[516], OSAPI rtos)
+
+
+
+behavior SetupBrightnessLut( uchar bp[516], OSAPI rtos)
 {
        
     SetupBrightnessLutThread setup_brightness_thread_0(bp, 0, rtos);
     SetupBrightnessLutThread setup_brightness_thread_1(bp, 1, rtos);
 
     struct Task task;
-       
+      
+ 
     void main(void) {
 
-//        setup_brightness_thread_0.init();
-//        setup_brightness_thread_1.init();
 
       printf("set up brightness: par start\n");
-//	task = rtos.par_start();
-
-//        par {
-            setup_brightness_thread_0;
-            setup_brightness_thread_1;
-//        }
-
-//	rtos.par_end(task);
-	return;
+      setup_brightness_thread_0;
+      setup_brightness_thread_1;
+      return;
 	
     }
 

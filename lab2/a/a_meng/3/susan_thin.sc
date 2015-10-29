@@ -255,18 +255,13 @@ behavior SusanThin(int r[IMAGE_SIZE], uchar mid[IMAGE_SIZE], OSAPI rtos)
     
     void main(void) {        
 
-//       susan_thin_thread_0.init(); 
-//       susan_thin_thread_1.init();       
 
        printf("susan thin: par start\n");
-//       task = rtos.par_start();
 
-//       par {
             susan_thin_thread_0;
             susan_thin_thread_1;
-//        }                   
 
-//       rtos.par_end(task);
+	printf("SUSAN THIN DONE\n");
 
 	return;
     }
